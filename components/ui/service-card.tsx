@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 interface ServiceCardProps {
-  icon: LucideIcon;
+  icon: React.ElementType;
   title: string;
   items: string[];
   className?: string;
