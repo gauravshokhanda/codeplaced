@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 196 45% 22%;  /* #0D4D66 */
+  --base: 190 25% 70%;     /* #9FBFC5 */
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 196 45% 22%;
+    --card: 0 0% 100%;
+    --card-foreground: 196 45% 22%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 196 45% 22%;
+    --primary: 196 45% 22%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 190 25% 70%;
+    --secondary-foreground: 196 45% 22%;
+    --muted: 190 25% 70%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 190 25% 70%;
+    --accent-foreground: 196 45% 22%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 196 45% 22%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.material-card {
+  @apply bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300;
+}
