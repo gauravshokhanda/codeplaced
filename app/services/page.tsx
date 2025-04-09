@@ -14,7 +14,7 @@ export default function ServicesPage() {
         <div className="space-y-20">
           {/* Technology Services */}
           <div className="animate-fade-up">
-            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Technology Services</h3>
+            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Technology</h3>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <div className="material-card p-8">
                 <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
