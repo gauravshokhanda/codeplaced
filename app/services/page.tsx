@@ -3,7 +3,7 @@ import { SectionTitle } from "@/components/ui/section-title";
 
 export default function ServicesPage() {
   return (
-    <div className="w-full py-20 bg-gray-50">
+    <div className="bg-secondary w-full py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
           title="Our Services" 
