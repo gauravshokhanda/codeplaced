@@ -1,5 +1,6 @@
 import { ArrowRight, Code, Smartphone, Cloud, BarChart3, LineChart, PieChart, Search, Share2, Megaphone, Palette, Camera, MessageSquare } from "lucide-react";
 import { SectionTitle } from "@/components/ui/section-title";
+import Link from "next/link"; 
 
 export default function ServicesPage() {
   return (
@@ -27,11 +28,15 @@ export default function ServicesPage() {
                   <li>• Progressive Web Apps</li>
                   <li>• API Integration</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
+            
 
               <div className="material-card p-8">
                 <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
@@ -44,10 +49,13 @@ export default function ServicesPage() {
                   <li>• Cross-platform Solutions</li>
                   <li>• App Maintenance & Updates</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
 
               <div className="material-card p-8">
@@ -61,10 +69,13 @@ export default function ServicesPage() {
                   <li>• Cloud Infrastructure</li>
                   <li>• DevOps Implementation</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
             </div>
           </div>
@@ -84,10 +95,13 @@ export default function ServicesPage() {
                   <li>• Customer Insights</li>
                   <li>• Performance Metrics</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
 
               <div className="material-card p-8">
@@ -101,10 +115,13 @@ export default function ServicesPage() {
                   <li>• KPI Tracking</li>
                   <li>• Data Visualization</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
 
               <div className="material-card p-8">
@@ -118,10 +135,13 @@ export default function ServicesPage() {
                   <li>• Consumer Behavior</li>
                   <li>• Industry Reports</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
             </div>
           </div>
@@ -141,10 +161,13 @@ export default function ServicesPage() {
                   <li>• Technical SEO</li>
                   <li>• Link Building</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
 
               <div className="material-card p-8">
@@ -158,10 +181,13 @@ export default function ServicesPage() {
                   <li>• Paid Advertising</li>
                   <li>• Influencer Marketing</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
 
               <div className="material-card p-8">
@@ -175,10 +201,13 @@ export default function ServicesPage() {
                   <li>• Email Marketing</li>
                   <li>• Video Production</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
             </div>
           </div>
@@ -198,10 +227,13 @@ export default function ServicesPage() {
                   <li>• Prototyping</li>
                   <li>• Visual Design</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
 
               <div className="material-card p-8">
@@ -215,10 +247,13 @@ export default function ServicesPage() {
                   <li>• Marketing Materials</li>
                   <li>• Brand Strategy</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
 
               <div className="material-card p-8">
@@ -232,10 +267,13 @@ export default function ServicesPage() {
                   <li>• Video Production</li>
                   <li>• Animation</li>
                 </ul>
-                <a href="#contact" className="mt-6 inline-flex items-center text-primary hover:text-secondary">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
+
               </div>
             </div>
           </div>

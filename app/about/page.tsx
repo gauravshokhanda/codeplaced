@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card } from "@/components/ui/card";
 import { Users, Target, Award, Lightbulb } from "lucide-react";
@@ -42,35 +43,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle 
-            title="Our Story" 
-            subtitle="Building digital excellence since 2020"
-            centered
-          />
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-up">
-              <h3 className="text-2xl font-semibold mb-4">Who We Are</h3>
-              <p className="text-gray-600 mb-4">
-                CodePlaced was founded with a vision to bridge the gap between complex technology and business success. Our team of expert developers, designers, and strategists work together to create solutions that drive growth and innovation.
-              </p>
-              <p className="text-gray-600">
-                We believe in the power of technology to transform businesses and enhance user experiences. Our commitment to excellence and innovation has helped numerous organizations achieve their digital goals.
-              </p>
-            </div>
-            <div className="animate-slide-in">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1920" 
-                alt="Team collaboration" 
-                className="rounded-lg shadow-xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Our Values */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,6 +69,40 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* What We Do Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div className="animate-fade-up">
+  <SectionTitle 
+    title="What We Do?" 
+    subtitle="Helping brands grow with creativity and technology"
+  />
+  <p className="mt-6 text-lg text-gray-700">
+    We’re a growing startup agency partnering with clients from <strong>India, U.K., Canada, New Zealand, Hong Kong, Singapore, U.A.E.</strong> and more—across industries like <strong>ecommerce, retail, events, and technology.</strong>
+    <br /><br />
+    From managing <strong>LinkedIn lead generation</strong> and running high-converting <strong>digital ad campaigns</strong> to building modern <strong>business websites</strong> and helping brands improve their <strong>online presence</strong>, we focus on what actually drives results.
+    <br /><br />
+    Whether it&apos;s setting up marketing funnels, promoting events, or supporting small businesses with their digital growth—our team is hands-on, strategic, and committed to delivering value.
+    <br /><br />
+    We’re passionate about creativity, growth, and working with brands that are ready to scale up.
+  </p>
+</div>
+
+
+
+
+          {/* Image */}
+          <div className="w-full h-full rounded-xl overflow-hidden shadow-lg animate-fade-up" style={{ animationDelay: '0.2s' }}>
+            <img 
+              src="/images/what-we-do.png" 
+              alt="What We Do"
+              className="object-cover w-full h-full rounded-xl"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Team Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,9 +114,9 @@ export default function AboutPage() {
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                name: "Sarah Johnson",
+                name: "Manya Tyagi",
                 role: "CEO & Founder",
-                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1920"
+                image: "https://media.licdn.com/dms/image/v2/D5603AQEGGcve6RVr0A/profile-displayphoto-shrink_200_200/B56ZWyJujmGUAc-/0/1742450649868?e=1750896000&v=beta&t=rd4GmUATOo8NvEzPBwXc26sKaehygEeuw18u00ZrJXc"
               },
               {
                 name: "Michael Chen",
