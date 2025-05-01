@@ -33,7 +33,7 @@ export default function AboutPage() {
       <section className="bg-primary text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-up">
+            <h1 className="text-5xl font-extrabold mb-6 animate-fade-up tracking-tight">
               About CodePlaced
             </h1>
             <p className="text-xl mb-8 animate-fade-up max-w-3xl mx-auto">
@@ -70,41 +70,38 @@ export default function AboutPage() {
       </section>
 
       {/* What We Do Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <div className="animate-fade-up">
-  <SectionTitle 
-    title="What We Do?" 
-    subtitle="Helping brands grow with creativity and technology"
-  />
-  <p className="mt-6 text-lg text-gray-700">
-    We’re a growing startup agency partnering with clients from <strong>India, U.K., Canada, New Zealand, Hong Kong, Singapore, U.A.E.</strong> and more—across industries like <strong>ecommerce, retail, events, and technology.</strong>
-    <br /><br />
-    From managing <strong>LinkedIn lead generation</strong> and running high-converting <strong>digital ad campaigns</strong> to building modern <strong>business websites</strong> and helping brands improve their <strong>online presence</strong>, we focus on what actually drives results.
-    <br /><br />
-    Whether it&apos;s setting up marketing funnels, promoting events, or supporting small businesses with their digital growth—our team is hands-on, strategic, and committed to delivering value.
-    <br /><br />
-    We’re passionate about creativity, growth, and working with brands that are ready to scale up.
-  </p>
-</div>
+ {/* What We Do Section */}
+<section className="py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionTitle 
+      title="What We Do" 
+      subtitle="Bringing ideas to life through smart technology"
+      centered
+    />
+    <div className="mt-8 text-lg text-gray-700 space-y-6 max-w-4xl mx-auto text-center animate-fade-up">
+      <p>
+        We turn your vision into reality. From custom web and mobile app development to UI/UX design, analytics integration, and marketing automation—we do it all. Whether you&apos;re a startup building from scratch or an enterprise optimizing for scale, we provide full-stack solutions tailored to your goals.
+      </p>
+      <p>
+        We’re a growing startup agency partnering with clients from <strong>India, U.K., Canada, New Zealand, Hong Kong, Singapore, U.A.E.</strong> and more—across industries like <strong>ecommerce, retail, events, and technology.</strong>
+      </p>
+      <p>
+        From managing <strong>LinkedIn lead generation</strong> and running high-converting <strong>digital ad campaigns</strong> to building modern <strong>business websites</strong> and helping brands improve their <strong>online presence</strong>, we focus on what actually drives results.
+      </p>
+      <p>
+        Whether it&apos;s setting up marketing funnels, promoting events, or supporting small businesses with their digital growth—our team is hands-on, strategic, and committed to delivering value.
+      </p>
+      <p>
+        We’re passionate about creativity, growth, and working with brands that are ready to scale up.
+      </p>
+    </div>
+  </div>
+</section>
 
 
-
-
-          {/* Image */}
-          <div className="w-full h-full rounded-xl overflow-hidden shadow-lg animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            <img 
-              src="/images/what-we-do.png" 
-              alt="What We Do"
-              className="object-cover w-full h-full rounded-xl"
-            />
-          </div>
-        </div>
-      </section>
 
       {/* Team Section */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle 
             title="Our Team" 
@@ -149,7 +146,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

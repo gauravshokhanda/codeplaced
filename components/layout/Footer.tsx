@@ -31,9 +31,9 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <p className="text-sm">
               Email: info@codeplaced.com<br />
-              Phone: +1 (555) 123-4567<br />
-              Address: 123 Tech Street<br />
-              Silicon Valley, CA 94025
+              Phone: +91 6397525028<br />
+              {/* Address: 123 Tech Street<br />
+              Silicon Valley, CA 94025 */}
             </p>
           </div>
         </div>
