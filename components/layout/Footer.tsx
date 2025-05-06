@@ -32,8 +32,8 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <p className="text-sm">
-              Email: <a href="mailto:codeplaced@gmail.com" className="underline">codeplaced@gmail.com</a><br />
-              Phone: <a href="tel:+916397525028" className="underline">+91 6397525028</a><br />
+              Email: <a href="mailto:codeplaced@gmail.com" >codeplaced@gmail.com</a><br />
+              Phone: <a href="tel:+916397525028" >+91 6397525028</a><br />
               {/* Address: 123 Tech Street<br />
               Silicon Valley, CA 94025 */}
             </p>

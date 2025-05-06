@@ -30,7 +30,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
@@ -51,7 +51,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
@@ -71,7 +71,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
@@ -97,7 +97,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
@@ -117,7 +117,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
@@ -137,7 +137,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
@@ -163,7 +163,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
@@ -183,7 +183,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
@@ -203,7 +203,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
@@ -229,7 +229,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
@@ -249,7 +249,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
@@ -269,7 +269,7 @@ export default function ServicesPage() {
                 </ul>
                 <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Learn More
+    Explore Projects
   </span>
   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
 </Link>
