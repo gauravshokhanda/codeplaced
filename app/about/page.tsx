@@ -2,6 +2,8 @@
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card } from "@/components/ui/card";
 import { Users, Target, Award, Lightbulb } from "lucide-react";
+import { MotionConfig } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function AboutPage() {
   const values = [
@@ -27,6 +29,12 @@ export default function AboutPage() {
     }
   ];
 
+  const fadeUp = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 },
+    viewport: { once: true }
+  };
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -69,36 +77,62 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* What We Do Section */}
- {/* What We Do Section */}
-<section className="py-20 bg-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <SectionTitle 
-      title="What We Do" 
-      subtitle="Bringing ideas to life through smart technology"
-      centered
-    />
-    <div className="mt-8 text-lg text-gray-700 space-y-6 max-w-4xl mx-auto text-center animate-fade-up">
-      <p>
-        We turn your vision into reality. From custom web and mobile app development to UI/UX design, analytics integration, and marketing automation—we do it all. Whether you&apos;re a startup building from scratch or an enterprise optimizing for scale, we provide full-stack solutions tailored to your goals.
-      </p>
-      <p>
-        We’re a growing startup agency partnering with clients from <strong>India, U.K., Canada, New Zealand, Hong Kong, Singapore, U.A.E.</strong> and more—across industries like <strong>ecommerce, retail, events, and technology.</strong>
-      </p>
-      <p>
-        From managing <strong>LinkedIn lead generation</strong> and running high-converting <strong>digital ad campaigns</strong> to building modern <strong>business websites</strong> and helping brands improve their <strong>online presence</strong>, we focus on what actually drives results.
-      </p>
-      <p>
-        Whether it&apos;s setting up marketing funnels, promoting events, or supporting small businesses with their digital growth—our team is hands-on, strategic, and committed to delivering value.
-      </p>
-      <p>
-        We’re passionate about creativity, growth, and working with brands that are ready to scale up.
-      </p>
-    </div>
-  </div>
-</section>
+        {/* What We Do Section */}
+        <section className="py-20 bg-muted">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <motion.div {...fadeUp}>
+              <SectionTitle 
+                title="What We Do"
+                subtitle="We are passionate about building modern, high-quality digital solutions"
+              />
+            </motion.div>
+            <motion.p {...fadeUp} className="text-lg text-muted-foreground">
+              We turn your vision into reality. From custom web and mobile app development to UI/UX design, analytics integration, and marketing automation—we do it all. Whether you&apos;re a startup building from scratch or an enterprise optimizing for scale, we provide full-stack solutions tailored to your goals.
+            </motion.p>
+          </div>
+        </div>
+      </section>
 
 
+ {/* Core Values Section */}
+ <section className="py-20 bg-muted">
+        <motion.div {...fadeUp} className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <SectionTitle 
+            title="Our Core Values"
+            subtitle="Guiding principles that shape everything we do"
+            centered
+          />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+            {["Collaborate", "Own the Process", "Deliver Results", "Empower Growth"].map((label, index) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white p-6 rounded-lg shadow-md"
+              >
+                <div className="text-4xl font-bold text-primary mb-2">{label[0]}</div>
+                <p className="font-medium">{label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+          {/* Mission Section */}
+          <section className="py-20 bg-white">
+        <motion.div {...fadeUp} className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <SectionTitle 
+            title="Our Mission"
+            subtitle="Driving innovation with purpose"
+            centered
+          />
+          <p className="text-lg text-muted-foreground mt-6">
+            To empower businesses and individuals by building smart, scalable, and impactful digital solutions that drive growth, solve real-world problems, and elevate user experiences. At <strong>CodePlaced</strong>, we strive to bridge the gap between innovation and execution—one line of code at a time.
+          </p>
+        </motion.div>
+      </section>
 
       {/* Team Section */}
       {/* <section className="py-20">
