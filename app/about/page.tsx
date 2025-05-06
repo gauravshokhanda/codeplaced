@@ -141,7 +141,7 @@ export default function AboutPage() {
               },
               {
                 name: "Tanisha",
-                role: " Outreach & Content ",
+                role: " Outreach & Creative ",
                 image: "/images/tanisha.png",
               }
             ].map((member, index) => (
