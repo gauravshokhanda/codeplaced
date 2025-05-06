@@ -122,23 +122,28 @@ export default function AboutPage() {
             subtitle="Meet the experts behind our success"
             centered
           />
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               {
                 name: "Manya Tyagi",
                 role: "CEO & Founder",
-                image: "https://media.licdn.com/dms/image/v2/D5603AQEGGcve6RVr0A/profile-displayphoto-shrink_200_200/B56ZWyJujmGUAc-/0/1742450649868?e=1750896000&v=beta&t=rd4GmUATOo8NvEzPBwXc26sKaehygEeuw18u00ZrJXc"
+                image: "/images/manya_ceo.png",
               },
-              // {
-              //   name: "Michael Chen",
-              //   role: "Technical Director",
-              //   image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=1920"
-              // },
-              // {
-              //   name: "Emily Rodriguez",
-              //   role: "Creative Director",
-              //   image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=1920"
-              // }
+              {
+                name: "Muskan Chaudhary ",
+                role: "Growth & Creative Head",
+                image: "/images/muskan.png",
+              },
+              {
+                name: "Prabhjeet",
+                role: " Outreach & Content Intern",
+                image: "/images/muskan.png",
+              },
+              {
+                name: "Tanisha",
+                role: " Outreach & Content Intern",
+                image: "/images/tanisha.png",
+              }
             ].map((member, index) => (
               <Card 
                 key={index} 
