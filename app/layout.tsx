@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'CodePlaced - Technology Services',
   description: 'Professional technology services including web development, mobile apps, cloud solutions, and digital marketing.',
+  icons: {
+    icon: '/images/favicon/favicon.ico',
+  },
 };
 
 export default function RootLayout({
