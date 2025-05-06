@@ -127,21 +127,21 @@ export default function AboutPage() {
               {
                 name: "Manya Tyagi",
                 role: "CEO & Founder",
-                image: "/images/manya_ceo.png",
+                image: "/images/manya.png",
               },
               {
                 name: "Muskan Chaudhary ",
-                role: "Growth & Creative Head",
+                role: "Growth & Creative ",
                 image: "/images/muskan.png",
               },
               {
                 name: "Prabhjeet",
-                role: " Outreach & Content Intern",
+                role: " Outreach & Content ",
                 image: "/images/muskan.png",
               },
               {
                 name: "Tanisha",
-                role: " Outreach & Content Intern",
+                role: " Outreach & Content ",
                 image: "/images/tanisha.png",
               }
             ].map((member, index) => (
