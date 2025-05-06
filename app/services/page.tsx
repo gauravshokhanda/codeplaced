@@ -28,7 +28,7 @@ export default function ServicesPage() {
                   <li>• Progressive Web Apps</li>
                   <li>• API Integration</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>
@@ -49,7 +49,7 @@ export default function ServicesPage() {
                   <li>• Cross-platform Solutions</li>
                   <li>• App Maintenance & Updates</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>
@@ -69,7 +69,7 @@ export default function ServicesPage() {
                   <li>• Cloud Infrastructure</li>
                   <li>• DevOps Implementation</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>
@@ -95,7 +95,7 @@ export default function ServicesPage() {
                   <li>• Customer Insights</li>
                   <li>• Performance Metrics</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>
@@ -115,7 +115,7 @@ export default function ServicesPage() {
                   <li>• KPI Tracking</li>
                   <li>• Data Visualization</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>
@@ -135,7 +135,7 @@ export default function ServicesPage() {
                   <li>• Consumer Behavior</li>
                   <li>• Industry Reports</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>
@@ -161,7 +161,7 @@ export default function ServicesPage() {
                   <li>• Technical SEO</li>
                   <li>• Link Building</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>
@@ -181,7 +181,7 @@ export default function ServicesPage() {
                   <li>• Paid Advertising</li>
                   <li>• Influencer Marketing</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>
@@ -201,7 +201,7 @@ export default function ServicesPage() {
                   <li>• Email Marketing</li>
                   <li>• Video Production</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>
@@ -227,7 +227,7 @@ export default function ServicesPage() {
                   <li>• Prototyping</li>
                   <li>• Visual Design</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>
@@ -247,7 +247,7 @@ export default function ServicesPage() {
                   <li>• Marketing Materials</li>
                   <li>• Brand Strategy</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>
@@ -267,7 +267,7 @@ export default function ServicesPage() {
                   <li>• Video Production</li>
                   <li>• Animation</li>
                 </ul>
-                <Link href="/contact" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
+                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
   <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
     Learn More
   </span>

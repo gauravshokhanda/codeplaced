@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
   return (
     <footer className="bg-primary text-white">
@@ -12,26 +14,26 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
-              <li>Web Development</li>
-              <li>Mobile Development</li>
-              <li>Cloud Solutions</li>
-              <li>Analytics Services</li>
+              <li><Link href="/services">Web Development</Link></li>
+              <li><Link href="/services">Mobile Development</Link></li>
+              <li><Link href="/services">Cloud Solutions</Link></li>
+              <li><Link href="/services">Analytics Services</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
-              <li>About Us</li>
-              <li>Portfolio</li>
-              <li>Careers</li>
-              <li>Contact</li>
+              <li><Link href="/about">About Us</Link></li>
+              <li><Link href="/portfolio">Portfolio</Link></li>
+              {/* <li><Link href="/careers">Careers</Link></li> */}
+              <li><Link href="/contact">Contact</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <p className="text-sm">
-              Email: info@codeplaced.com<br />
-              Phone: +91 6397525028<br />
+              Email: <a href="mailto:codeplaced@gmail.com" className="underline">codeplaced@gmail.com</a><br />
+              Phone: <a href="tel:+916397525028" className="underline">+91 6397525028</a><br />
               {/* Address: 123 Tech Street<br />
               Silicon Valley, CA 94025 */}
             </p>

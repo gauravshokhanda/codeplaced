@@ -57,7 +57,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-secondary p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="text-primary mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
@@ -69,7 +69,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 ">
         <motion.div {...fadeUp} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionTitle 
             title="What Our Clients Say"
@@ -88,11 +88,11 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-6 rounded-lg shadow-md"
+                className="bg-primary p-6 rounded-lg shadow-md"
               >
-                <Quote className="h-8 w-8 text-primary mb-4 mx-auto" />
-                <p className="text-muted-foreground italic mb-4">&quot;{testimonial.feedback}&quot;</p>
-                <h4 className="font-bold">{testimonial.name}</h4>
+                <Quote className="h-8 w-8 text-white mb-4 mx-auto" />
+                <p className="text-white italic mb-4">&quot;{testimonial.feedback}&quot;</p>
+                <h4 className=" text-white font-bold">{testimonial.name}</h4>
               </motion.div>
             ))}
           </div>
@@ -127,7 +127,7 @@ export default function Home() {
       </section> */}
 
       {/* CTA Section */}
-      <section className="bg-muted py-20">
+      <section className=" py-20">
         <motion.div {...fadeUp} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-primary mb-4">
             Ready to Start Your Project?
