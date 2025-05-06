@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card } from "@/components/ui/card";
 import { Users, Target, Award, Lightbulb } from "lucide-react";
-import { MotionConfig } from "framer-motion";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {
@@ -121,7 +122,7 @@ export default function AboutPage() {
         </motion.div>
       </section>
           {/* Mission Section */}
-          <section className="py-20 bg-white">
+      <section className="py-20 bg-white">
         <motion.div {...fadeUp} className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionTitle 
             title="Our Mission"
