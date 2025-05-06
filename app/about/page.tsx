@@ -54,50 +54,8 @@ export default function AboutPage() {
 
       {/* Our Values */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle 
-            title="Our Values" 
-            subtitle="The principles that guide our work"
-            centered
-          />
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <Card 
-                key={index} 
-                className="p-6 text-center hover:shadow-lg transition-shadow animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <div className="text-primary">{value.icon}</div>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-        {/* What We Do Section */}
-        <section className="py-20 bg-muted">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <motion.div {...fadeUp}>
-              <SectionTitle 
-                title="What We Do"
-                subtitle="We are passionate about building modern, high-quality digital solutions"
-              />
-            </motion.div>
-            <motion.p {...fadeUp} className="text-lg text-muted-foreground">
-              We turn your vision into reality. From custom web and mobile app development to UI/UX design, analytics integration, and marketing automation—we do it all. Whether you&apos;re a startup building from scratch or an enterprise optimizing for scale, we provide full-stack solutions tailored to your goals.
-            </motion.p>
-          </div>
-        </div>
-      </section>
-
-
- {/* Core Values Section */}
- <section className="py-20 bg-muted">
+      {/* Core Values Section */}
+ 
         <motion.div {...fadeUp} className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionTitle 
             title="Our Core Values"
@@ -120,7 +78,28 @@ export default function AboutPage() {
             ))}
           </div>
         </motion.div>
+ 
       </section>
+
+        {/* What We Do Section */}
+        <section className="py-20 bg-muted">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <motion.div {...fadeUp}>
+              <SectionTitle 
+                title="What We Do"
+                subtitle="We are passionate about building modern, high-quality digital solutions"
+              />
+            </motion.div>
+            <motion.p {...fadeUp} className="text-lg text-muted-foreground">
+              We turn your vision into reality. From custom web and mobile app development to UI/UX design, analytics integration, and marketing automation—we do it all. Whether you&apos;re a startup building from scratch or an enterprise optimizing for scale, we provide full-stack solutions tailored to your goals.
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
+
+ 
           {/* Mission Section */}
       <section className="py-20 bg-white">
         <motion.div {...fadeUp} className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
