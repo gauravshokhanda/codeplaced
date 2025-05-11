@@ -115,7 +115,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle 
             title="Our Team" 
@@ -165,7 +165,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
