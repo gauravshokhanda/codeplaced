@@ -106,7 +106,7 @@ export default function AboutPage() {
               />
             </motion.div>
             <motion.p {...fadeUp} className="text-lg  text-primary">
-              At CodPlaced, we bring your digital ideas to life with precision,
+              At CodePlaced, we bring your digital ideas to life with precision,
               purpose, and a deep understanding of your goals. Whether
               you&apos;re launching a new venture or scaling an existing
               product, we offer end-to-end solutions across web and mobile
@@ -122,8 +122,8 @@ export default function AboutPage() {
               data where it matters, and automate the busywork so your business
               runs smoother, smarter, and faster.
               <br />
-              When you work with CodPlaced, you&apos;re not just hiring a team —
-              you&apos;re gaining a long-term tech partner invested in your
+              When you work with CodePlaced, you&apos;re not just hiring a team
+              — you&apos;re gaining a long-term tech partner invested in your
               growth.
             </motion.p>
           </div>
