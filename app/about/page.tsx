@@ -105,7 +105,7 @@ export default function AboutPage() {
                 subtitle="We are passionate about building modern, high-quality digital solutions"
               />
             </motion.div>
-            <motion.p {...fadeUp} className="text-lg text-muted-foreground">
+            <motion.p {...fadeUp} className="text-lg  text-primary">
               At CodPlaced, we bring your digital ideas to life with precision,
               purpose, and a deep understanding of your goals. Whether
               you&apos;re launching a new venture or scaling an existing
