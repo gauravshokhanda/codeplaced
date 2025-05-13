@@ -169,20 +169,20 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
               {
-                name: "John Doe",
+                name: "Shreya Joshi ",
                 feedback:
-                  "They transformed our website into a powerful business tool. Highly recommend their team!",
+                  "I honestly didn’t know how much I needed CodePlaced until they stepped in. From helping me clean up my LinkedIn strategy to building a personal website that finally looked like me, they handled it all. Their team set up a simple dashboard so I could track what content was bringing leads — game-changer for someone juggling client calls and content daily!",
               },
               {
-                name: "Jane Smith",
+                name: "Rachel Wolf ",
                 feedback:
-                  "Exceptional mobile app development skills. They delivered on time and exceeded expectations.",
+                  "“Working with CodePlaced was one of the best decisions we made for our brand’s early-stage growth. Their team understood our vision instantly and delivered content strategies that actually converted. Their execution was seamless, and their creativity brought our campaigns to life",
               },
-              {
-                name: "Michael Lee",
-                feedback:
-                  "Their cloud solutions helped scale our infrastructure seamlessly. A pleasure to work with.",
-              },
+              // {
+              //   name: "Michael Lee",
+              //   feedback:
+              //     "Their cloud solutions helped scale our infrastructure seamlessly. A pleasure to work with.",
+              // },
             ].map((testimonial, index) => (
               <motion.div
                 key={index}

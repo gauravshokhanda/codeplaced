@@ -44,16 +44,16 @@ export default function PortfolioPage() {
       image: "/images/3.png",
       category: "fitness",
     },
-    {
-      title: "Manya Tyagi",
-      description:
-        "She aimed to strengthen her LinkedIn presence and establish herself as a recognizable personal brand.",
-      keyFeature:
-        "Initiated a 30-day content campaign to maintain consistency and enhance visibility on LinkedIn. Implemented a strategic use of relevant keywords to boost content reach and ensure the profile remained active and discoverable in user feeds.",
-      link: "https://www.canva.com/design/DAGXkoytL0I/NGnGlqAI5TYA7oJEhlYedA/edit.",
-      image: "/images/4.png",
-      category: "fitness",
-    },
+    // {
+    //   title: "Manya Tyagi",
+    //   description:
+    //     "She aimed to strengthen her LinkedIn presence and establish herself as a recognizable personal brand.",
+    //   keyFeature:
+    //     "Initiated a 30-day content campaign to maintain consistency and enhance visibility on LinkedIn. Implemented a strategic use of relevant keywords to boost content reach and ensure the profile remained active and discoverable in user feeds.",
+    //   link: "https://www.canva.com/design/DAGXkoytL0I/NGnGlqAI5TYA7oJEhlYedA/edit.",
+    //   image: "/images/4.png",
+    //   category: "fitness",
+    // },
 
     {
       title: "Electron Charger",
@@ -131,6 +131,54 @@ export default function PortfolioPage() {
       link: "https://www.canva.com/design/DAGUrCG1Cj4/rUPmriRZqax_bRgkIi1_8g/edit",
       image: "/images/nail.png",
       category: "fitness",
+    },
+    {
+      title: "Power BI Dashboard",
+      description: "Power BI dashboard design for a HealthCare Organization.",
+      keyFeature:
+        "Created this Dashboard in Power BI for an interactive and hassle free experience. I connected it to a designated folder for automate refresh. With interactive filters, users can easily customize their views and explore specific data segments. The dashboard features a variety of rich visualizations, including bar charts, line graphs, and geographic maps, effectively presenting complex information in a clear and engaging manner.",
+      link: "https://www.canva.com/design/DAGmSAqrJ1o/TSdF04BbrKpUpfhKhfyEIg/view?utm_content=DAGmSAqrJ1o&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h62ffd13f55",
+      image: "/images/Gas1.png",
+      category: "analytics",
+    },
+    {
+      title: "Automated Excel Sheet",
+      description:
+        "Automated Excel Sheet design for a HealthCare Organization.",
+      keyFeature:
+        "Created this Dashboard in Power BI for an interactive and hassle free experience. I connected it to a designated folder for automate refresh. With interactive filters, users can easily customize their views and explore specific data segments. The dashboard features a variety of rich visualizations, including bar charts, line graphs, and geographic maps, effectively presenting complex information in a clear and engaging manner.",
+      link: "https://www.canva.com/design/DAGmSNVBNwI/fX4aI1cS7vol_KQ_Hjg9Yw/view?utm_content=DAGmSNVBNwI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hdb2236fcb0",
+      image: "/images/ana2.png",
+      category: "analytics",
+    },
+    {
+      title: "Looker Studio Dashboard",
+      description:
+        "Looker Studio dashboard design for a HealthCare Organization.",
+      keyFeature:
+        "Created this Dashboard in Google Looker Studio connected to a Google drive Data Source, for an automated refresh purpose. Used Interactive filters to Easily look for the intended relevant data. Users can leverage detailed interactive filters to customize their analysis by specific months and names, allowing for targeted exploration of data.",
+      link: "https://www.canva.com/design/DAGmSBXWuPg/-1ASEBZ8QwddrhkxzawjXg/view?utm_content=DAGmSBXWuPg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6a7285004f",
+      image: "/images/ana3.png",
+      category: "analytics",
+    },
+    {
+      title: "Salesforce Dashboard",
+      description: "Salesforce Dashboard for a Law firm.",
+      keyFeature:
+        "This Dashboard in Salesforce was created to offer a comprehensive view of employee performance, average work speed, and other metrics, enabling managers to effectively assess productivity.",
+      link: "https://www.canva.com/design/DAGmSYmCWjE/GJnCSb4ESxtMntEOUucVOA/view?utm_content=DAGmSYmCWjE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1e07812fc1",
+      image: "/images/ana4.png",
+      category: "analytics",
+    },
+
+    {
+      title: "Tableau Dashboard",
+      description: "Tableau Dashboard for a finance organization",
+      keyFeature:
+        "This Sales Analysis Tableau dashboard provides a detailed overview of profitability metrics, enabling quick insights into revenue, costs, and net profit across various dimensions. It includes interactive charts and filters to examine profit margins by region, product category, and time period, highlighting areas of high and low profitability..",
+      link: "https://www.canva.com/design/DAGmSfvzSmk/rfkktGyEvUOUeLi8rosXWg/view?utm_content=DAGmSfvzSmk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2c18092206",
+      image: "/images/ana5.png",
+      category: "analytics",
     },
   ];
 

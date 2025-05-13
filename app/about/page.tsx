@@ -106,11 +106,25 @@ export default function AboutPage() {
               />
             </motion.div>
             <motion.p {...fadeUp} className="text-lg text-muted-foreground">
-              We turn your vision into reality. From custom web and mobile app
-              development to UI/UX design, analytics integration, and marketing
-              automation—we do it all. Whether you&apos;re a startup building
-              from scratch or an enterprise optimizing for scale, we provide
-              full-stack solutions tailored to your goals.
+              At CodPlaced, we bring your digital ideas to life with precision,
+              purpose, and a deep understanding of your goals. Whether
+              you&apos;re launching a new venture or scaling an existing
+              product, we offer end-to-end solutions across web and mobile
+              development, UI/UX design, data analytics, and marketing
+              automation.
+              <br />
+              We work closely with you to build custom digital products that
+              don’t just look good — they perform. From intuitive interfaces to
+              backend systems that scale, everything we create is tailored to
+              your brand’s unique needs.
+              <br />
+              Our focus goes beyond aesthetics. We design with intent, integrate
+              data where it matters, and automate the busywork so your business
+              runs smoother, smarter, and faster.
+              <br />
+              When you work with CodPlaced, you&apos;re not just hiring a team —
+              you&apos;re gaining a long-term tech partner invested in your
+              growth.
             </motion.p>
           </div>
         </div>
