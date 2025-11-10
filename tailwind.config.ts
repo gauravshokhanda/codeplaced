@@ -13,11 +13,16 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'hero':
+          'radial-gradient(1000px 600px at 70% -20%, rgba(0, 224, 255, 0.15), transparent), linear-gradient(180deg, rgba(139, 92, 246, 0.08), transparent)'
       },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      boxShadow: {
+        glow: '0 0 24px rgba(0, 224, 255, 0.25)',
       },
       colors: {
         background: 'hsl(var(--background))',

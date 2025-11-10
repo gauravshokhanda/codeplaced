@@ -3,18 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { SectionTitle } from "@/components/ui/section-title";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Code,
-  Smartphone,
-  Cloud,
-  BarChart3,
-  Quote,
-  MessageSquare,
-  Camera,
-  Palette,
-  Megaphone,
-} from "lucide-react";
+import { ArrowRight, ShieldCheck, Cloud, BarChart3, Cpu } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -28,21 +17,58 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-primary text-white py-24">
+      <section className="relative overflow-hidden bg-hero">
         <motion.div
           {...fadeUp}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Transform Your Digital Presence
+          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
+            Operationalize Decisions From Your Data
           </h1>
-          <p className="text-xl mb-8">Your Partner in Growth</p>
-          <Button asChild>
-            <Link href="/contact">
-              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+          <p className="mt-5 text-lg text-foreground/70 max-w-3xl mx-auto">
+            Strategy, engineering, BI dashboards, and ML — delivered with measurable ROI.
+          </p>
+          <div className="mt-8 flex items-center justify-center gap-4">
+            <Link href="/contact" className="rounded-xl px-5 py-3 bg-primary text-[hsl(var(--primary-foreground))] font-medium shadow-glow">
+              Book a Data Audit
             </Link>
-          </Button>
+            <Link href="/case-studies" className="rounded-xl px-5 py-3 border border-[var(--divider)] text-foreground">
+              See Case Studies
+            </Link>
+          </div>
         </motion.div>
+
+        {/* Hero visual collage */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <img
+              src="/images/ana3.png"
+              alt="Executive KPI dashboard preview"
+              className="w-full h-48 sm:h-56 object-cover rounded-xl border border-[var(--divider)] shadow-sm"
+            />
+            <img
+              src="/images/ana4.png"
+              alt="Data pipeline and lineage snapshot"
+              className="w-full h-48 sm:h-56 object-cover rounded-xl border border-[var(--divider)] shadow-sm"
+            />
+            <img
+              src="/images/ana5.png"
+              alt="Forecasting and trends visualization"
+              className="w-full h-48 sm:h-56 object-cover rounded-xl border border-[var(--divider)] shadow-sm"
+            />
+          </div>
+        </div>
+
+        {/* Trust / Compliance strip */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+          <div className="grid grid-cols-2 sm:grid-cols-6 gap-4 text-xs text-foreground/60">
+            {['AWS','Azure','GCP','Snowflake','BigQuery','dbt'].map((p) => (
+              <div key={p} className="border border-[var(--divider)] rounded-md px-3 py-2 text-center">
+                {p}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Services Overview */}
@@ -83,59 +109,39 @@ export default function Home() {
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <SectionTitle
-            title="Our Services"
-            subtitle="Comprehensive technology and creative solutions for your business needs"
+            title="Services"
+            subtitle="Strategy, engineering, BI dashboards, and ML — delivered with measurable ROI."
             centered
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
             {[
               {
-                icon: <Code className="h-8 w-8" />,
-                title: "Web Development",
+                icon: <ShieldCheck className="h-8 w-8" />,
+                title: "Data Strategy & Governance",
                 description:
-                  "Custom websites and web applications built with cutting-edge technologies.",
-              },
-              {
-                icon: <Smartphone className="h-8 w-8" />,
-                title: "Mobile Development",
-                description:
-                  "Native and cross-platform mobile applications for iOS and Android.",
+                  "Roadmaps, data product strategy, governance, quality, security, spend optimization.",
+                image: "/images/tt.png",
               },
               {
                 icon: <Cloud className="h-8 w-8" />,
-                title: "Cloud Solutions",
+                title: "Data Engineering & Cloud",
                 description:
-                  "Scalable cloud infrastructure and DevOps implementation.",
+                  "Warehouses/lakehouses (Snowflake, BigQuery), ELT (Fivetran/dbt), real-time pipelines.",
+                image: "/images/hw.png",
               },
               {
                 icon: <BarChart3 className="h-8 w-8" />,
-                title: "Analytics Services",
+                title: "BI Dashboards",
                 description:
-                  "Data-driven insights and business intelligence solutions.",
+                  "Executive dashboards, KPI architecture, self-serve analytics, embedded analytics.",
+                image: "/images/ec.png",
               },
               {
-                icon: <Palette className="h-8 w-8" />,
-                title: "UI/UX Design",
+                icon: <Cpu className="h-8 w-8" />,
+                title: "ML & Forecasting",
                 description:
-                  "User research, wireframing, prototyping, and visual design.",
-              },
-              {
-                icon: <Camera className="h-8 w-8" />,
-                title: "Brand Design",
-                description:
-                  "Logo design, brand guidelines, marketing materials, and strategy.",
-              },
-              {
-                icon: <MessageSquare className="h-8 w-8" />,
-                title: "Content Creation",
-                description:
-                  "Copywriting, graphics, video production, and animation.",
-              },
-              {
-                icon: <Megaphone className="h-8 w-8" />,
-                title: "Digital Marketing",
-                description:
-                  "SEO, social media marketing, paid ads, and content strategy to grow your audience.",
+                  "Forecasting, churn/propensity, LTV, personalization, marketing mix modeling.",
+                image: "/images/ce.png",
               },
             ].map((service, index) => (
               <motion.div
@@ -144,11 +150,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-secondary p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="material-card p-6 hover:shadow-glow transition-shadow"
               >
+                <img
+                  src={service.image}
+                  alt={`${service.title} visual`}
+                  className="w-full h-28 object-cover rounded-lg border border-[var(--divider)] mb-4"
+                />
                 <div className="text-primary mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
+                <p className="text-foreground/70">{service.description}</p>
               </motion.div>
             ))}
           </div>
@@ -156,33 +167,33 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 ">
+      <section className="py-20">
         <motion.div
           {...fadeUp}
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
           <SectionTitle
-            title="What Our Clients Say"
-            subtitle="Trusted by businesses around the world"
+            title="What Execs Say"
+            subtitle="Enterprise outcomes, verified"
             centered
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
               {
-                name: "Shreya Joshi ",
+                name: "VP of Operations, Global Retail",
                 feedback:
-                  "I honestly didn’t know how much I needed CodePlaced until they stepped in. From helping me clean up my LinkedIn strategy to building a personal website that finally looked like me, they handled it all. Their team set up a simple dashboard so I could track what content was bringing leads — game-changer for someone juggling client calls and content daily!",
+                  "From data chaos to governed dashboards in 6 weeks. Time-to-insight dropped by 45%.",
               },
               {
-                name: "Rachel Wolf ",
+                name: "CTO, HealthTech",
                 feedback:
-                  "“Working with CodePlaced was one of the best decisions we made for our brand’s early-stage growth. Their team understood our vision instantly and delivered content strategies that actually converted. Their execution was seamless, and their creativity brought our campaigns to life",
+                  "Pipeline reliability hit 99.95% with observability baked-in. Compliance-ready from day one.",
               },
-              // {
-              //   name: "Michael Lee",
-              //   feedback:
-              //     "Their cloud solutions helped scale our infrastructure seamlessly. A pleasure to work with.",
-              // },
+              {
+                name: "Head of Growth, D2C",
+                feedback:
+                  "+27% lift in ROAS after unifying metrics and rebuilding attribution.",
+              },
             ].map((testimonial, index) => (
               <motion.div
                 key={index}
@@ -190,13 +201,11 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-primary p-6 rounded-lg shadow-md"
+                className="material-card p-6 text-left"
               >
-                <Quote className="h-8 w-8 text-white mb-4 mx-auto" />
-                <p className="text-white italic mb-4">
-                  &quot;{testimonial.feedback}&quot;
-                </p>
-                <h4 className=" text-white font-bold">{testimonial.name}</h4>
+                <div className="h-px w-full bg-[var(--divider)] mb-4" />
+                <p className="text-foreground/90 mb-4">“{testimonial.feedback}”</p>
+                <h4 className="text-foreground/70 font-medium">{testimonial.name}</h4>
               </motion.div>
             ))}
           </div>
@@ -231,30 +240,22 @@ export default function Home() {
       </section> */}
 
       {/* CTA Section */}
-      <section className=" py-20">
+      <section className="py-20">
         <motion.div
           {...fadeUp}
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <h2 className="text-3xl font-bold text-primary mb-4">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-lg mb-8">
-            Let&apos;s discuss how we can help transform your business
+          <h2 className="text-3xl font-bold mb-4">Get a 7-Day Data Health Check</h2>
+          <p className="text-lg text-foreground/70 mb-8">
+            Identify quick wins across governance, pipelines, and BI. Actionable in one week.
           </p>
           <div className="flex justify-center flex-wrap gap-4">
-            <Button asChild>
-              <Link href="/contact">Contact Us</Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link
-                href="https://wa.me/917017684236?text=Hi%20there!%20I%20would%20like%20to%20get%20a%20quote%20for%20a%20project."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Get a Quote on WhatsApp
-              </Link>
-            </Button>
+            <Link href="/contact" className="rounded-xl px-5 py-3 bg-primary text-[hsl(var(--primary-foreground))] font-medium shadow-glow">
+              Book a Data Audit
+            </Link>
+            <Link href="/case-studies" className="rounded-xl px-5 py-3 border border-[var(--divider)] text-foreground">
+              See Case Studies
+            </Link>
           </div>
         </motion.div>
       </section>

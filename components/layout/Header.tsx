@@ -21,9 +21,9 @@ const Header = () => {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
-    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/case-studies', label: 'Case Studies' },
+    { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -33,8 +33,10 @@ const Header = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
       className={cn(
-        'fixed w-full z-50 transition-all duration-300',
-        isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        'fixed w-full z-50 transition-all duration-300 border-b',
+        isScrolled
+          ? 'bg-[var(--surface)]/80 backdrop-blur border-[var(--divider)]'
+          : 'bg-transparent border-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +53,7 @@ const Header = () => {
 
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 items-center">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.href}
@@ -60,12 +62,18 @@ const Header = () => {
               >
                 <Link
                   href={link.href}
-                  className="text-primary hover:text-secondary transition-colors"
+                  className="text-foreground/80 hover:text-primary transition-colors"
                 >
                   {link.label}
                 </Link>
               </motion.div>
             ))}
+            <Link
+              href="/contact"
+              className="rounded-xl px-4 py-2 bg-primary text-black font-medium shadow-glow"
+            >
+              Book a Data Audit
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -89,12 +97,19 @@ const Header = () => {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block px-3 py-2 text-primary hover:text-secondary transition-colors"
+                    className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}
                   </Link>
                 ))}
+                <Link
+                  href="/contact"
+                  className="block mt-2 px-3 py-2 rounded-xl bg-primary text-black font-medium shadow-glow"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Book a Data Audit
+                </Link>
               </div>
             </motion.div>
           )}

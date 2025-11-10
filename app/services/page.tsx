@@ -1,281 +1,120 @@
-import { ArrowRight, Code, Smartphone, Cloud, BarChart3, LineChart, PieChart, Search, Share2, Megaphone, Palette, Camera, MessageSquare } from "lucide-react";
+import { ShieldCheck, Cloud, BarChart3, Cpu } from "lucide-react";
 import { SectionTitle } from "@/components/ui/section-title";
 import Link from "next/link"; 
 
 export default function ServicesPage() {
+  const pillars = [
+    {
+      icon: <ShieldCheck className="h-8 w-8" />,
+      title: "Data Strategy & Governance",
+      value: "Roadmaps, data product strategy, governance, quality, security, spend optimization.",
+      scope: [
+        "Data product roadmap",
+        "Governance & quality (DQ rules)",
+        "Access, security & compliance",
+        "Cost controls & FinOps",
+      ],
+      tooling: ["KPI Contracts", "Catalog", "Lineage", "dbt Docs"],
+      outcomes: ["Time-to-Insight ↓ 45%", "Data Accuracy 99.9%"],
+      cta: { href: "/contact", label: "Request Sample Dashboard" },
+    },
+    {
+      icon: <Cloud className="h-8 w-8" />,
+      title: "Data Engineering & Cloud",
+      value:
+        "Warehouses/lakehouses (Snowflake, BigQuery), ELT (Fivetran/dbt), real-time pipelines.",
+      scope: ["Ingestion (Fivetran)", "Transform (dbt)", "Lakehouse architecture", "Streaming & CDC"],
+      tooling: ["Snowflake", "BigQuery", "Redshift", "Fivetran", "dbt"],
+      outcomes: ["Pipeline Uptime 99.95%", "Build Time ↓ 40%"],
+      cta: { href: "/case-studies", label: "See Architecture Diagram" },
+    },
+    {
+      icon: <BarChart3 className="h-8 w-8" />,
+      title: "Business Intelligence Dashboards",
+      value:
+        "Executive dashboards, KPI architecture, self-serve analytics, embedded analytics.",
+      scope: ["Executive KPI design", "Semantic layer", "Self-serve BI", "Embedded analytics"],
+      tooling: ["Power BI", "Looker", "Tableau", "Mode"],
+      outcomes: ["Adoption ↑", "Report Latency ↓"],
+      cta: { href: "/contact", label: "Request Sample Dashboard" },
+    },
+    {
+      icon: <Cpu className="h-8 w-8" />,
+      title: "Machine Learning & Forecasting",
+      value: "Forecasting, churn/propensity, LTV, personalization, marketing mix modeling.",
+      scope: ["Propensity & churn", "LTV & attribution", "Recommendations", "Forecasting"],
+      tooling: ["Python", "dbt ML", "Vertex AI", "SageMaker"],
+      outcomes: ["+18% ROAS", "+12% Retention"],
+      cta: { href: "/case-studies", label: "See Case Studies" },
+    },
+  ];
+
   return (
-    <div className="bg-secondary w-full py-20 bg-gray-50">
+    <div className="w-full py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle 
-          title="Our Services" 
-          subtitle="Comprehensive digital solutions tailored for your success"
+        <SectionTitle
+          title="Services"
+          subtitle="Strategy, engineering, BI dashboards, and ML — delivered with measurable ROI."
           centered
         />
 
-        <div className="space-y-20">
-          {/* Technology Services */}
-          <div className="animate-fade-up">
-            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Technology</h3>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <Code className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Web Development</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• Custom Website Development</li>
-                  <li>• E-commerce Solutions</li>
-                  <li>• Progressive Web Apps</li>
-                  <li>• API Integration</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          {pillars.map((p) => (
+            <div key={p.title} className="card rounded-2xl p-6 hover:shadow-glow transition-shadow">
+              <div className="text-primary mb-4">{p.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
+              <p className="text-foreground/70 mb-4">{p.value}</p>
+              <ul className="space-y-1 text-foreground/60 mb-4">
+                {p.scope.map((s) => (
+                  <li key={s}>• {s}</li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {p.tooling.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-md px-2 py-1 text-xs border border-[var(--divider)] text-foreground/70"
+                  >
+                    {t}
+                  </span>
+                ))}
               </div>
-            
-
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <Smartphone className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Mobile Development</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• iOS App Development</li>
-                  <li>• Android App Development</li>
-                  <li>• Cross-platform Solutions</li>
-                  <li>• App Maintenance & Updates</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
+              <div className="flex flex-wrap gap-2 mb-6">
+                {p.outcomes.map((o) => (
+                  <span key={o} className="rounded-md px-2 py-1 text-xs bg-[var(--surface-muted)] text-foreground/80 border border-[var(--divider)]">
+                    {o}
+                  </span>
+                ))}
               </div>
-
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <Cloud className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Cloud Solutions</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• Cloud Migration</li>
-                  <li>• AWS & Azure Services</li>
-                  <li>• Cloud Infrastructure</li>
-                  <li>• DevOps Implementation</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
-              </div>
+              <Link href={p.cta.href} className="rounded-xl px-4 py-2 bg-primary text-black font-medium shadow-glow inline-block">
+                {p.cta.label}
+              </Link>
             </div>
+          ))}
+        </div>
+
+        {/* Trust / Tooling strip */}
+        <div className="mt-16">
+          <div className="grid grid-cols-2 sm:grid-cols-6 gap-4 text-xs text-foreground/60">
+            {['AWS','Azure','GCP','Snowflake','BigQuery','dbt'].map((p) => (
+              <div key={p} className="border border-[var(--divider)] rounded-md px-3 py-2 text-center">
+                {p}
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Analytics Services */}
-          <div className="animate-fade-up">
-            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Analytics Services</h3>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <BarChart3 className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Data Analytics</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• Data Collection & Analysis</li>
-                  <li>• Predictive Analytics</li>
-                  <li>• Customer Insights</li>
-                  <li>• Performance Metrics</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
-              </div>
-
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <LineChart className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Business Intelligence</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• Interactive Dashboards</li>
-                  <li>• Real-time Reporting</li>
-                  <li>• KPI Tracking</li>
-                  <li>• Data Visualization</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
-              </div>
-
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <PieChart className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Market Research</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• Competitor Analysis</li>
-                  <li>• Market Trends</li>
-                  <li>• Consumer Behavior</li>
-                  <li>• Industry Reports</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
-              </div>
-            </div>
-          </div>
-
-          {/* Digital Marketing Services */}
-          <div className="animate-fade-up">
-            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Digital Marketing Services</h3>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <Search className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">SEO Services</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• Keyword Research</li>
-                  <li>• On-page Optimization</li>
-                  <li>• Technical SEO</li>
-                  <li>• Link Building</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
-              </div>
-
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <Share2 className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Social Media Marketing</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• Content Strategy</li>
-                  <li>• Community Management</li>
-                  <li>• Paid Advertising</li>
-                  <li>• Influencer Marketing</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
-              </div>
-
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <Megaphone className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Content Marketing</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• Content Creation</li>
-                  <li>• Blog Management</li>
-                  <li>• Email Marketing</li>
-                  <li>• Video Production</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
-              </div>
-            </div>
-          </div>
-
-          {/* Creative Services */}
-          <div className="animate-fade-up">
-            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Creative Services</h3>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <Palette className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">UI/UX Design</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• User Research</li>
-                  <li>• Wireframing</li>
-                  <li>• Prototyping</li>
-                  <li>• Visual Design</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
-              </div>
-
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <Camera className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Brand Design</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• Logo Design</li>
-                  <li>• Brand Guidelines</li>
-                  <li>• Marketing Materials</li>
-                  <li>• Brand Strategy</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
-              </div>
-
-              <div className="material-card p-8">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <MessageSquare className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Content Creation</h4>
-                <ul className="space-y-2 text-gray-600 mb-6">
-                  <li>• Copywriting</li>
-                  <li>• Graphic Design</li>
-                  <li>• Video Production</li>
-                  <li>• Animation</li>
-                </ul>
-                <Link href="/portfolio" className="group mt-6 inline-flex items-center text-primary hover:text-secondary transition-all duration-300">
-  <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">
-    Explore Projects
-  </span>
-  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-
-              </div>
-            </div>
+        {/* CTA strip */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold mb-3">Get a 7-Day Data Health Check</h3>
+          <p className="text-foreground/70 mb-6">Identify quick wins across governance, pipelines, and BI. Actionable in one week.</p>
+          <div className="flex justify-center gap-4 flex-wrap">
+            <Link href="/contact" className="rounded-xl px-5 py-3 bg-primary text-black font-medium shadow-glow">
+              Book a Data Audit
+            </Link>
+            <Link href="/case-studies" className="rounded-xl px-5 py-3 border border-[var(--divider)] text-foreground">
+              See Case Studies
+            </Link>
           </div>
         </div>
       </div>

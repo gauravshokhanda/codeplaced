@@ -2,33 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light theme tokens */
 :root {
-  --primary: 196 45% 22%;  /* #0D4D66 */
-  --base: 190 25% 70%;     /* #9FBFC5 */
+  /* Additional hex tokens for custom utilities */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-muted: #f8fafc; /* slate-50 */
+  --divider: rgba(148, 163, 184, 0.25);
 }
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 196 45% 22%;
-    --card: 0 0% 100%;
-    --card-foreground: 196 45% 22%;
+    /* Tailwind CSS variables consumed via hsl(var(--...)) */
+    --background: 0 0% 100%;             /* white */
+    --foreground: 220 15% 20%;           /* slate-800 */
+    --card: 0 0% 100%;                   /* white */
+    --card-foreground: 220 15% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 196 45% 22%;
-    --primary: 196 45% 22%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 190 25% 70%;
-    --secondary-foreground: 196 45% 22%;
-    --muted: 190 25% 70%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 190 25% 70%;
-    --accent-foreground: 196 45% 22%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 196 45% 22%;
-    --radius: 0.5rem;
+    --popover-foreground: 220 15% 20%;
+    --primary: 198 73% 23%;              /* #104C66 */
+    --primary-foreground: 0 0% 100%;     /* white text on primary */
+    --secondary: 256 92% 67%;            /* #8B5CF6 */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 15% 96%;                /* light surface */
+    --muted-foreground: 220 15% 40%;
+    --accent: 256 92% 67%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 90%;               /* light divider */
+    --input: 220 15% 90%;
+    --ring: 198 73% 23%;
+    --radius: 0.75rem;
   }
 }
 
@@ -38,6 +43,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Ensure solid light background across app */
+    background-color: var(--bg);
   }
 }
 
@@ -73,6 +80,22 @@
   }
 }
 
+/* Card utility for consistent surfaces */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius);
+}
+
 .material-card {
-  @apply bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300;
+  @apply rounded-lg transition-all duration-300;
+  background: var(--surface);
+  border: 1px solid var(--divider);
+}
+
+/* Subtle radial/gradient hero background */
+.bg-hero {
+  background-image:
+    radial-gradient(1000px 600px at 70% -20%, rgba(0, 224, 255, 0.15), transparent),
+    linear-gradient(180deg, rgba(139, 92, 246, 0.08), transparent);
 }
