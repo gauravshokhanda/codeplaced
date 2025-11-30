@@ -70,7 +70,7 @@ const Header = () => {
             ))}
             <Link
               href="/contact"
-              className="rounded-xl px-4 py-2 bg-primary text-black font-medium shadow-glow"
+              className="rounded-xl px-4 py-2 bg-primary text-[hsl(var(--primary-foreground))] font-medium shadow-glow"
             >
               Book a Data Audit
             </Link>
@@ -105,7 +105,7 @@ const Header = () => {
                 ))}
                 <Link
                   href="/contact"
-                  className="block mt-2 px-3 py-2 rounded-xl bg-primary text-black font-medium shadow-glow"
+                  className="block mt-2 px-3 py-2 rounded-xl bg-primary text-[hsl(var(--primary-foreground))] font-medium shadow-glow"
                   onClick={() => setIsOpen(false)}
                 >
                   Book a Data Audit

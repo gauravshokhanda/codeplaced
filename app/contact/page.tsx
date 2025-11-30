@@ -46,50 +46,52 @@ export default function ContactPage() {
 
       {/* Contact Info + Form */}
       <section className="py-20 bg-muted">
-  <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <SectionTitle
-      title="Contact Us"
-      subtitle="We’re here to answer your questions and start your project"
-      centered
-    />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Contact Us"
+            subtitle="Questions ready? Because we’re ready to make your project happen!"
+            centered
+          />
 
-    {/* Contact Form */}
-    <form onSubmit={handleSubmit} className="bg-white mt-12 p-6 rounded-lg shadow-md space-y-4 animate-fade-up">
-      <div>
-        <label className="block font-medium mb-1">Full Name</label>
-        <input
-          type="text"
-          name="name"
-          required
-          className="w-full border px-4 py-2 rounded-md"
-          placeholder="Your name"
-        />
-      </div>
-      <div>
-        <label className="block font-medium mb-1">Email</label>
-        <input
-          type="email"
-          name="email"
-          required
-          className="w-full border px-4 py-2 rounded-md"
-          placeholder="you@example.com"
-        />
-      </div>
-      <div>
-        <label className="block font-medium mb-1">Message</label>
-        <textarea
-          rows={5}
-          name="message"
-          required
-          className="w-full border px-4 py-2 rounded-md"
-          placeholder="Tell us how we can help..."
-        />
-      </div>
-      <Button type="submit">Send Message</Button>
-    </form>
-  </div>
-</section>
-
+          {/* Contact Form */}
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white mt-12 p-6 rounded-lg shadow-md space-y-4 animate-fade-up"
+          >
+            <div>
+              <label className="block font-medium mb-1">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                required
+                className="w-full border px-4 py-2 rounded-md"
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <label className="block font-medium mb-1">Email</label>
+              <input
+                type="email"
+                name="email"
+                required
+                className="w-full border px-4 py-2 rounded-md"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div>
+              <label className="block font-medium mb-1">Message</label>
+              <textarea
+                rows={5}
+                name="message"
+                required
+                className="w-full border px-4 py-2 rounded-md"
+                placeholder="Tell us how we can help..."
+              />
+            </div>
+            <Button type="submit">Send Message</Button>
+          </form>
+        </div>
+      </section>
 
       {/* Success Popup */}
       {showPopup && (
@@ -97,7 +99,9 @@ export default function ContactPage() {
           <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm text-center space-y-4 animate-fade-up">
             <CheckCircle className="text-green-500 w-12 h-12 mx-auto" />
             <h2 className="text-2xl font-bold">Thank You!</h2>
-            <p className="text-gray-600">We have received your request. We&apos;ll contact you soon!</p>
+            <p className="text-gray-600">
+              We have received your request. We&apos;ll contact you soon!
+            </p>
             <Button onClick={() => setShowPopup(false)}>Close</Button>
           </div>
         </div>

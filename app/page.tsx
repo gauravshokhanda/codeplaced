@@ -26,13 +26,20 @@ export default function Home() {
             Operationalize Decisions From Your Data
           </h1>
           <p className="mt-5 text-lg text-foreground/70 max-w-3xl mx-auto">
-            Strategy, engineering, BI dashboards, and ML — delivered with measurable ROI.
+            Strategy engineering, BI dashboards, and ML — delivered with
+            measurable ROI.
           </p>
           <div className="mt-8 flex items-center justify-center gap-4">
-            <Link href="/contact" className="rounded-xl px-5 py-3 bg-primary text-[hsl(var(--primary-foreground))] font-medium shadow-glow">
+            <Link
+              href="/contact"
+              className="rounded-xl px-5 py-3 bg-primary text-[hsl(var(--primary-foreground))] font-medium shadow-glow"
+            >
               Book a Data Audit
             </Link>
-            <Link href="/case-studies" className="rounded-xl px-5 py-3 border border-[var(--divider)] text-foreground">
+            <Link
+              href="/case-studies"
+              className="rounded-xl px-5 py-3 border border-[var(--divider)] text-foreground"
+            >
               See Case Studies
             </Link>
           </div>
@@ -62,11 +69,16 @@ export default function Home() {
         {/* Trust / Compliance strip */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
           <div className="grid grid-cols-2 sm:grid-cols-6 gap-4 text-xs text-foreground/60">
-            {['AWS','Azure','GCP','Snowflake','BigQuery','dbt'].map((p) => (
-              <div key={p} className="border border-[var(--divider)] rounded-md px-3 py-2 text-center">
-                {p}
-              </div>
-            ))}
+            {["AWS", "Azure", "GCP", "Snowflake", "BigQuery", "dbt"].map(
+              (p) => (
+                <div
+                  key={p}
+                  className="border border-[var(--divider)] rounded-md px-3 py-2 text-center"
+                >
+                  {p}
+                </div>
+              )
+            )}
           </div>
         </div>
       </section>
@@ -110,7 +122,7 @@ export default function Home() {
         >
           <SectionTitle
             title="Services"
-            subtitle="Strategy, engineering, BI dashboards, and ML — delivered with measurable ROI."
+            subtitle="Strategy engineering, BI dashboards, and ML — delivered with measurable ROI."
             centered
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
@@ -133,7 +145,7 @@ export default function Home() {
                 icon: <BarChart3 className="h-8 w-8" />,
                 title: "BI Dashboards",
                 description:
-                  "Executive dashboards, KPI architecture, self-serve analytics, embedded analytics.",
+                  "Executive dashboards, KPI architecture, self-serve & embedded analytics.",
                 image: "/images/ec.png",
               },
               {
@@ -174,7 +186,7 @@ export default function Home() {
         >
           <SectionTitle
             title="What Execs Say"
-            subtitle="Enterprise outcomes, verified"
+            subtitle="Enterprise outcomes  verified"
             centered
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
@@ -204,8 +216,12 @@ export default function Home() {
                 className="material-card p-6 text-left"
               >
                 <div className="h-px w-full bg-[var(--divider)] mb-4" />
-                <p className="text-foreground/90 mb-4">“{testimonial.feedback}”</p>
-                <h4 className="text-foreground/70 font-medium">{testimonial.name}</h4>
+                <p className="text-foreground/90 mb-4">
+                  “{testimonial.feedback}”
+                </p>
+                <h4 className="text-foreground/70 font-medium">
+                  {testimonial.name}
+                </h4>
               </motion.div>
             ))}
           </div>
@@ -245,15 +261,24 @@ export default function Home() {
           {...fadeUp}
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <h2 className="text-3xl font-bold mb-4">Get a 7-Day Data Health Check</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            Get a 7-Day Data Health Check
+          </h2>
           <p className="text-lg text-foreground/70 mb-8">
-            Identify quick wins across governance, pipelines, and BI. Actionable in one week.
+            Identify quick wins across governance, pipelines, and BI. Actionable
+            in one week.
           </p>
           <div className="flex justify-center flex-wrap gap-4">
-            <Link href="/contact" className="rounded-xl px-5 py-3 bg-primary text-[hsl(var(--primary-foreground))] font-medium shadow-glow">
+            <Link
+              href="/contact"
+              className="rounded-xl px-5 py-3 bg-primary text-[hsl(var(--primary-foreground))] font-medium shadow-glow"
+            >
               Book a Data Audit
             </Link>
-            <Link href="/case-studies" className="rounded-xl px-5 py-3 border border-[var(--divider)] text-foreground">
+            <Link
+              href="/case-studies"
+              className="rounded-xl px-5 py-3 border border-[var(--divider)] text-foreground"
+            >
               See Case Studies
             </Link>
           </div>
