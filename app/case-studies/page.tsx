@@ -50,14 +50,22 @@ export default function CaseStudiesPage() {
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cases.map((c) => (
-            <article key={c.title} className="card rounded-2xl p-6 hover:shadow-glow transition-shadow">
-              <div className="text-xs text-foreground/60 mb-2">{c.industry}</div>
+            <article
+              key={c.title}
+              className="card rounded-2xl p-6 hover:shadow-glow transition-shadow"
+            >
+              <div className="text-xs text-foreground/60 mb-2">
+                {c.industry}
+              </div>
               <h3 className="text-xl font-semibold mb-2">{c.title}</h3>
               <p className="text-foreground/70 mb-4">{c.summary}</p>
 
               <div className="flex flex-wrap gap-2 mb-4">
                 {c.stack.map((s) => (
-                  <span key={s} className="rounded-md px-2 py-1 text-xs border border-[var(--divider)] text-foreground/70">
+                  <span
+                    key={s}
+                    className="rounded-md px-2 py-1 text-xs border border-[var(--divider)] text-foreground/70"
+                  >
                     {s}
                   </span>
                 ))}
@@ -65,17 +73,26 @@ export default function CaseStudiesPage() {
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {c.impact.map((i) => (
-                  <span key={i} className="rounded-md px-2 py-1 text-xs bg-[var(--surface-muted)] text-foreground/80 border border-[var(--divider)]">
+                  <span
+                    key={i}
+                    className="rounded-md px-2 py-1 text-xs bg-[var(--surface-muted)] text-foreground/80 border border-[var(--divider)]"
+                  >
                     {i}
                   </span>
                 ))}
               </div>
 
               <div className="flex gap-3">
-                <Link href={c.href ?? "/contact"} className="rounded-xl px-4 py-2 bg-secondary text-white font-medium shadow-[0_0_24px_rgba(139,92,246,0.25)]">
+                <Link
+                  href={c.href ?? "/contact"}
+                  className="rounded-xl px-4 py-2 bg-primary text-white font-medium shadow-[0_0_24px_rgba(139,92,246,0.25)]"
+                >
                   Discuss This Outcome
                 </Link>
-                <Link href="/services" className="rounded-xl px-4 py-2 border border-[var(--divider)] text-foreground">
+                <Link
+                  href="/services"
+                  className="rounded-xl px-4 py-2 border border-[var(--divider)] text-foreground"
+                >
                   View Related Services
                 </Link>
               </div>
@@ -84,9 +101,16 @@ export default function CaseStudiesPage() {
         </div>
 
         <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold mb-3">Ready to see a tailored demo?</h3>
-          <p className="text-foreground/70 mb-6">We’ll mock up your KPIs, stack, and sample data in one week.</p>
-          <Link href="/contact" className="rounded-xl px-5 py-3 bg-secondary text-white font-medium shadow-[0_0_24px_rgba(139,92,246,0.25)]">
+          <h3 className="text-2xl font-bold mb-3">
+            Ready to see a tailored demo?
+          </h3>
+          <p className="text-foreground/70 mb-6">
+            We’ll mock up your KPIs, stack, and sample data in one week.
+          </p>
+          <Link
+            href="/contact"
+            className="rounded-xl px-5 py-3 bg-secondary text-white font-medium shadow-[0_0_24px_rgba(139,92,246,0.25)]"
+          >
             Request Sample Dashboard
           </Link>
         </div>
