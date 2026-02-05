@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, Mail, MessageSquare, Clock } from "lucide-react";
 
 export default function ContactPage() {
@@ -43,9 +43,12 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="pt-20 pb-12 md:pt-32 md:pb-20 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary mb-6">
-            <span>Contact Us</span>
-          </div>
+          <Badge
+            variant="outline"
+            className="border-primary/20 bg-primary/5 text-primary mb-6 px-3 py-1 text-sm font-medium"
+          >
+            Contact Us
+          </Badge>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
             Let&apos;s Talk Data
           </h1>
