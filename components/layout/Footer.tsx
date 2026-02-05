@@ -1,82 +1,76 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-900 border-t border-[var(--divider)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">CodePlaced</h3>
-            <p className="text-sm text-gray-600">
-              Enterprise Data & Analytics consultancy. We turn messy data into
-              executive-grade decisions — fast.
-            </p>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li>
-                <Link href="/services">Data Strategy & Governance</Link>
-              </li>
-              <li>
-                <Link href="/services">Data Engineering & Cloud</Link>
-              </li>
-              <li>
-                <Link href="/services">Business Intelligence Dashboards</Link>
-              </li>
-              <li>
-                <Link href="/services">Machine Learning & Forecasting</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li>
-                <Link href="/about">About</Link>
-              </li>
-              <li>
-                <Link href="/case-studies">Case Studies</Link>
-              </li>
-              <li>
-                <Link href="/contact">Contact</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-            <p className="text-sm text-gray-600">
-              Email:{" "}
-              <a href="mailto:manya@codeplaced.com">manya@codeplaced.com</a>
-              <br />
-              Phone: <a href="tel:+916397525028">+91 6397525028</a>
-            </p>
-            <div className="mt-4">
-              <Link
-                href="/contact"
-                className="rounded-xl px-4 py-2 bg-primary text-[hsl(var(--primary-foreground))] font-medium shadow-glow"
-              >
-                Get a 7-Day Data Health Check
-              </Link>
+    <footer className="bg-white border-t border-border pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+          {/* Brand Column */}
+          <div className="md:col-span-4">
+             <div className="flex items-center space-x-2 mb-6">
+                <Image
+                  src="/images/logo.png"
+                  alt="CodePlaced"
+                  width={140}
+                  height={40}
+                  className="w-auto h-8"
+                />
             </div>
+            <p className="text-muted-foreground mb-6 max-w-sm">
+              AI-ready data systems and decision workflows built by senior engineers. 
+              We turn messy data into reliable insights for startups and SMBs.
+            </p>
+            <div className="flex flex-col space-y-2">
+               <a href="mailto:manya@codeplaced.com" className="text-sm font-medium hover:text-primary transition-colors">
+                manya@codeplaced.com
+              </a>
+               <p className="text-sm text-muted-foreground">Built by engineers.</p>
+            </div>
+          </div>
+
+          {/* Links Columns */}
+          <div className="md:col-span-2 md:col-start-7">
+            <h4 className="font-semibold mb-4 text-foreground">Company</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><Link href="/about" className="hover:text-primary transition-colors">About</Link></li>
+              <li><Link href="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
+              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <h4 className="font-semibold mb-4 text-foreground">Services</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><Link href="/services" className="hover:text-primary transition-colors">Data Strategy</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">Pipelines & Engineering</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">BI & Dashboards</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">AI Copilots</Link></li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <h4 className="font-semibold mb-4 text-foreground">Legal</h4>
+             <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><span className="cursor-not-allowed opacity-50">Privacy Policy</span></li>
+              <li><span className="cursor-not-allowed opacity-50">Terms of Service</span></li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-6 gap-4 text-xs text-gray-500">
-          {["AWS", "Azure", "GCP", "Power BI", "Tableau", "dbt"].map((p) => (
-            <div
-              key={p}
-              className="border border-[var(--divider)] rounded-md px-3 py-2 text-center"
-            >
-              {p}
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-8 pt-8 border-t border-[var(--divider)] text-center text-gray-700">
-          <p>
+        {/* Tech Stack & Copyright */}
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} CodePlaced. All rights reserved.
           </p>
+          
+          <div className="flex flex-wrap justify-center gap-3">
+             {["AWS", "Azure", "GCP", "Snowflake", "dbt", "Power BI"].map((tech) => (
+                <span key={tech} className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-md font-medium">
+                  {tech}
+                </span>
+             ))}
+          </div>
         </div>
       </div>
     </footer>

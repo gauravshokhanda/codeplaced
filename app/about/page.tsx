@@ -1,208 +1,154 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
-
-import { SectionTitle } from "@/components/ui/section-title";
-import { Card } from "@/components/ui/card";
-import { Users, Target, Award, Lightbulb } from "lucide-react";
-import { motion } from "framer-motion";
+import { Badge } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { CheckCircle2, Code2, Heart, Users, Zap } from "lucide-react";
 
 export default function AboutPage() {
-  const values = [
-    {
-      icon: <Users className="h-8 w-8" />,
-      title: "Client-Focused",
-      description:
-        "We prioritize our clients' needs and deliver solutions that exceed expectations.",
-    },
-    {
-      icon: <Target className="h-8 w-8" />,
-      title: "Results-Driven",
-      description:
-        "Our success is measured by the tangible results we achieve for our clients.",
-    },
-    {
-      icon: <Award className="h-8 w-8" />,
-      title: "Excellence",
-      description:
-        "We maintain the highest standards of quality in everything we do.",
-    },
-    {
-      icon: <Lightbulb className="h-8 w-8" />,
-      title: "Innovation",
-      description:
-        "We stay at the forefront of technology to deliver cutting-edge solutions.",
-    },
-  ];
-
-  const fadeUp = {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
-    viewport: { once: true },
-  };
   return (
-    <div className="w-full">
+    <div className="w-full bg-slate-50 min-h-screen">
       {/* Hero Section */}
-      <section className="bg-primary text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl font-extrabold mb-6 animate-fade-up tracking-tight">
-              About CodePlaced
-            </h1>
-            <p className="text-xl mb-8 animate-fade-up max-w-3xl mx-auto">
-              We are a team of passionate technology experts dedicated to
-              transforming businesses through innovative digital solutions.
+      <section className="pt-20 pb-16 md:pt-32 md:pb-24 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary mb-6">
+            <span>About CodePlaced</span>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6 text-balance">
+            We are the Data Engineers <br className="hidden md:block" />
+            <span className="text-primary">You Wish You Hired Sooner</span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
+            CodePlaced was born from a frustration with "black box" agencies. We believe in open code, modern stacks, and building data systems that your team can actually own.
+          </p>
+        </div>
+      </section>
+
+      {/* Story / Mission */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="prose prose-lg prose-slate mx-auto text-center md:text-left">
+            <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Our Philosophy</h2>
+            <p className="text-muted-foreground leading-relaxed mb-8 text-center">
+              The data landscape has changed. It used to be about expensive on-premise servers and multi-year implementations. Today, it's about agility, modular tools, and AI readiness.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-8 text-center">
+              We started CodePlaced to bridge the gap between "messy spreadsheets" and "enterprise data warehouse." We bring Silicon Valley engineering standards to startups and SMBs who need to move fast but can't afford technical debt.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Our Values */}
-      <section className="py-20 bg-gray-50">
-        {/* Core Values Section */}
-
-        <motion.div
-          {...fadeUp}
-          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-        >
-          <SectionTitle
-            title="Our Core Values"
-            subtitle="Guiding principles that shape everything we do"
-            centered
-          />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
-            {[
-              "Collaborate",
-              "Own the Process",
-              "Deliver Results",
-              "Empower Growth",
-            ].map((label, index) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white p-6 rounded-lg shadow-md"
-              >
-                <div className="text-4xl font-bold text-primary mb-2">
-                  {label[0]}
-                </div>
-                <p className="font-medium">{label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
-      {/* What We Do Section */}
-      <section className="py-20 bg-muted">
+      {/* Values Grid */}
+      <section className="py-20 bg-white border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <motion.div {...fadeUp}>
-              <SectionTitle
-                title="What We Do"
-                subtitle="We are passionate about building modern, high-quality digital solutions"
-              />
-            </motion.div>
-            <motion.p {...fadeUp} className="text-lg  text-primary">
-              At CodePlaced, we bring your digital ideas to life with precision,
-              purpose, and a deep understanding of your goals. Whether
-              you&apos;re launching a new venture or scaling an existing
-              product, we offer end-to-end solutions across web and mobile
-              development, UI/UX design, data analytics, and marketing
-              automation.
-              <br />
-              We work closely with you to build custom digital products that
-              don’t just look good — they perform. From intuitive interfaces to
-              backend systems that scale, everything we create is tailored to
-              your brand’s unique needs.
-              <br />
-              Our focus goes beyond aesthetics. We design with intent, integrate
-              data where it matters, and automate the busywork so your business
-              runs smoother, smarter, and faster.
-              <br />
-              When you work with CodePlaced, you&apos;re not just hiring a team
-              — you&apos;re gaining a long-term tech partner invested in your
-              growth.
-            </motion.p>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-foreground">Core Values</h2>
+            <p className="mt-4 text-muted-foreground">How we operate every single day.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Value 1 */}
+            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                <Code2 className="h-6 w-6 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">No Vendor Lock-in</h3>
+              <p className="text-muted-foreground">
+                We build on your cloud, in your repo. You own the code, the IP, and the data. We hate black boxes as much as you do.
+              </p>
+            </div>
+
+            {/* Value 2 */}
+            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                <Zap className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Speed with Rigor</h3>
+              <p className="text-muted-foreground">
+                We use software engineering best practices (CI/CD, version control, testing) for data. Fast doesn't mean breaking things.
+              </p>
+            </div>
+
+            {/* Value 3 */}
+            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                <Users className="h-6 w-6 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Partners, Not Tickets</h3>
+              <p className="text-muted-foreground">
+                We embed with your team via Slack. No throwing requirements over a wall and waiting 2 weeks. We iterate with you.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="py-20 bg-white">
-        <motion.div
-          {...fadeUp}
-          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-        >
-          <SectionTitle
-            title="Our Mission"
-            subtitle="Driving innovation with purpose"
-            centered
-          />
-          <p className="text-lg text-muted-foreground mt-6">
-            To empower businesses and individuals by building smart, scalable,
-            and impactful digital solutions that drive growth, solve real-world
-            problems, and elevate user experiences. At{" "}
-            <strong>CodePlaced</strong>, we strive to bridge the gap between
-            innovation and execution—one line of code at a time.
+      {/* Team / Stats Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Built by Engineers</h2>
+                <p className="text-muted-foreground mb-6">
+                  Our team comes from backgrounds in high-growth startups and enterprise tech. We've seen what works at scale and what crushes innovation.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary" />
+                    <span className="text-foreground">Senior-only talent</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary" />
+                    <span className="text-foreground">US-based timezone alignment</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary" />
+                    <span className="text-foreground">Deep expertise in Modern Data Stack</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="grid grid-cols-2 gap-6">
+                  <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">50+</div>
+                    <div className="text-sm text-muted-foreground">Projects Delivered</div>
+                  </div>
+                  <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">$10M+</div>
+                    <div className="text-sm text-muted-foreground">Revenue Unlocked</div>
+                  </div>
+                  <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                    <div className="text-sm text-muted-foreground">Client Retention</div>
+                  </div>
+                  <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+                    <div className="text-4xl font-bold text-primary mb-2">24h</div>
+                    <div className="text-sm text-muted-foreground">Avg. Response Time</div>
+                  </div>
+              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 bg-slate-900 text-white text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to fix your data foundation?</h2>
+          <p className="text-xl text-slate-300 mb-8">
+            Stop guessing and start building with a team that cares about your long-term success.
           </p>
-        </motion.div>
-      </section>
-
-      {/* Team Section */}
-      {/* <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            title="Our Team"
-            subtitle="Meet the experts behind our success"
-            centered
-          />
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              {
-                name: "Manya Tyagi",
-                role: "CEO & Founder",
-                image: "/images/manya.png",
-              },
-              {
-                name: "Muskan Chaudhary ",
-                role: "Growth & Creative ",
-                image: "/images/muskannewbg.png",
-              },
-              {
-                name: "Prabhjeet",
-                role: " Outreach & Content ",
-                image: "/images/prabhbg.png",
-              },
-              {
-                name: "Tanisha",
-                role: " Outreach & Creative ",
-                image: "/images/tanisha.png",
-              },
-            ].map((member, index) => (
-              <Card
-                key={index}
-                className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="aspect-square relative">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                  <p className="text-gray-600">{member.role}</p>
-                </div>
-              </Card>
-            ))}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+             <Link href="/contact">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white w-full sm:w-auto text-lg h-12 px-8">
+                  Talk to an Engineer
+                </Button>
+             </Link>
+             <Link href="/case-studies">
+                <Button size="lg" variant="outline" className="bg-transparent border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-lg h-12 px-8">
+                  View Case Studies
+                </Button>
+             </Link>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }

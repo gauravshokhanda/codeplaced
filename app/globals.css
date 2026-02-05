@@ -2,38 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Light theme tokens */
-:root {
-  /* Additional hex tokens for custom utilities */
-  --bg: #ffffff;
-  --surface: #ffffff;
-  --surface-muted: #f8fafc; /* slate-50 */
-  --divider: rgba(148, 163, 184, 0.25);
-}
-
 @layer base {
   :root {
-    /* Tailwind CSS variables consumed via hsl(var(--...)) */
-    --background: 0 0% 100%;             /* white */
-    --foreground: 220 15% 20%;           /* slate-800 */
-    --card: 0 0% 100%;                   /* white */
-    --card-foreground: 220 15% 20%;
+    --background: 0 0% 100%;
+    --foreground: 215 28% 17%; /* Slate 900 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 17%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 20%;
-    --primary: 198 73% 23%;              /* #104C66 */
-    --primary-foreground: 0 0% 100%;     /* white text on primary */
-    --secondary: 256 92% 67%;            /* #8B5CF6 */
-    --secondary-foreground: 0 0% 100%;
-    --muted: 220 15% 96%;                /* light surface */
-    --muted-foreground: 220 15% 40%;
-    --accent: 256 92% 67%;
+    --popover-foreground: 215 28% 17%;
+
+    --primary: 201 77% 18%; /* #0B3A53 Deep Teal */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96.1%; /* Slate 100 */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 197 66% 51%; /* #2FA7D6 Electric Cyan */
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 220 15% 90%;               /* light divider */
-    --input: 220 15% 90%;
-    --ring: 198 73% 23%;
-    --radius: 0.75rem;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 201 77% 18%;
+
+    --radius: 1rem; /* 16px */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 197 66% 51%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
@@ -42,18 +71,30 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    /* Ensure solid light background across app */
-    background-color: var(--bg);
+    @apply bg-background text-foreground font-sans antialiased;
   }
 }
 
-.animate-fade-up {
-  animation: fadeUp 0.5s ease-out forwards;
-  opacity: 0;
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
+  }
+
+  .glass-dark {
+    @apply bg-slate-900/70 backdrop-blur-md border border-slate-700/50 shadow-sm;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
 }
 
-@keyframes fadeUp {
+/* Animations */
+@keyframes fade-up {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -64,38 +105,19 @@
   }
 }
 
-.animate-slide-in {
-  animation: slideIn 0.5s ease-out forwards;
-  opacity: 0;
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
 }
 
-@keyframes slideIn {
+@keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateX(-20px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
   }
 }
 
-/* Card utility for consistent surfaces */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--divider);
-  border-radius: var(--radius);
-}
-
-.material-card {
-  @apply rounded-lg transition-all duration-300;
-  background: var(--surface);
-  border: 1px solid var(--divider);
-}
-
-/* Subtle radial/gradient hero background */
-.bg-hero {
-  background-image:
-    radial-gradient(1000px 600px at 70% -20%, rgba(0, 224, 255, 0.15), transparent),
-    linear-gradient(180deg, rgba(139, 92, 246, 0.08), transparent);
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
 }
