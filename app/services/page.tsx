@@ -1,165 +1,167 @@
-import { ShieldCheck, Cloud, BarChart3, Cpu } from "lucide-react";
-import { SectionTitle } from "@/components/ui/section-title";
+"use client";
+
+import { 
+  ShieldCheck, 
+  Cloud, 
+  BarChart3, 
+  Bot, 
+  CheckCircle2, 
+  ArrowRight,
+  Database,
+  Terminal,
+  Cpu,
+  Activity
+} from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function ServicesPage() {
   const pillars = [
     {
-      icon: <ShieldCheck className="h-8 w-8" />,
-      title: "Data Strategy & Governance",
-      value:
-        "Roadmaps, data product strategy, governance, quality, security, spend optimization.",
-      scope: [
-        "Data product roadmap",
-        "Governance & quality (DQ rules)",
-        "Access, security & compliance",
-        "Cost controls & FinOps",
-      ],
-      tooling: ["KPI Contracts", "Catalog", "Lineage", "dbt Docs"],
-      outcomes: ["Time-to-Insight ↓ 45%", "Data Accuracy 99.9%"],
-      cta: { href: "/contact", label: "Request Sample Dashboard" },
-    },
-    {
-      icon: <Cloud className="h-8 w-8" />,
-      title: "Data Engineering & Cloud",
-      value:
-        "Warehouses/lakehouses (Snowflake, BigQuery), ELT (Fivetran/dbt), real-time pipelines.",
-      scope: [
-        "Ingestion (Fivetran)",
-        "Transform (dbt)",
+      id: "strategy",
+      icon: <Database className="h-10 w-10 text-primary" />,
+      title: "Data Platform Implementation",
+      description: "Scalable cloud data stacks that grow with your startup. We implement best-practice Modern Data Stacks.",
+      features: [
+        "Ingestion (Airbyte/Fivetran)",
+        "Transformation (dbt)",
         "Lakehouse architecture",
-        "Streaming & CDC",
+        "Real-time streaming",
+        "Governance & Access Control"
       ],
-      tooling: ["Snowflake", "BigQuery", "Redshift", "Fivetran", "dbt"],
-      outcomes: ["Pipeline Uptime 99.95%", "Build Time ↓ 40%"],
-      cta: { href: "/case-studies", label: "See Architecture Diagram" },
+      tech: ["Snowflake", "BigQuery", "dbt", "Airbyte"],
+      outcome: "Pipeline Uptime 99.95%"
     },
     {
-      icon: <BarChart3 className="h-8 w-8" />,
-      title: "Business Intelligence Dashboards",
-      value:
-        "Executive dashboards, KPI architecture, self-serve, embedded analytics.",
-      scope: [
+      id: "ai",
+      icon: <Bot className="h-10 w-10 text-accent" />,
+      title: "AI-Augmented Delivery & GenAI",
+      description: "Accelerate analytics and automate workflows with custom AI agents and RAG solutions.",
+      features: [
+        "Custom RAG Knowledge Bots",
+        "Automated Analyst Agents",
+        "Internal Tool Integration",
+        "Prompt Engineering",
+        "LLM Fine-tuning"
+      ],
+      tech: ["OpenAI", "LangChain", "Pinecone", "Vercel AI"],
+      outcome: "Support Costs ↓ 60%"
+    },
+    {
+      id: "bi",
+      icon: <BarChart3 className="h-10 w-10 text-primary" />,
+      title: "BI, DW & AI Expert Services",
+      description: "Executive-grade dashboards and expert guidance to answer questions before you ask them.",
+      features: [
         "Executive KPI design",
-        "Semantic layer",
-        "Self-serve BI",
-        "Embedded analytics",
+        "Semantic layer definition",
+        "Self-serve analytics",
+        "Staff Augmentation",
+        "Data Strategy Audits"
       ],
-      tooling: ["Power BI", "Looker", "Tableau", "Mode"],
-      outcomes: ["Adoption ↑", "Report Latency ↓"],
-      cta: { href: "/contact", label: "Request Sample Dashboard" },
+      tech: ["Power BI", "Looker", "Tableau", "Superset"],
+      outcome: "Adoption ↑ 3x"
     },
     {
-      icon: <Cpu className="h-8 w-8" />,
-      title: "Machine Learning & Forecasting",
-      value:
-        "Forecasting, churn/propensity, LTV, personalization, marketing mix modeling.",
-      scope: [
-        "Propensity & churn",
-        "LTV & attribution",
-        "Recommendations",
-        "Forecasting",
+      id: "embedded",
+      icon: <Cpu className="h-10 w-10 text-accent" />,
+      title: "Embedded Analytics",
+      description: "Seamlessly integrate white-labeled analytics into your customer-facing products.",
+      features: [
+        "White-label dashboards",
+        "Custom data visualizations",
+        "Multi-tenant security",
+        "API-first integration",
+        "Performance optimization"
       ],
-      tooling: ["Python", "dbt ML", "Vertex AI", "SageMaker"],
-      outcomes: ["+18% ROAS", "+12% Retention"],
-      cta: { href: "/case-studies", label: "See Case Studies" },
+      tech: ["Embeddable", "Looker Embedded", "Cube.js", "React"],
+      outcome: "New Revenue Streams"
     },
   ];
 
   return (
-    <div className="w-full py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle
-          title="Services"
-          subtitle="Strategy engineering, BI dashboards, and ML — delivered with measurable ROI."
-          centered
-        />
+    <div className="w-full bg-slate-50">
+      {/* Hero */}
+      <section className="relative pt-20 pb-20 md:pt-32 md:pb-32 overflow-hidden bg-white">
+        <div className="absolute inset-0 bg-hero-pattern opacity-50 -z-10" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Badge variant="outline" className="mb-4 bg-primary/5 text-primary border-primary/20">
+             End-to-End Data Solutions
+          </Badge>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
+             Everything You Need to Be <br className="hidden md:block" />
+             <span className="text-primary">Data-Driven & AI-Ready</span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+             From messy spreadsheets to automated pipelines and predictive AI. 
+             We build the infrastructure that powers your growth.
+          </p>
+          <div className="flex justify-center gap-4">
+             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-xl">
+                <Link href="/contact">Get a Proposal</Link>
+             </Button>
+          </div>
+        </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-          {pillars.map((p) => (
-            <div
-              key={p.title}
-              className="card rounded-2xl p-6 hover:shadow-glow transition-shadow"
-            >
-              <div className="text-primary mb-4">{p.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
-              <p className="text-foreground/70 mb-4">{p.value}</p>
-              <ul className="space-y-1 text-foreground/60 mb-4">
-                {p.scope.map((s) => (
-                  <li key={s}>• {s}</li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {p.tooling.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-md px-2 py-1 text-xs border border-[var(--divider)] text-foreground/70"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {p.outcomes.map((o) => (
-                  <span
-                    key={o}
-                    className="rounded-md px-2 py-1 text-xs bg-[var(--surface-muted)] text-foreground/80 border border-[var(--divider)]"
-                  >
-                    {o}
-                  </span>
-                ))}
-              </div>
-              <Link
-                href={p.cta.href}
-                className="rounded-xl px-4 py-2 bg-primary text-[hsl(var(--primary-foreground))] font-medium shadow-glow inline-block"
-              >
-                {p.cta.label}
-              </Link>
+      {/* Services Grid */}
+      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-8">
+          {pillars.map((pillar, index) => (
+            <div key={index} id={pillar.id} className="scroll-mt-24">
+              <Card className="h-full border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                <CardHeader>
+                  <div className="mb-4 p-3 bg-slate-50 rounded-lg w-fit">
+                    {pillar.icon}
+                  </div>
+                  <CardTitle className="text-2xl font-bold">{pillar.title}</CardTitle>
+                  <CardDescription className="text-base mt-2">
+                    {pillar.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div>
+                    <h4 className="font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-3">Capabilities</h4>
+                    <ul className="grid gap-2">
+                      {pillar.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm">
+                          <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-3">Tech Stack</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {pillar.tech.map((t, i) => (
+                        <Badge key={i} variant="secondary" className="bg-slate-100 text-slate-700 hover:bg-slate-200">
+                          {t}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+                <CardFooter className="border-t border-slate-100 pt-6 bg-slate-50/50">
+                  <div className="flex items-center justify-between w-full">
+                    <div className="text-sm font-medium text-primary">
+                      {pillar.outcome}
+                    </div>
+                    <Button variant="ghost" className="text-primary hover:text-primary/80 p-0 hover:bg-transparent group" asChild>
+                      <Link href="/contact">
+                        Learn more <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </div>
+                </CardFooter>
+              </Card>
             </div>
           ))}
         </div>
-
-        {/* Trust / Tooling strip */}
-        <div className="mt-16">
-          <div className="grid grid-cols-2 sm:grid-cols-6 gap-4 text-xs text-foreground/60">
-            {["AWS", "Azure", "GCP", "Snowflake", "BigQuery", "dbt"].map(
-              (p) => (
-                <div
-                  key={p}
-                  className="border border-[var(--divider)] rounded-md px-3 py-2 text-center"
-                >
-                  {p}
-                </div>
-              )
-            )}
-          </div>
-        </div>
-
-        {/* CTA strip */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold mb-3">
-            Get a 7-Day Data Health Check
-          </h3>
-          <p className="text-foreground/70 mb-6">
-            Identify quick wins across governance, pipelines, and BI. Actionable
-            in one week.
-          </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Link
-              href="/contact"
-              className="rounded-xl px-5 py-3 bg-primary text-[hsl(var(--primary-foreground))] font-medium shadow-glow"
-            >
-              Book a Data Audit
-            </Link>
-            <Link
-              href="/case-studies"
-              className="rounded-xl px-5 py-3 border border-[var(--divider)] text-foreground"
-            >
-              See Case Studies
-            </Link>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

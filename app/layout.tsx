@@ -1,17 +1,16 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter, IBM_Plex_Sans, JetBrains_Mono } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { Toaster } from "@/components/ui/toaster"
 
-const inter = Inter({ subsets: ['latin'] });
-const plex = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400','500','600','700'] });
-const jetbrains = JetBrains_Mono({ subsets: ['latin'], weight: ['400','600','700'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'CodePlaced — Enterprise Data Analytics & BI Agency',
+  title: 'CodePlaced — AI-Ready Data Systems by Senior Engineers',
   description:
-    'Operationalize decisions from your data. Strategy, engineering, BI dashboards, and ML — delivered with measurable ROI.',
+    'We build reliable pipelines, dashboards, and practical AI copilots for startups and SMBs. Fixed scope, senior engineers, security-first.',
   icons: {
     icon: '/images/favicon/favicon.ico',
   },
@@ -23,13 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${plex.className}`}>
+    <html lang="en" className={inter.variable}>
+      <body className="font-sans antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-primary/20 selection:text-primary">
         <Header />
-        <main className="min-h-screen pt-16">
+        <main className="flex-grow pt-20">
           {children}
         </main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
