@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -19,8 +18,17 @@ import {
   ChevronRight,
   Quote,
   Play,
+  Terminal,
+  Cpu,
+  FileText,
+  HelpCircle,
+  Plus,
+  Minus,
+  Shield,
+  Search,
+  PieChart,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -31,8 +39,11 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useState } from "react";
 
 export default function Home() {
+  const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
+
   const fadeUp = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
@@ -47,56 +58,89 @@ export default function Home() {
     viewport: { once: true },
   };
 
-  return (
-    <div className="w-full overflow-x-hidden">
-      {/* 
-        =============================================
-        HERO SECTION
-        =============================================
-      */}
-      <section className="relative pt-20 pb-32 md:pt-32 md:pb-48 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-hero-pattern -z-10" />
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-accent/5 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl -z-10" />
+  const faqs = [
+    {
+      q: "Do you really deliver in 2-4 weeks?",
+      a: "Yes. We use a modular 'lego-block' architecture of pre-built data connectors and transformation logic. We don't reinvent the wheel; we assemble proven systems customized to your data.",
+    },
+    {
+      q: "Do I need an internal data team?",
+      a: "No. We build the system to run on autopilot. We provide documentation and a handover period so your existing ops or technical team can manage it, or we can offer a lightweight maintenance retainer.",
+    },
+    {
+      q: "Is my data secure?",
+      a: "Absolutely. We build directly in your cloud environment (AWS, GCP, Azure) or use secure, SOC2-compliant modern data stack tools. We never store your data on our own servers.",
+    },
+    {
+      q: "What if I have messy spreadsheet data?",
+      a: "That's our specialty. We build the pipelines to clean, normalize, and validate your data automatically, turning 'messy spreadsheets' into a structured warehouse.",
+    },
+    {
+      q: "How does the fixed pricing work?",
+      a: "We scope the deliverables upfront (e.g., '3 dashboards, 5 pipelines, 1 AI bot'). You pay a flat fee for that scope. No hourly billing surprises.",
+    },
+    {
+      q: "Can you build custom AI agents?",
+      a: "Yes. We build RAG (Retrieval-Augmented Generation) bots that can search your internal docs/data to answer employee or customer questions securely.",
+    },
+    {
+      q: "What tech stack do you use?",
+      a: "We use modern standards: Fivetran/Airbyte for ingestion, Snowflake/BigQuery/Postgres for warehousing, dbt for transformation, and Retool/Streamlit/Next.js for interfaces.",
+    },
+    {
+      q: "How do we get started?",
+      a: "Book a 7-Day Readiness Audit. We'll analyze your current state and give you a detailed roadmap and fixed-price quote for the full build.",
+    },
+  ];
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Hero Content */}
+  return (
+    <div className="w-full overflow-x-hidden bg-white text-slate-900 font-sans">
+      <section className="relative pt-24 pb-32 md:pt-32 md:pb-40 overflow-hidden bg-slate-50">
+        {/* Abstract Background */}
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute left-0 bottom-0 w-[400px] h-[400px] bg-indigo-100/50 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp} className="text-left">
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-8">
                 <Badge
                   variant="outline"
-                  className="bg-white/50 backdrop-blur-sm border-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium"
+                  className="bg-white border-slate-200 text-slate-700 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm"
                 >
-                  <Users className="w-3 h-3 mr-1" /> Senior Engineers Only
+                  <Users className="w-3.5 h-3.5 mr-1.5 text-primary" />
+                  Senior Engineers Only
                 </Badge>
                 <Badge
                   variant="outline"
-                  className="bg-white/50 backdrop-blur-sm border-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium"
+                  className="bg-white border-slate-200 text-slate-700 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm"
                 >
-                  <Clock className="w-3 h-3 mr-1" /> 2-4 Week Delivery
+                  <Clock className="w-3.5 h-3.5 mr-1.5 text-primary" />
+                  Delivery in 2–4 Weeks
                 </Badge>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-[1.1]">
-                AI-Ready Data Systems. <br className="hidden lg:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                  Built by Senior Engineers.
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
+                Data Systems That Scale. <br className="hidden lg:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-600">
+                  Delivered in Weeks.
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl leading-relaxed">
+              <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-xl leading-relaxed">
                 We turn messy data into reliable pipelines, executive
-                dashboards, and practical AI copilots. Fixed scope, direct
-                access, no junior handoffs.
+                dashboards, and practical AI copilots. Fixed scope. Direct
+                access. No junior handoffs.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white rounded-xl h-14 px-8 text-base font-semibold shadow-lg shadow-primary/20"
+                  className="bg-primary hover:bg-primary/90 text-white rounded-xl h-14 px-8 text-base font-semibold shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]"
                 >
                   <Link href="/contact">
                     Book 7-Day Audit
@@ -107,127 +151,97 @@ export default function Home() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="rounded-xl h-14 px-8 text-base bg-white/50 backdrop-blur-sm border-primary/20 hover:bg-white/80"
+                  className="rounded-xl h-14 px-8 text-base border-slate-200 bg-white hover:bg-slate-50 hover:text-primary transition-colors"
                 >
-                  <Link href="/case-studies">See Case Studies</Link>
+                  <Link href="#recent-work">View Case Studies</Link>
                 </Button>
               </div>
 
-              <div className="mt-8 flex items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex -space-x-2">
-                  {/* Placeholder avatars or icons */}
-                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs border-2 border-white">
-                    S
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white text-xs border-2 border-white">
-                    M
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-slate-500 flex items-center justify-center text-white text-xs border-2 border-white">
-                    D
-                  </div>
+              <div className="mt-10 flex items-center gap-4 text-sm text-slate-500 font-medium">
+                <div className="flex items-center gap-1">
+                  <ShieldCheck className="w-4 h-4 text-emerald-500" />
+                  <span>Security-First Architecture</span>
                 </div>
-                <p>Trusted by founders & Ops leaders</p>
+                <div className="w-1 h-1 bg-slate-300 rounded-full" />
+                <div>SOC2 Compliant Stack</div>
               </div>
             </motion.div>
 
-            {/* Hero Visual - Dashboard Mock */}
+            {/* Hero Visual - Abstract Tech */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
               className="relative hidden lg:block"
             >
-              <div className="relative z-10 bg-white/80 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl overflow-hidden p-2">
-                <div className="bg-slate-50 rounded-xl overflow-hidden border border-slate-200/60">
-                  {/* Mock Browser Header */}
-                  <div className="h-8 bg-white border-b border-slate-100 flex items-center px-4 gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-amber-400/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-emerald-400/80"></div>
-                    <div className="ml-4 h-4 w-64 bg-slate-100 rounded-full"></div>
+              <div className="relative z-10 bg-white rounded-2xl border border-slate-200 shadow-2xl overflow-hidden">
+                <div className="bg-slate-50/50 border-b border-slate-100 p-4 flex items-center justify-between">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-slate-300" />
+                    <div className="w-3 h-3 rounded-full bg-slate-300" />
+                    <div className="w-3 h-3 rounded-full bg-slate-300" />
                   </div>
-                  {/* Mock Dashboard Content */}
-                  <div className="p-6 grid grid-cols-3 gap-4">
-                    {/* Stats Cards */}
-                    <div className="col-span-1 bg-white p-4 rounded-lg shadow-sm border border-slate-100">
-                      <div className="text-xs text-muted-foreground mb-1">
-                        Total Revenue
-                      </div>
-                      <div className="text-2xl font-bold text-primary">
-                        $124,500
-                      </div>
-                      <div className="text-xs text-emerald-500 flex items-center mt-1">
-                        <ArrowRight className="w-3 h-3 rotate-[-45deg] mr-1" />{" "}
-                        +12% vs last month
-                      </div>
-                    </div>
-                    <div className="col-span-1 bg-white p-4 rounded-lg shadow-sm border border-slate-100">
-                      <div className="text-xs text-muted-foreground mb-1">
-                        Active Users
-                      </div>
-                      <div className="text-2xl font-bold text-primary">
-                        8,432
-                      </div>
-                      <div className="text-xs text-emerald-500 flex items-center mt-1">
-                        <ArrowRight className="w-3 h-3 rotate-[-45deg] mr-1" />{" "}
-                        +5% vs last month
-                      </div>
-                    </div>
-                    <div className="col-span-1 bg-white p-4 rounded-lg shadow-sm border border-slate-100">
-                      <div className="text-xs text-muted-foreground mb-1">
-                        Pipeline Health
-                      </div>
-                      <div className="text-2xl font-bold text-accent">
-                        98.5%
-                      </div>
-                      <div className="text-xs text-muted-foreground mt-1">
-                        Updated 2m ago
-                      </div>
-                    </div>
+                  <div className="text-xs font-mono text-slate-400">
+                    pipeline_status_monitor.tsx
+                  </div>
+                </div>
+                <div className="p-8 font-mono text-sm leading-relaxed">
+                  <div className="flex gap-4 mb-4">
+                    <span className="text-slate-300">01</span>
+                    <span className="text-purple-600">import</span>{" "}
+                    <span className="text-slate-700">{"{ AutoPipeline }"}</span>{" "}
+                    <span className="text-purple-600">from</span>{" "}
+                    <span className="text-green-600">
+                      &apos;@codeplaced/core&apos;
+                    </span>
+                    ;
+                  </div>
+                  <div className="flex gap-4 mb-4">
+                    <span className="text-slate-300">02</span>
+                    <span className="text-slate-700"></span>
+                  </div>
+                  <div className="flex gap-4 mb-4">
+                    <span className="text-slate-300">03</span>
+                    <span className="text-blue-600">const</span>{" "}
+                    <span className="text-yellow-600">clientData</span>{" "}
+                    <span className="text-slate-700">=</span>{" "}
+                    <span className="text-blue-600">await</span>{" "}
+                    <span className="text-slate-700">AutoPipeline.sync(</span>
+                    <span className="text-green-600">&apos;Shopify&apos;</span>
+                    <span className="text-slate-700">);</span>
+                  </div>
+                  <div className="flex gap-4 mb-4">
+                    <span className="text-slate-300">04</span>
+                    <span className="text-blue-600">if</span>{" "}
+                    <span className="text-slate-700">
+                      (clientData.status ==={" "}
+                    </span>
+                    <span className="text-green-600">&apos;ready&apos;</span>
+                    <span className="text-slate-700">) {"{"}</span>
+                  </div>
+                  <div className="flex gap-4 mb-4">
+                    <span className="text-slate-300">05</span>
+                    <span className="text-slate-700 pl-4">
+                      AI_Agent.generateReport(clientData);
+                    </span>
+                  </div>
+                  <div className="flex gap-4 mb-4">
+                    <span className="text-slate-300">06</span>
+                    <span className="text-slate-700">{"}"}</span>
+                  </div>
 
-                    {/* Chart Area */}
-                    <div className="col-span-2 bg-white p-4 rounded-lg shadow-sm border border-slate-100 h-48 flex items-end justify-between px-2 pb-2 gap-2">
-                      {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
-                        <div
-                          key={i}
-                          className="w-full bg-primary/10 rounded-t-sm hover:bg-primary/20 transition-colors relative group"
-                        >
-                          <div
-                            className="absolute bottom-0 w-full bg-primary rounded-t-sm transition-all duration-500"
-                            style={{ height: `${h}%` }}
-                          ></div>
-                        </div>
-                      ))}
+                  <div className="mt-8 p-4 bg-slate-900 rounded-lg border-l-4 border-emerald-500 shadow-lg">
+                    <div className="flex items-center gap-2 text-emerald-400 mb-1">
+                      <CheckCircle2 className="w-4 h-4" />
+                      <span className="font-bold">System Optimized</span>
                     </div>
-
-                    {/* AI Chat Mock */}
-                    <div className="col-span-1 bg-slate-900 text-white p-4 rounded-lg shadow-lg border border-slate-800 flex flex-col justify-between">
-                      <div className="space-y-3">
-                        <div className="flex gap-2">
-                          <div className="w-6 h-6 rounded-full bg-accent flex-shrink-0 flex items-center justify-center text-[10px]">
-                            AI
-                          </div>
-                          <div className="text-[10px] bg-slate-800 p-2 rounded-r-lg rounded-bl-lg">
-                            Revenue is up 12% due to the new Q3 pricing model.
-                          </div>
-                        </div>
-                        <div className="flex gap-2 flex-row-reverse">
-                          <div className="text-[10px] bg-primary p-2 rounded-l-lg rounded-br-lg">
-                            Forecast for next month?
-                          </div>
-                        </div>
-                      </div>
-                      <div className="mt-2 relative">
-                        <div className="h-6 w-full bg-slate-800 rounded-full opacity-50"></div>
-                        <div className="absolute right-1 top-1 w-4 h-4 bg-accent rounded-full"></div>
-                      </div>
+                    <div className="text-slate-400 text-xs">
+                      Latency reduced by 40%. Data integrity verified.
                     </div>
                   </div>
                 </div>
               </div>
-              {/* Decorative Blur */}
-              <div className="absolute -top-12 -right-12 w-64 h-64 bg-accent/20 rounded-full blur-3xl -z-10 animate-pulse" />
+              <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl -z-10" />
             </motion.div>
           </div>
         </div>
@@ -235,499 +249,647 @@ export default function Home() {
 
       {/* 
         =============================================
-        SOCIAL PROOF SECTION
+        PACKAGES SECTION (Moved Up)
         =============================================
       */}
-      <section className="py-12 border-y border-border bg-slate-50/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-8">
-            Trusted by teams in Education • E-commerce • Operations
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-            {[
-              { label: "Reporting Speed", val: "40–60% Faster" },
-              { label: "Pipeline Reliability", val: "99.9% Uptime" },
-              { label: "Data Integrity", val: "Single Source of Truth" },
-              { label: "Cost Optimization", val: "Reduced Cloud Spend" },
-            ].map((stat, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 bg-white p-4 rounded-xl border border-slate-100 shadow-sm"
-              >
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <CheckCircle2 className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="font-bold text-foreground">{stat.val}</div>
-                  <div className="text-xs text-muted-foreground">
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 
-        =============================================
-        PRODUCTIZED PACKAGES SECTION
-        =============================================
-      */}
-      <section className="py-24 bg-white relative">
+      <section
+        id="services"
+        className="py-24 bg-white relative border-b border-slate-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Fixed Scope. Transparent Pricing. No Surprises.
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Services Designed for ROI
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We deliver high-impact data systems in weeks, not months. Choose
-              the package that fits your stage.
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              High-impact data systems delivered in weeks. Choose your path to
+              modern data maturity.
             </p>
           </motion.div>
 
-          <motion.div
-            variants={staggerChildren}
-            initial="initial"
-            whileInView="whileInView"
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {/* Package 1 */}
-            <Card className="relative border-slate-200 shadow-sm flex flex-col hover:border-primary/50 transition-colors">
-              <CardHeader>
-                <CardTitle className="text-xl">7-Day Readiness Audit</CardTitle>
-                <CardDescription className="text-base mt-2">
-                  For founders who need to know their data quality and AI
-                  potential before investing.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow space-y-4">
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      Data quality scorecard
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      Pipeline risk & cost analysis
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      AI readiness checklist
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      30-day execution roadmap
-                    </span>
-                  </li>
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <Button asChild className="w-full bg-primary text-lg h-12">
-                  <Link href="/contact">Book Audit</Link>
-                </Button>
-              </CardFooter>
-            </Card>
-
-            {/* Package 2 */}
-            <Card className="flex flex-col border-border/60 hover:border-primary/50 transition-colors">
-              <CardHeader>
-                <CardTitle className="text-xl">
-                  Executive Dashboard System
-                </CardTitle>
-                <CardDescription className="mt-2">
-                  A centralized single-source-of-truth for your leadership team.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow space-y-4">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                  <Clock className="w-4 h-4" /> <span>14-Day Delivery</span>
-                </div>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      Automated data pipelines
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      Live KPI Dashboards (BI)
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      dbt transformation layer
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      Documentation & Handover
-                    </span>
-                  </li>
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <Button asChild className="w-full bg-primary text-lg h-12">
-                  <Link href="/contact">Get Started</Link>
-                </Button>
-              </CardFooter>
-            </Card>
-
-            {/* Package 3 */}
-            <Card className="flex flex-col border-slate-200 shadow-sm hover:border-primary/50 transition-colors">
-              <CardHeader>
-                <CardTitle className="text-xl">AI Ops Pilot</CardTitle>
-                <CardDescription className="mt-2">
-                  Deploy a practical AI agent to automate analysis or support.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow space-y-4">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                  <Clock className="w-4 h-4" /> <span>2-3 Weeks Delivery</span>
-                </div>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      Custom RAG Knowledge Bot
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      Or Automated Analyst Agent
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      Integration with Slack/Teams
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground">
-                      Prompt Engineering & Testing
-                    </span>
-                  </li>
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <Button asChild className="w-full bg-primary text-lg h-12">
-                  <Link href="/contact">Explore AI Pilot</Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 
-        =============================================
-        CAPABILITIES SECTION
-        =============================================
-      */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <motion.div {...fadeUp}>
-              <h2 className="text-3xl font-bold mb-6">What We Build</h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                We don&apos;t just &quot;consult&quot;. We ship production-grade
-                code and infrastructure that your team can own.
-              </p>
-
-              <div className="space-y-6">
-                {[
-                  {
-                    icon: Database,
-                    title: "Modern Data Pipelines",
-                    desc: "Robust ELT pipelines using Airbyte, dbt, and Snowflake/BigQuery.",
-                  },
-                  {
-                    icon: LayoutDashboard,
-                    title: "Executive BI Dashboards",
-                    desc: "Clear, fast, and interactive dashboards in PowerBI, Tableau, or Looker.",
-                  },
-                  {
-                    icon: Bot,
-                    title: "AI Copilots & Agents",
-                    desc: "Custom LLM applications securely connected to your internal knowledge base.",
-                  },
-                  {
-                    icon: ShieldCheck,
-                    title: "Governance & Quality",
-                    desc: "Automated testing, documentation, and access controls built-in.",
-                  },
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-sm">
-                      <item.icon className="w-6 h-6 text-primary" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
+            {/* Featured Card 1: 7-Day Readiness Audit */}
+            <div className="lg:col-span-2 relative p-8 rounded-[20px] border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all group overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-indigo-500 to-purple-500" />
+              <div className="flex flex-col lg:flex-row gap-8 items-start relative z-10">
+                <div className="flex-1 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-primary/10 rounded-xl text-primary">
+                      <CheckCircle2 className="w-8 h-8" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground">
-                        {item.title}
+                      <h3 className="text-2xl font-bold text-slate-900">
+                        7-Day Data + AI Readiness Audit
                       </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {item.desc}
+                      <p className="text-slate-500 font-medium">
+                        Clear roadmap to ROI in just one week.
                       </p>
                     </div>
                   </div>
-                ))}
-              </div>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary to-accent p-1 shadow-2xl rotate-3">
-                <div className="bg-slate-900 w-full h-full rounded-xl p-6 overflow-hidden relative">
-                  {/* Abstract Code/Data Visual */}
-                  <div className="space-y-3 font-mono text-xs text-blue-200/80 opacity-80">
-                    <p>
-                      <span className="text-pink-400">SELECT</span>{" "}
-                      date_trunc(&apos;week&apos;, created_at){" "}
-                      <span className="text-pink-400">AS</span> week,
-                    </p>
-                    <p className="pl-4">
-                      COUNT(DISTINCT user_id){" "}
-                      <span className="text-pink-400">AS</span> active_users,
-                    </p>
-                    <p className="pl-4">
-                      SUM(revenue) <span className="text-pink-400">AS</span>{" "}
-                      total_revenue
-                    </p>
-                    <p>
-                      <span className="text-pink-400">FROM</span>{" "}
-                      prod.transactions
-                    </p>
-                    <p>
-                      <span className="text-pink-400">WHERE</span> status =
-                      &apos;completed&apos;
-                    </p>
-                    <p>
-                      <span className="text-pink-400">GROUP BY</span> 1
-                    </p>
-                    <p>
-                      <span className="text-pink-400">ORDER BY</span> 1 DESC;
-                    </p>
-                  </div>
-                  <div className="mt-8 pt-8 border-t border-slate-700/50">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-                      <span className="text-xs text-emerald-400">
-                        Pipeline Active • 204 rows processed
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                      <span className="text-slate-700">
+                        Fixed scope, 1 week delivery, KPI contract
                       </span>
                     </div>
-                    <div className="h-32 bg-slate-800/50 rounded-lg border border-slate-700/50 flex items-end justify-between p-2 gap-1">
-                      {[20, 40, 30, 70, 50, 90, 60, 80, 40, 60, 50, 70].map(
-                        (h, i) => (
-                          <div
-                            key={i}
-                            className="w-full bg-blue-500/40 rounded-sm"
-                            style={{ height: `${h}%` }}
-                          ></div>
-                        ),
-                      )}
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                      <span className="text-slate-700">
+                        Pipeline risk assessment & AI readiness checklist
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                      <span className="text-slate-700">
+                        30-day actionable roadmap
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
+                      Fixed Scope
+                    </span>
+                    <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
+                      High Impact
+                    </span>
+                  </div>
+
+                  <Button
+                    asChild
+                    className="bg-primary hover:bg-primary/90 text-white rounded-lg px-8 py-6 text-base font-semibold shadow-lg shadow-primary/20"
+                  >
+                    <Link href="/contact">Book Audit</Link>
+                  </Button>
+                </div>
+
+                {/* Micro-visual: Timeline/Checklist */}
+                <div className="w-full lg:w-1/3 bg-slate-50 rounded-xl border border-slate-100 p-6 self-stretch flex flex-col justify-center">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 opacity-50">
+                      <div className="w-4 h-4 rounded-full border-2 border-slate-300" />
+                      <div className="h-2 w-24 bg-slate-200 rounded-full" />
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-4 h-4 rounded-full border-2 border-primary bg-primary" />
+                      <div className="h-2 w-32 bg-primary/20 rounded-full" />
+                    </div>
+                    <div className="flex items-center gap-3 opacity-50">
+                      <div className="w-4 h-4 rounded-full border-2 border-slate-300" />
+                      <div className="h-2 w-20 bg-slate-200 rounded-full" />
                     </div>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+            </div>
 
-      {/* 
-        =============================================
-        HOW WE WORK (TIMELINE)
-        =============================================
-      */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">
-              Delivery in Weeks, Not Months
-            </h2>
-            <p className="text-muted-foreground">
-              Our 4-week sprint model ensures rapid value.
-            </p>
-          </div>
+            {/* Card 2: Data Platform & Pipelines */}
+            <div className="relative p-8 rounded-[20px] border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all group overflow-hidden flex flex-col">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-50" />
 
-          <div className="relative">
-            {/* Line */}
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-slate-100 -translate-y-1/2 hidden md:block" />
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-              {[
-                {
-                  step: "01",
-                  title: "Audit & Plan",
-                  desc: "We map your data landscape and define KPIs.",
-                },
-                {
-                  step: "02",
-                  title: "Build Foundation",
-                  desc: "Set up pipelines and data warehouse.",
-                },
-                {
-                  step: "03",
-                  title: "Deliver UI/AI",
-                  desc: "Build dashboards and AI agents.",
-                },
-                {
-                  step: "04",
-                  title: "Harden & Handoff",
-                  desc: "Docs, training, and full transfer.",
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm relative z-10 md:text-center group hover:-translate-y-1 transition-transform"
-                >
-                  <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200 text-lg font-bold flex items-center justify-center text-primary mb-4 md:mx-auto group-hover:bg-primary group-hover:text-white transition-colors">
-                    {item.step}
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+              <div className="flex items-start justify-between mb-6">
+                <div className="p-3 bg-blue-50 rounded-xl text-blue-600">
+                  <Database className="w-6 h-6" />
                 </div>
-              ))}
+                {/* Micro-visual: Nodes */}
+                <div className="flex gap-1">
+                  <div className="w-2 h-2 rounded-full bg-blue-200" />
+                  <div className="w-2 h-2 rounded-full bg-blue-400" />
+                  <div className="w-2 h-2 rounded-full bg-blue-600" />
+                </div>
+              </div>
+
+              <h3 className="text-xl font-bold text-slate-900 mb-1">
+                Data Platform & Pipelines
+              </h3>
+              <p className="text-slate-500 text-sm mb-6">
+                Build a solid foundation for scale.
+              </p>
+
+              <ul className="space-y-3 mb-8 flex-1">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    Production-grade pipelines
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    Automated observability
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    Cloud cost optimization
+                  </span>
+                </li>
+              </ul>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
+                  Scalable
+                </span>
+                <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
+                  Reliable
+                </span>
+              </div>
+
+              <Button
+                asChild
+                variant="outline"
+                className="w-full border-slate-200 hover:border-primary hover:text-primary"
+              >
+                <Link href="/services#architecture">See Architecture</Link>
+              </Button>
+            </div>
+
+            {/* Card 3: Executive Dashboards */}
+            <div className="relative p-8 rounded-[20px] border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all group overflow-hidden flex flex-col">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-500 opacity-50" />
+
+              <div className="flex items-start justify-between mb-6">
+                <div className="p-3 bg-emerald-50 rounded-xl text-emerald-600">
+                  <BarChart3 className="w-6 h-6" />
+                </div>
+                {/* Micro-visual: Bar chart */}
+                <div className="flex gap-1 items-end h-6">
+                  <div className="w-1.5 h-3 bg-emerald-200 rounded-sm" />
+                  <div className="w-1.5 h-5 bg-emerald-400 rounded-sm" />
+                  <div className="w-1.5 h-4 bg-emerald-300 rounded-sm" />
+                </div>
+              </div>
+
+              <h3 className="text-xl font-bold text-slate-900 mb-1">
+                Executive Dashboards & KPI System
+              </h3>
+              <p className="text-slate-500 text-sm mb-6">
+                Turn data into decisions instantly.
+              </p>
+
+              <ul className="space-y-3 mb-8 flex-1">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    Robust semantic layer
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    Real-time executive dashboards
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    Automated alert systems
+                  </span>
+                </li>
+              </ul>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
+                  Actionable
+                </span>
+                <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
+                  Real-time
+                </span>
+              </div>
+
+              <Button
+                asChild
+                variant="outline"
+                className="w-full border-slate-200 hover:border-primary hover:text-primary"
+              >
+                <Link href="/contact">Request Sample Dashboard</Link>
+              </Button>
+            </div>
+
+            {/* Card 4: AI Copilots */}
+            <div className="relative p-8 rounded-[20px] border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all group overflow-hidden flex flex-col">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500 opacity-50" />
+
+              <div className="flex items-start justify-between mb-6">
+                <div className="p-3 bg-purple-50 rounded-xl text-purple-600">
+                  <Bot className="w-6 h-6" />
+                </div>
+                {/* Micro-visual: Chat */}
+                <div className="relative">
+                  <div className="w-6 h-4 bg-purple-200 rounded-lg rounded-bl-none" />
+                  <div className="absolute -right-2 top-3 w-6 h-4 bg-purple-400 rounded-lg rounded-tr-none" />
+                </div>
+              </div>
+
+              <h3 className="text-xl font-bold text-slate-900 mb-1">
+                AI Copilots (RAG + Agents)
+              </h3>
+              <p className="text-slate-500 text-sm mb-6">
+                Secure AI that knows your business.
+              </p>
+
+              <ul className="space-y-3 mb-8 flex-1">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-purple-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    Governed knowledge bot (RAG)
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-purple-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    Specialized analyst agents
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-purple-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    Workflow automation
+                  </span>
+                </li>
+              </ul>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
+                  Secure
+                </span>
+                <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
+                  Automated
+                </span>
+              </div>
+
+              <Button
+                asChild
+                variant="outline"
+                className="w-full border-slate-200 hover:border-primary hover:text-primary"
+              >
+                <Link href="/services#ai">Explore AI Pilot</Link>
+              </Button>
+            </div>
+
+            {/* Card 5: Embedded Analytics (Optional) */}
+            <div className="relative p-8 rounded-[20px] border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all group overflow-hidden flex flex-col">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-amber-500 opacity-50" />
+
+              <div className="flex items-start justify-between mb-6">
+                <div className="p-3 bg-orange-50 rounded-xl text-orange-600">
+                  <PieChart className="w-6 h-6" />
+                </div>
+                {/* Micro-visual: Embed */}
+                <div className="w-8 h-6 border-2 border-orange-200 rounded-md flex items-center justify-center">
+                  <div className="w-4 h-4 border border-orange-400 rounded-sm" />
+                </div>
+              </div>
+
+              <h3 className="text-xl font-bold text-slate-900 mb-1">
+                Embedded Analytics
+              </h3>
+              <p className="text-slate-500 text-sm mb-6">
+                Monetize your data with white-label dashboards.
+              </p>
+
+              <ul className="space-y-3 mb-8 flex-1">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    White-label dashboards
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    Granular permissions
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0" />
+                  <span className="text-slate-700 text-sm">
+                    High-performance caching
+                  </span>
+                </li>
+              </ul>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
+                  Monetizable
+                </span>
+                <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
+                  Seamless
+                </span>
+              </div>
+
+              <Button
+                asChild
+                variant="outline"
+                className="w-full border-slate-200 hover:border-primary hover:text-primary"
+              >
+                <Link href="/services#embedded">See Embedded Options</Link>
+              </Button>
             </div>
           </div>
 
-          <div className="mt-12 text-center">
-            <Badge
-              variant="secondary"
-              className="px-4 py-2 text-sm bg-accent/10 text-primary border-accent/20"
-            >
-              <Zap className="w-4 h-4 mr-2" /> You work directly with senior
-              engineers
-            </Badge>
+          {/* Tech Stack Strip */}
+          <div className="border-t border-slate-100 pt-10">
+            <p className="text-center text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6">
+              Works with
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+              {[
+                "Snowflake",
+                "BigQuery",
+                "dbt",
+                "Airbyte/Fivetran",
+                "Looker/PowerBI",
+                "OpenAI/LangChain",
+              ].map((tech) => (
+                <span key={tech} className="text-lg font-bold text-slate-400">
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* 
         =============================================
-        TESTIMONIALS SECTION
+        RECENT WORK (Moved Up)
         =============================================
       */}
-      <section className="py-24 bg-slate-50 border-t border-slate-200">
+      <section id="recent-work" className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Trusted by Data Leaders</h2>
-            <p className="text-muted-foreground">
-              Don&apos;t just take our word for it. Here&apos;s what our
-              partners say.
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              Recent Work
+            </h2>
+            <p className="text-lg text-slate-600">
+              Real problems. Real engineering. Real outcomes.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote:
-                  "They transformed our messy spreadsheets into a professional data warehouse in just 3 weeks. The executive dashboard is now the first thing I check every morning.",
-                author: "Sarah Jenkins",
-                role: "COO, TechFlow",
-                initials: "SJ",
-              },
-              {
-                quote:
-                  "Finally, a team that understands both engineering and business. The AI agent they built for our support team cut response times by 40%.",
-                author: "Michael Chen",
-                role: "CTO, GrowthScale",
-                initials: "MC",
-              },
-              {
-                quote:
-                  "We were drowning in manual reporting. The automated pipelines they set up saved us hiring two full-time analysts. Worth every penny.",
-                author: "Jessica Williams",
-                role: "VP of Operations, DataDrive",
-                initials: "JW",
-              },
-            ].map((testimonial, i) => (
-              <Card key={i} className="bg-white border-slate-100 shadow-sm">
-                <CardContent className="pt-6">
-                  <Quote className="w-8 h-8 text-primary/20 mb-4" />
-                  <p className="text-muted-foreground mb-6 italic">
-                    &quot;{testimonial.quote}&quot;
+            {/* Case Study 1 */}
+            <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+              <div className="flex items-center gap-2 mb-6">
+                <Badge
+                  variant="secondary"
+                  className="bg-blue-100 text-blue-700"
+                >
+                  Education
+                </Badge>
+                <span className="text-xs text-slate-400 font-mono">
+                  CASE-094
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">
+                Enrollment Analytics Engine
+              </h3>
+              <p className="text-slate-600 text-sm mb-6">
+                <span className="font-semibold text-slate-900">Problem:</span>{" "}
+                Client couldn&apos;t track lead-to-enrollment conversion across
+                4 different systems.
+              </p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+                  <p className="text-sm text-slate-600">
+                    Unified Salesforce, Canvas, and Marketing data into
+                    BigQuery.
                   </p>
-                  <div className="flex items-center gap-3">
-                    <Avatar>
-                      <AvatarFallback className="bg-primary/10 text-primary">
-                        {testimonial.initials}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <div className="font-semibold text-sm text-foreground">
-                        {testimonial.author}
-                      </div>
-                      <div className="text-xs text-muted-foreground">
-                        {testimonial.role}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+                  <p className="text-sm text-slate-600">
+                    Built automated daily reports for Admissions VP.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-lg">
+                <div className="text-emerald-700 font-bold text-2xl">+15%</div>
+                <div className="text-emerald-600 text-xs uppercase tracking-wide font-semibold">
+                  Retention Rate Improvement
+                </div>
+              </div>
+            </div>
+
+            {/* Case Study 2 */}
+            <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+              <div className="flex items-center gap-2 mb-6">
+                <Badge
+                  variant="secondary"
+                  className="bg-purple-100 text-purple-700"
+                >
+                  E-commerce
+                </Badge>
+                <span className="text-xs text-slate-400 font-mono">
+                  CASE-112
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">
+                Profitability & COGS System
+              </h3>
+              <p className="text-slate-600 text-sm mb-6">
+                <span className="font-semibold text-slate-900">Problem:</span>{" "}
+                Shopify brand was scaling ads but losing money due to unknown
+                return costs.
+              </p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+                  <p className="text-sm text-slate-600">
+                    Modeled exact unit economics per SKU using dbt.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+                  <p className="text-sm text-slate-600">
+                    Created &ldquo;Kill/Scale&rdquo; ad dashboard.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-lg">
+                <div className="text-emerald-700 font-bold text-2xl">-20%</div>
+                <div className="text-emerald-600 text-xs uppercase tracking-wide font-semibold">
+                  Ad Spend Waste Reduced
+                </div>
+              </div>
+            </div>
+
+            {/* Case Study 3 */}
+            <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+              <div className="flex items-center gap-2 mb-6">
+                <Badge
+                  variant="secondary"
+                  className="bg-orange-100 text-orange-700"
+                >
+                  Ops Tech
+                </Badge>
+                <span className="text-xs text-slate-400 font-mono">
+                  CASE-087
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-3">
+                Pipeline Reliability Audit
+              </h3>
+              <p className="text-slate-600 text-sm mb-6">
+                <span className="font-semibold text-slate-900">Problem:</span>{" "}
+                Critical reporting pipelines were failing 3x/week, causing
+                leadership mistrust.
+              </p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+                  <p className="text-sm text-slate-600">
+                    Refactored legacy Airflow DAGs and implemented testing.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+                  <p className="text-sm text-slate-600">
+                    Added alerting and data quality checks.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-lg">
+                <div className="text-emerald-700 font-bold text-2xl">99.9%</div>
+                <div className="text-emerald-600 text-xs uppercase tracking-wide font-semibold">
+                  Uptime Achieved
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* 
         =============================================
-        VIDEO TESTIMONIALS SECTION
+        WHAT WE BUILD
         =============================================
       */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">
-              See What Our Clients Say
-            </h2>
-            <p className="text-muted-foreground">
-              Hear directly from the founders and engineers we&apos;ve worked
-              with.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-slate-900">
+                What We Build
+              </h2>
+              <p className="text-lg text-slate-600 mb-8">
+                We don&apos;t just &quot;consult&quot;. We ship production-grade
+                assets that you own forever.
+              </p>
+              <div className="grid grid-cols-1 gap-6">
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                    <Database className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900">
+                      Modern Data Stack
+                    </h3>
+                    <p className="text-sm text-slate-600 mt-1">
+                      Snowflake, BigQuery, Postgres. Clean, documented schemas.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600 shrink-0">
+                    <Bot className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900">
+                      Practical AI Agents
+                    </h3>
+                    <p className="text-sm text-slate-600 mt-1">
+                      RAG bots that know your internal docs. Automated support
+                      triage.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+                    <BarChart3 className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900">
+                      Live BI Dashboards
+                    </h3>
+                    <p className="text-sm text-slate-600 mt-1">
+                      Self-serve metrics for executives. No more &quot;asking
+                      data team&quot;.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl rotate-2 opacity-10"></div>
+              <div className="bg-slate-900 rounded-2xl p-8 text-white shadow-2xl relative z-10 font-mono text-sm">
+                <div className="flex gap-2 mb-6">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                </div>
+                <div className="space-y-4 opacity-90">
+                  <p>
+                    <span className="text-purple-400">➜</span>{" "}
+                    <span className="text-blue-400">~/project</span> git commit
+                    -m &quot;feat: deploy automated pipeline&quot;
+                  </p>
+                  <p>
+                    <span className="text-purple-400">➜</span>{" "}
+                    <span className="text-blue-400">~/project</span> npm run
+                    build:production
+                  </p>
+                  <p className="text-emerald-400">✔ Build completed in 2.4s</p>
+                  <p className="text-emerald-400">
+                    ✔ All tests passed (142/142)
+                  </p>
+                  <p className="text-emerald-400">✔ Deploying to edge...</p>
+                  <p className="animate-pulse">_</p>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {[1, 2].map((_, i) => (
+      {/* 
+        =============================================
+        HOW WE WORK (Timeline)
+        =============================================
+      */}
+      <section className="py-24 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              How We Work
+            </h2>
+            <p className="text-lg text-slate-600">Simple. Transparent. Fast.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              {
+                title: "1. Audit",
+                desc: "We map your data & risks in 7 days.",
+              },
+              { title: "2. Scope", desc: "Fixed price quote & roadmap." },
+              { title: "3. Build", desc: "2-3 week sprint to ship assets." },
+              { title: "4. Handover", desc: "Training & documentation." },
+            ].map((step, i) => (
               <div
                 key={i}
-                className="group relative aspect-video bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 shadow-sm"
+                className="relative p-6 bg-white rounded-xl shadow-sm border border-slate-200"
               >
-                <div className="absolute inset-0 flex items-center justify-center z-10">
-                  <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm group-hover:scale-110 transition-transform cursor-pointer">
-                    <Play
-                      className="w-6 h-6 text-primary ml-1"
-                      fill="currentColor"
-                    />
-                  </div>
+                <div className="text-4xl font-bold text-slate-100 mb-4">
+                  0{i + 1}
                 </div>
-                <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-slate-900/10 transition-colors" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white">
-                  <div className="font-bold text-lg">
-                    Client Success Story {i + 1}
-                  </div>
-                  <div className="text-sm opacity-90">
-                    How we scaled their data infra
-                  </div>
-                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-slate-600">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -739,34 +901,59 @@ export default function Home() {
         SECURITY SECTION
         =============================================
       */}
-      <section className="py-20 bg-slate-900 text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] opacity-10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-              <ShieldCheck className="w-8 h-8 text-emerald-400" />
-              Security First. Always.
-            </h2>
-            <p className="text-slate-300 text-lg mb-10 leading-relaxed">
-              We operate with a &quot;least privilege&quot; mindset. We
-              don&apos;t train AI on your data without consent, and we design
-              systems that keep your sensitive information locked down.
-            </p>
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-slate-900 rounded-3xl p-8 md:p-16 text-white overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
-              {[
-                "Least Privilege Access Control",
-                "Read-Only First Policy",
-                "Data Retention & Deletion Policy",
-                "No AI Training on Client Data",
-                "Audit Logs Included",
-                "Optional NDA",
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <Lock className="w-4 h-4 text-emerald-400" />
-                  <span className="text-slate-300 text-sm">{item}</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10 items-center">
+              <div>
+                <ShieldCheck className="w-12 h-12 text-emerald-400 mb-6" />
+                <h2 className="text-3xl font-bold mb-6">
+                  Your Data Stays Yours.
+                </h2>
+                <p className="text-slate-300 mb-8 text-lg">
+                  We build directly in your cloud environment. We don&apos;t
+                  store your customer data. Everything is documented, compliant,
+                  and handed over to you.
+                </p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                    <span>SOC2 Compliant Tooling</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                    <span>Role-Based Access Control (RBAC)</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                    <span>Zero-Retention Policy</span>
+                  </div>
                 </div>
-              ))}
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <div className="font-mono text-sm space-y-4">
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-slate-400">Access Level</span>
+                    <span className="text-emerald-400">Least Privilege</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-slate-400">Encryption</span>
+                    <span className="text-emerald-400">AES-256 (At Rest)</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-2">
+                    <span className="text-slate-400">Audit Logs</span>
+                    <span className="text-emerald-400">Enabled</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Data Residency</span>
+                    <span className="text-emerald-400">
+                      Your VPC (US-East-1)
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -774,92 +961,96 @@ export default function Home() {
 
       {/* 
         =============================================
-        CASE STUDIES PREVIEW
+        CLIENT VIDEOS (Placeholders)
+        =============================================
+      */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-slate-900 mb-12">
+            See What Our Clients Say
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[1, 2].map((i) => (
+              <div
+                key={i}
+                className="group relative aspect-video bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all"
+              >
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform cursor-pointer">
+                    <Play
+                      className="w-8 h-8 text-primary ml-1"
+                      fill="currentColor"
+                    />
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-slate-900/10 transition-colors" />
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-left bg-gradient-to-t from-black/80 to-transparent text-white">
+                  <div className="font-bold text-xl mb-1">
+                    Client Success Story {i}
+                  </div>
+                  <div className="text-sm opacity-90">
+                    Scaling data infrastructure for high-growth SaaS
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 
+        =============================================
+        MEET THE TEAM
+        =============================================
+      */}
+
+      {/* 
+        =============================================
+        FAQ
         =============================================
       */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-3xl font-bold mb-2">Recent Work</h2>
-              <p className="text-muted-foreground">
-                Real outcomes for real businesses.
-              </p>
-            </div>
-            <Link
-              href="/case-studies"
-              className="hidden md:flex items-center text-primary font-medium hover:underline"
-            >
-              View all case studies <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "EdTech Platform",
-                desc: "Centralized student data from 5 sources into BigQuery.",
-                stat: "Saved 20hrs/week",
-                stack: ["BigQuery", "dbt", "Looker"],
-              },
-              {
-                title: "Shopify Brand",
-                desc: "Forecast inventory needs with 90% accuracy using AI.",
-                stat: "15% less stockout",
-                stack: ["Snowflake", "Python", "Streamlit"],
-              },
-              {
-                title: "SaaS Ops Team",
-                desc: "Unified customer health score across Support & Sales.",
-                stat: "3x faster renewals",
-                stack: ["Postgres", "Hightouch", "Slack"],
-              },
-            ].map((caseStudy, i) => (
-              <Card
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <div
                 key={i}
-                className="hover:shadow-lg transition-shadow border-slate-100 bg-slate-50/50"
+                className="border border-slate-200 rounded-xl overflow-hidden"
               >
-                <CardHeader>
-                  <CardTitle className="text-lg">{caseStudy.title}</CardTitle>
-                  <div className="flex gap-2 mt-2">
-                    {caseStudy.stack.map((s) => (
-                      <Badge
-                        key={s}
-                        variant="secondary"
-                        className="text-[10px] h-5"
-                      >
-                        {s}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {caseStudy.desc}
-                  </p>
-                  <div className="font-bold text-primary flex items-center gap-2">
-                    <Zap className="w-4 h-4" /> {caseStudy.stat}
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Link
-                    href="/case-studies"
-                    className="text-sm font-medium text-foreground hover:text-primary flex items-center"
-                  >
-                    Read more <ChevronRight className="w-4 h-4" />
-                  </Link>
-                </CardFooter>
-              </Card>
+                <button
+                  onClick={() =>
+                    setActiveQuestion(activeQuestion === i ? null : i)
+                  }
+                  className="w-full flex items-center justify-between p-6 text-left bg-white hover:bg-slate-50 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-8">
+                    {faq.q}
+                  </span>
+                  {activeQuestion === i ? (
+                    <Minus className="w-5 h-5 text-primary shrink-0" />
+                  ) : (
+                    <Plus className="w-5 h-5 text-slate-400 shrink-0" />
+                  )}
+                </button>
+                <AnimatePresence>
+                  {activeQuestion === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden bg-slate-50"
+                    >
+                      <div className="p-6 pt-0 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             ))}
-          </div>
-
-          <div className="mt-8 text-center md:hidden">
-            <Link
-              href="/case-studies"
-              className="text-primary font-medium hover:underline"
-            >
-              View all case studies
-            </Link>
           </div>
         </div>
       </section>
@@ -869,35 +1060,45 @@ export default function Home() {
         FINAL CTA
         =============================================
       */}
-      <section className="py-24 bg-primary text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Stop Guessing. Start Knowing.
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-slate-900 -z-20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-900/20 -z-10" />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 rounded-l-full blur-3xl" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+            Stop guessing. Start building.
           </h2>
-          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
-            Book your 7-Day Data Readiness Audit today. We&apos;ll identify your
-            risks, map your opportunities, and give you a roadmap.
+          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+            Get a crystal-clear roadmap for your data & AI infrastructure in
+            just 7 days.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button
               asChild
               size="lg"
-              className="bg-white text-primary hover:bg-blue-50 h-14 px-10 text-lg font-bold rounded-xl"
+              className="bg-primary hover:bg-primary/90 text-white h-14 px-10 text-lg rounded-xl shadow-xl shadow-primary/20"
             >
-              <Link href="/contact">Get Your Audit</Link>
+              <Link href="/contact">Book 7-Day Audit</Link>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="border-blue-300 text-white hover:bg-white/10 h-14 px-10 text-lg rounded-xl bg-transparent"
+              className="h-14 px-10 text-lg rounded-xl border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
             >
-              <Link href="/contact">See a Sample Report</Link>
+              <Link href="#recent-work">See Recent Work</Link>
             </Button>
           </div>
-          <p className="mt-6 text-sm text-blue-200 opacity-80">
-            No commitment required. 100% money-back guarantee on the audit.
-          </p>
+          <div className="mt-8 flex justify-center gap-6 text-sm text-slate-400">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Fixed Scope
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" /> 100%
+              Money-Back Guarantee
+            </div>
+          </div>
         </div>
       </section>
     </div>

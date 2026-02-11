@@ -1,98 +1,93 @@
 "use client";
 
-import { 
-  ShoppingBag, 
-  GraduationCap, 
-  Megaphone, 
-  Landmark, 
+import {
+  ShoppingBag,
+  GraduationCap,
+  Megaphone,
+  Landmark,
   ArrowRight,
-  TrendingUp,
-  Users,
-  LineChart,
-  ShieldCheck
+  Scale,
+  Building2,
+  Activity,
+  Factory,
+  Home,
+  Laptop,
+  CheckCircle2,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function IndustriesPage() {
-  const industries = [
+  const workedWith = [
     {
-      id: "martech",
+      id: "edu-marketing",
       icon: <Megaphone className="h-10 w-10 text-primary" />,
-      title: "MarTech & AdTech",
-      description: "Optimize ad spend and personalize customer journeys with granular attribution modeling.",
-      challenges: [
-        "Data siloed across ad platforms",
-        "Attribution accuracy issues",
-        "Real-time bidding latency",
-        "Privacy compliance (GDPR/CCPA)"
-      ],
-      solutions: [
-        "Unified Identity Graph",
-        "Multi-touch Attribution",
-        "Real-time ROAS Dashboards",
-        "Server-side Tracking"
-      ],
-      outcome: "ROAS ↑ 35%"
-    },
-    {
-      id: "edutech",
-      icon: <GraduationCap className="h-10 w-10 text-accent" />,
-      title: "EduTech & Learning",
-      description: "Personalize learning paths and predict student outcomes with engagement analytics.",
-      challenges: [
-        "Student churn prediction",
-        "Content efficacy measurement",
-        "Scalable personalization",
-        "LMS data integration"
-      ],
-      solutions: [
-        "Learning Analytics Warehouse",
-        "Adaptive Learning Engines",
-        "Student 360 View",
-        "Engagement Scoring"
-      ],
-      outcome: "Retention ↑ 20%"
-    },
-    {
-      id: "retail",
-      icon: <ShoppingBag className="h-10 w-10 text-primary" />,
-      title: "Retail & E-Commerce",
-      description: "Drive sales with inventory optimization and hyper-personalized recommendations.",
-      challenges: [
-        "Inventory forecasting",
-        "Customer lifetime value calculation",
-        "Supply chain visibility",
-        "Omnichannel data unification"
-      ],
-      solutions: [
-        "Demand Forecasting Models",
-        "Customer Segmentation",
-        "Market Basket Analysis",
-        "Real-time Inventory Sync"
-      ],
-      outcome: "Inventory Costs ↓ 15%"
+      title: "Education, Marketing & Advertising",
+      client: "GET MY COURSE",
+      description: "Optimizing ad spend and educational content delivery.",
     },
     {
       id: "fintech",
       icon: <Landmark className="h-10 w-10 text-accent" />,
-      title: "FinTech & Financial Services",
-      description: "Ensure compliance and detect fraud while delivering personalized financial insights.",
-      challenges: [
-        "Fraud detection latency",
-        "Regulatory reporting",
-        "Data security & privacy",
-        "Transaction volume scaling"
-      ],
-      solutions: [
-        "Real-time Fraud Detection",
-        "Automated Compliance Reporting",
-        "Secure Data Clean Rooms",
-        "Personalized Financial Health Scores"
-      ],
-      outcome: "Fraud Losses ↓ 40%"
+      title: "Financial Firms",
+      client: "JS ACCOUNTING",
+      description: "Streamlining financial data and reporting.",
+    },
+    {
+      id: "law",
+      icon: <Scale className="h-10 w-10 text-primary" />,
+      title: "Law Firms",
+      client: "LISINKI LAW FIRM",
+      description: "Data management for legal operations.",
+    },
+    {
+      id: "infrastructure",
+      icon: <Building2 className="h-10 w-10 text-accent" />,
+      title: "Infrastructure",
+      client: "Amalfia Acquisitions",
+      description: "Project and asset data analytics.",
+    },
+  ];
+
+  const targetIndustries = [
+    {
+      id: "healthcare",
+      icon: <Activity className="h-8 w-8 text-rose-500" />,
+      title: "Healthcare & Life Sciences",
+      focus: ["Analytics", "AI Diagnostics", "Operations Optimization"],
+    },
+    {
+      id: "retail",
+      icon: <ShoppingBag className="h-8 w-8 text-blue-500" />,
+      title: "Retail & E-commerce",
+      focus: ["Customer Insights", "Demand Forecasting", "Personalization"],
+    },
+    {
+      id: "manufacturing",
+      icon: <Factory className="h-8 w-8 text-amber-500" />,
+      title: "Manufacturing & Supply Chain",
+      focus: ["Predictive Maintenance", "Process Automation"],
+    },
+    {
+      id: "real-estate",
+      icon: <Home className="h-8 w-8 text-green-500" />,
+      title: "Real Estate & Construction",
+      focus: ["Project Analytics", "Cost Optimization"],
+    },
+    {
+      id: "tech",
+      icon: <Laptop className="h-8 w-8 text-purple-500" />,
+      title: "Technology & SaaS",
+      focus: ["Product Analytics", "AI-driven Decision Support"],
     },
   ];
 
@@ -102,101 +97,135 @@ export default function IndustriesPage() {
       <section className="relative pt-20 pb-20 md:pt-32 md:pb-32 overflow-hidden bg-white">
         <div className="absolute inset-0 bg-hero-pattern opacity-50 -z-10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="outline" className="mb-4 bg-primary/5 text-primary border-primary/20">
-             Vertical Expertise
+          <Badge
+            variant="outline"
+            className="mb-4 bg-primary/5 text-primary border-primary/20"
+          >
+            Vertical Expertise
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
-             Tailored Solutions for <br className="hidden md:block" />
-             <span className="text-primary">Your Industry</span>
+            Industries We Serve
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-             We understand the unique data challenges and opportunities in your sector.
-             Proven architectures that deliver value from day one.
+            From proven success stories to future-ready solutions across
+            sectors.
           </p>
           <div className="flex justify-center gap-4">
-             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-xl">
-                <Link href="/contact">Discuss Your Use Case</Link>
-             </Button>
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white rounded-xl"
+            >
+              <Link href="/contact">Discuss Your Industry</Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Industries Grid */}
+      {/* Worked With Section */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-8">
-          {industries.map((industry, index) => (
-            <div key={index} id={industry.id} className="scroll-mt-24">
-              <Card className="h-full border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                <CardHeader>
-                  <div className="mb-4 p-3 bg-slate-50 rounded-lg w-fit">
-                    {industry.icon}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-slate-900">
+            Industries We Have Worked With
+          </h2>
+          <p className="mt-4 text-lg text-slate-600">
+            Trusted by leading companies to solve their data challenges.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {workedWith.map((industry, index) => (
+            <Card
+              key={index}
+              className="border-slate-200 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+            >
+              <CardHeader>
+                <div className="mb-4 p-3 bg-slate-50 rounded-lg w-fit mx-auto">
+                  {industry.icon}
+                </div>
+                <CardTitle className="text-xl font-bold text-center h-14 flex items-center justify-center">
+                  {industry.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <div className="mb-4">
+                  <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    Client
+                  </span>
+                  <div className="font-bold text-lg text-primary mt-1">
+                    {industry.client}
                   </div>
-                  <CardTitle className="text-2xl font-bold">{industry.title}</CardTitle>
-                  <CardDescription className="text-base mt-2">
-                    {industry.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div>
-                    <h4 className="font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-3 text-red-500/80">Challenges</h4>
-                    <ul className="grid gap-2">
-                      {industry.challenges.map((challenge, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <span className="text-red-400 font-bold">•</span>
-                          <span>{challenge}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-3 text-primary">Our Solutions</h4>
-                    <ul className="grid gap-2">
-                      {industry.solutions.map((solution, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm">
-                          <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
-                          <span>{solution}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-                <CardFooter className="border-t border-slate-100 pt-6 bg-slate-50/50">
-                  <div className="flex items-center justify-between w-full">
-                    <div className="text-sm font-medium text-primary">
-                      {industry.outcome}
-                    </div>
-                    <Button variant="ghost" className="text-primary hover:text-primary/80 p-0 hover:bg-transparent group" asChild>
-                      <Link href="/contact">
-                        View Case Study <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    </Button>
-                  </div>
-                </CardFooter>
-              </Card>
-            </div>
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </section>
-    </div>
-  );
-}
 
-// Helper component for check icon
-function CheckCircle2({ className }: { className?: string }) {
-  return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-      className={className}
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="m9 12 2 2 4-4" />
-    </svg>
+      {/* Target Industries Section */}
+      <section className="py-20 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900">
+              Industries We Target
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Bringing our expertise to new frontiers.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {targetIndustries.map((industry, index) => (
+              <Card
+                key={index}
+                id={industry.id}
+                className="border-slate-100 shadow-sm hover:shadow-md transition-all scroll-mt-28"
+              >
+                <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2">
+                  <div className="p-2 bg-slate-50 rounded-md">
+                    {industry.icon}
+                  </div>
+                  <CardTitle className="text-lg font-bold">
+                    {industry.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mt-4">
+                    {industry.focus.map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-center gap-2 text-sm text-slate-600"
+                      >
+                        <CheckCircle2 className="h-4 w-4 text-primary/60" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-slate-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">
+            Don&apos;t See Your Industry?
+          </h2>
+          <p className="text-lg text-slate-300 mb-8">
+            Our data engineering and AI methodologies are industry-agnostic.
+            Let&apos;s discuss how we can tailor our solutions to your specific
+            needs.
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="bg-white text-slate-900 hover:bg-slate-100"
+          >
+            <Link href="/contact">Get in Touch</Link>
+          </Button>
+        </div>
+      </section>
+    </div>
   );
 }

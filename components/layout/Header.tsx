@@ -24,13 +24,26 @@ import {
   BookOpen,
   Video,
   BarChart2,
+  BarChart3,
+  LayoutDashboard,
+  Eraser,
+  LineChart,
+  Workflow,
+  Terminal,
   Briefcase,
   Phone,
   MessageSquare,
   User,
   ArrowRight,
+  Scale,
+  Building2,
+  ShoppingBag,
+  Factory,
+  Home,
+  Laptop,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -44,6 +57,7 @@ import {
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const router = useRouter();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -86,7 +100,7 @@ const Header = () => {
                     <NavigationMenuLink
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        "bg-transparent",
+                        "bg-transparent hover:bg-primary hover:text-white",
                       )}
                     >
                       Home
@@ -96,76 +110,87 @@ const Header = () => {
 
                 {/* Services Mega Menu */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent">
+                  <NavigationMenuTrigger className="bg-transparent data-[state=open]:bg-primary data-[state=open]:text-white hover:bg-primary hover:text-white">
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="w-[900px] p-6 grid grid-cols-12 gap-6 bg-white">
-                      {/* Column 1: Main Challenges */}
+                      {/* Column 1: Data Services */}
                       <div className="col-span-5 space-y-4">
                         <h4 className="font-bold text-base mb-2 text-foreground">
-                          What&apos;s Your Main Data Challenge?
+                          Data & Analytics
                         </h4>
                         <ul className="grid gap-3">
                           <ListItem
-                            href="/services#strategy"
-                            title="Data Platform Implementation"
+                            href="/services#analytics-reporting"
+                            title="Data Analytics & Reporting"
+                            icon={
+                              <BarChart3 className="h-5 w-5 text-primary" />
+                            }
+                          >
+                            Automated reporting & custom metrics
+                          </ListItem>
+                          <ListItem
+                            href="/services#bi-dashboards"
+                            title="BI & Dashboards"
+                            icon={
+                              <LayoutDashboard className="h-5 w-5 text-accent" />
+                            }
+                          >
+                            Interactive dashboards & insights
+                          </ListItem>
+                          <ListItem
+                            href="/services#data-engineering"
+                            title="Data Engineering"
                             icon={<Database className="h-5 w-5 text-primary" />}
                           >
-                            Cloud Data Stack Implementation
+                            Robust pipelines & warehousing
                           </ListItem>
                           <ListItem
-                            href="/services#ai"
-                            title="AI-Augmented Delivery"
-                            icon={<Brain className="h-5 w-5 text-accent" />}
+                            href="/services#data-cleaning"
+                            title="Data Cleaning"
+                            icon={<Eraser className="h-5 w-5 text-accent" />}
                           >
-                            AI-accelerated analytics
-                          </ListItem>
-                          <ListItem
-                            href="/services#bi"
-                            title="BI, DW & AI Expert Services"
-                            icon={<Code className="h-5 w-5 text-primary" />}
-                          >
-                            Expert guidance & Staff Augmentation
-                          </ListItem>
-                          <ListItem
-                            href="/services#ai"
-                            title="Generative AI Solutions"
-                            icon={<Activity className="h-5 w-5 text-accent" />}
-                          >
-                            Custom LLM & RAG Agents
+                            Transformation & quality assurance
                           </ListItem>
                         </ul>
                       </div>
 
-                      {/* Column 2: Featured Service */}
+                      {/* Column 2: AI & Strategy */}
                       <div className="col-span-4 border-l border-slate-100 pl-6">
-                        <h4 className="font-bold text-base mb-4 text-foreground">
-                          Featured Service
+                        <h4 className="font-bold text-base mb-2 text-foreground">
+                          AI & Strategy
                         </h4>
-                        <div className="group relative rounded-lg border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md transition-all">
-                          <div className="aspect-video w-full bg-slate-200 relative">
-                            {/* Placeholder for chart/image */}
-                            <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                              <BarChart className="h-12 w-12" />
-                            </div>
-                          </div>
-                          <div className="p-4">
-                            <h5 className="font-semibold mb-1 group-hover:text-primary transition-colors">
-                              Embedded Analytics
-                            </h5>
-                            <p className="text-xs text-muted-foreground mb-3">
-                              Want to embed analytics into your product?
-                            </p>
-                            <span className="text-xs font-medium text-primary flex items-center">
-                              Learn more <ArrowRight className="ml-1 h-3 w-3" />
-                            </span>
-                          </div>
-                          <Link
-                            href="/services#embedded"
-                            className="absolute inset-0"
-                          />
-                        </div>
+                        <ul className="grid gap-3">
+                          <ListItem
+                            href="/services#ai-ml"
+                            title="AI & Machine Learning"
+                            icon={<Brain className="h-5 w-5 text-primary" />}
+                          >
+                            Custom models & solutions
+                          </ListItem>
+                          <ListItem
+                            href="/services#predictive-analytics"
+                            title="Predictive Analytics"
+                            icon={<LineChart className="h-5 w-5 text-accent" />}
+                          >
+                            Forecasting & trend analysis
+                          </ListItem>
+                          <ListItem
+                            href="/services#process-optimization"
+                            title="Process Optimization"
+                            icon={<Workflow className="h-5 w-5 text-primary" />}
+                          >
+                            AI-powered efficiency
+                          </ListItem>
+                          <ListItem
+                            href="/services#data-strategy"
+                            title="Data Strategy"
+                            icon={<Terminal className="h-5 w-5 text-accent" />}
+                          >
+                            Consulting & roadmapping
+                          </ListItem>
+                        </ul>
                       </div>
 
                       {/* Column 3: Quick Links */}
@@ -200,73 +225,98 @@ const Header = () => {
 
                 {/* Industries Mega Menu */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent">
+                  <NavigationMenuTrigger
+                    className="bg-transparent data-[state=open]:bg-primary data-[state=open]:text-white hover:bg-primary hover:text-white cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      router.push("/industries");
+                    }}
+                  >
                     Industries
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="w-[900px] p-6 grid grid-cols-12 gap-6 bg-white">
                       <div className="col-span-5 space-y-4">
                         <h4 className="font-bold text-base mb-2 text-foreground">
-                          Industry Solutions
+                          Industries We Work With
                         </h4>
                         <ul className="grid gap-3">
                           <ListItem
-                            href="/industries#martech"
-                            title="MarTech"
-                            icon={<Activity className="h-5 w-5 text-primary" />}
-                          >
-                            Customer journey insights
-                          </ListItem>
-                          <ListItem
-                            href="/industries#edutech"
-                            title="EduTech"
+                            href="/industries#edu-marketing"
+                            title="Education & Marketing"
                             icon={
-                              <GraduationCap className="h-5 w-5 text-accent" />
+                              <GraduationCap className="h-5 w-5 text-primary" />
                             }
                           >
-                            Educational analytics
-                          </ListItem>
-                          <ListItem
-                            href="/industries#retail"
-                            title="Ecommerce Retail Analytics"
-                            icon={<Box className="h-5 w-5 text-primary" />}
-                          >
-                            Retail data insights
+                            GET MY COURSE - Optimizing ad spend
                           </ListItem>
                           <ListItem
                             href="/industries#fintech"
-                            title="FinTech"
+                            title="Financial Firms"
                             icon={<Landmark className="h-5 w-5 text-accent" />}
                           >
-                            Financial data platforms
+                            JS ACCOUNTING - Financial reporting
+                          </ListItem>
+                          <ListItem
+                            href="/industries#law"
+                            title="Law Firms"
+                            icon={<Scale className="h-5 w-5 text-primary" />}
+                          >
+                            LISINKI LAW FIRM - Legal ops data
+                          </ListItem>
+                          <ListItem
+                            href="/industries#infrastructure"
+                            title="Infrastructure"
+                            icon={<Building2 className="h-5 w-5 text-accent" />}
+                          >
+                            Amalfia Acquisitions - Project analytics
                           </ListItem>
                         </ul>
                       </div>
 
                       <div className="col-span-4 border-l border-slate-100 pl-6">
                         <h4 className="font-bold text-base mb-4 text-foreground">
-                          Featured Success Story
+                          Target Industries
                         </h4>
-                        <div className="group relative rounded-lg border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md transition-all">
-                          <div className="aspect-video w-full bg-slate-900 relative flex items-center justify-center">
-                            <span className="text-white font-bold text-xl">
-                              PLEO
-                            </span>
-                          </div>
-                          <div className="p-4">
-                            <p className="text-sm font-medium mb-2 line-clamp-2">
-                              Pleo Uses CodePlaced to Scale And Modernise Its
-                              Data Platform
-                            </p>
-                            <span className="text-xs text-muted-foreground">
-                              FinTech
-                            </span>
-                          </div>
-                          <Link
-                            href="/case-studies"
-                            className="absolute inset-0"
-                          />
-                        </div>
+                        <ul className="grid gap-3">
+                          <ListItem
+                            href="/industries#healthcare"
+                            title="Healthcare"
+                            icon={<Activity className="h-5 w-5 text-primary" />}
+                          >
+                            Analytics & AI Diagnostics
+                          </ListItem>
+                          <ListItem
+                            href="/industries#retail"
+                            title="Retail & E-commerce"
+                            icon={
+                              <ShoppingBag className="h-5 w-5 text-accent" />
+                            }
+                          >
+                            Insights & Personalization
+                          </ListItem>
+                          <ListItem
+                            href="/industries#manufacturing"
+                            title="Manufacturing"
+                            icon={<Factory className="h-5 w-5 text-primary" />}
+                          >
+                            Predictive Maintenance
+                          </ListItem>
+                          <ListItem
+                            href="/industries#real-estate"
+                            title="Real Estate"
+                            icon={<Home className="h-5 w-5 text-accent" />}
+                          >
+                            Cost Optimization
+                          </ListItem>
+                          <ListItem
+                            href="/industries#tech"
+                            title="Tech & SaaS"
+                            icon={<Laptop className="h-5 w-5 text-primary" />}
+                          >
+                            Product Analytics
+                          </ListItem>
+                        </ul>
                       </div>
 
                       <div className="col-span-3 border-l border-slate-100 pl-6">
@@ -300,7 +350,7 @@ const Header = () => {
 
                 {/* Partners Mega Menu */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent">
+                  <NavigationMenuTrigger className="bg-transparent data-[state=open]:bg-primary data-[state=open]:text-white hover:bg-primary hover:text-white">
                     Partners
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -401,7 +451,7 @@ const Header = () => {
 
                 {/* Resources Mega Menu */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent">
+                  <NavigationMenuTrigger className="bg-transparent data-[state=open]:bg-primary data-[state=open]:text-white hover:bg-primary hover:text-white">
                     Resources
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -534,25 +584,60 @@ const Header = () => {
               <div className="font-medium text-lg text-slate-900">Services</div>
               <div className="pl-4 space-y-2 flex flex-col">
                 <Link
-                  href="/services#strategy"
+                  href="/services#analytics-reporting"
                   className="text-slate-600 py-1"
                   onClick={() => setIsOpen(false)}
                 >
-                  Data Platform Implementation
+                  Data Analytics & Reporting
                 </Link>
                 <Link
-                  href="/services#ai"
+                  href="/services#bi-dashboards"
                   className="text-slate-600 py-1"
                   onClick={() => setIsOpen(false)}
                 >
-                  AI-Augmented Delivery
+                  BI & Dashboards
                 </Link>
                 <Link
-                  href="/services#bi"
+                  href="/services#data-engineering"
                   className="text-slate-600 py-1"
                   onClick={() => setIsOpen(false)}
                 >
-                  BI & Expert Services
+                  Data Engineering
+                </Link>
+                <Link
+                  href="/services#data-cleaning"
+                  className="text-slate-600 py-1"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Data Cleaning
+                </Link>
+                <Link
+                  href="/services#ai-ml"
+                  className="text-slate-600 py-1"
+                  onClick={() => setIsOpen(false)}
+                >
+                  AI & Machine Learning
+                </Link>
+                <Link
+                  href="/services#predictive-analytics"
+                  className="text-slate-600 py-1"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Predictive Analytics
+                </Link>
+                <Link
+                  href="/services#process-optimization"
+                  className="text-slate-600 py-1"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Process Optimization
+                </Link>
+                <Link
+                  href="/services#data-strategy"
+                  className="text-slate-600 py-1"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Data Strategy
                 </Link>
               </div>
             </div>
