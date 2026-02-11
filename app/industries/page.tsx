@@ -32,28 +32,24 @@ export default function IndustriesPage() {
       id: "edu-marketing",
       icon: <Megaphone className="h-10 w-10 text-primary" />,
       title: "Education, Marketing & Advertising",
-      client: "GET MY COURSE",
       description: "Optimizing ad spend and educational content delivery.",
     },
     {
       id: "fintech",
       icon: <Landmark className="h-10 w-10 text-accent" />,
       title: "Financial Firms",
-      client: "JS ACCOUNTING",
       description: "Streamlining financial data and reporting.",
     },
     {
       id: "law",
       icon: <Scale className="h-10 w-10 text-primary" />,
       title: "Law Firms",
-      client: "LISINKI LAW FIRM",
       description: "Data management for legal operations.",
     },
     {
       id: "infrastructure",
       icon: <Building2 className="h-10 w-10 text-accent" />,
       title: "Infrastructure",
-      client: "Amalfia Acquisitions",
       description: "Project and asset data analytics.",
     },
   ];
@@ -147,13 +143,8 @@ export default function IndustriesPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <div className="mb-4">
-                  <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                    Client
-                  </span>
-                  <div className="font-bold text-lg text-primary mt-1">
-                    {industry.client}
-                  </div>
+                <div className="mb-4 text-slate-600">
+                  {industry.description}
                 </div>
               </CardContent>
             </Card>

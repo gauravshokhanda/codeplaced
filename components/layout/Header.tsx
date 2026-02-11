@@ -248,28 +248,28 @@ const Header = () => {
                               <GraduationCap className="h-5 w-5 text-primary" />
                             }
                           >
-                            GET MY COURSE - Optimizing ad spend
+                            Optimizing ad spend
                           </ListItem>
                           <ListItem
                             href="/industries#fintech"
                             title="Financial Firms"
                             icon={<Landmark className="h-5 w-5 text-accent" />}
                           >
-                            JS ACCOUNTING - Financial reporting
+                            Financial reporting
                           </ListItem>
                           <ListItem
                             href="/industries#law"
                             title="Law Firms"
                             icon={<Scale className="h-5 w-5 text-primary" />}
                           >
-                            LISINKI LAW FIRM - Legal ops data
+                            Legal ops data
                           </ListItem>
                           <ListItem
                             href="/industries#infrastructure"
                             title="Infrastructure"
                             icon={<Building2 className="h-5 w-5 text-accent" />}
                           >
-                            Amalfia Acquisitions - Project analytics
+                            Project analytics
                           </ListItem>
                         </ul>
                       </div>
