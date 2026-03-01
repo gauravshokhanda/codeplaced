@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -541,35 +542,48 @@ export default function Home() {
                 </div>
                 <TabsContent value="data-platform" className="mt-6">
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                    {["Snowflake", "BigQuery", "Postgres", "DuckDB"].map(
-                      (tech) => (
-                        <div
-                          key={tech}
-                          className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
-                        >
-                          <Database className="w-5 h-5 text-blue-500" />
-                          <span>{tech}</span>
-                        </div>
-                      ),
-                    )}
+                    {[
+                      { name: "Snowflake", icon: "/icons/snowflake.png" },
+                      { name: "BigQuery", icon: "/icons/bigquery.png" },
+                      { name: "Postgres", icon: "/icons/postgress.png" },
+                      { name: "DuckDB", icon: "/icons/duckdb.png" },
+                    ].map((tech) => (
+                      <div
+                        key={tech.name}
+                        className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
+                      >
+                        <Image
+                          src={tech.icon}
+                          alt={tech.name}
+                          width={20}
+                          height={20}
+                          className="w-5 h-5 object-contain"
+                        />
+                        <span>{tech.name}</span>
+                      </div>
+                    ))}
                   </div>
                 </TabsContent>
                 <TabsContent value="analytics" className="mt-6">
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                     {[
-                      "Looker",
-                      "Power BI",
-                      "Metabase",
-                      "Mode",
-                      "Hex",
-                      "Tableau",
+                      { name: "Looker", icon: "/icons/looker.png" },
+                      { name: "Power BI", icon: "/icons/power-bi.png" },
+                      { name: "Metabase", icon: "/icons/metabase.svg" },
+                      { name: "Tableau", icon: "/icons/tableau.png" },
                     ].map((tech) => (
                       <div
-                        key={tech}
+                        key={tech.name}
                         className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
                       >
-                        <BarChart3 className="w-5 h-5 text-emerald-500" />
-                        <span>{tech}</span>
+                        <Image
+                          src={tech.icon}
+                          alt={tech.name}
+                          width={20}
+                          height={20}
+                          className="w-5 h-5 object-contain"
+                        />
+                        <span>{tech.name}</span>
                       </div>
                     ))}
                   </div>
@@ -577,19 +591,24 @@ export default function Home() {
                 <TabsContent value="orchestration" className="mt-6">
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                     {[
-                      "dbt",
-                      "Airbyte",
-                      "Fivetran",
-                      "Dagster",
-                      "Prefect",
-                      "Airflow",
+                      { name: "dbt", icon: "/icons/dbt.svg" },
+                      { name: "Airbyte", icon: "/icons/airbyte.svg" },
+                      { name: "Fivetran", icon: "/icons/fivetran.svg" },
+                      { name: "Airflow", icon: "/icons/airflow.svg" },
+                      { name: "Prefect", icon: "/icons/prefect.svg" },
                     ].map((tech) => (
                       <div
-                        key={tech}
+                        key={tech.name}
                         className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
                       >
-                        <Terminal className="w-5 h-5 text-orange-500" />
-                        <span>{tech}</span>
+                        <Image
+                          src={tech.icon}
+                          alt={tech.name}
+                          width={20}
+                          height={20}
+                          className="w-5 h-5 object-contain"
+                        />
+                        <span>{tech.name}</span>
                       </div>
                     ))}
                   </div>
