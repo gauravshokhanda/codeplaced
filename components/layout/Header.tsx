@@ -43,7 +43,7 @@ import {
   Laptop,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -58,6 +58,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -98,9 +99,10 @@ const Header = () => {
                 <NavigationMenuItem>
                   <Link href="/" legacyBehavior passHref>
                     <NavigationMenuLink
+                      active={pathname === "/"}
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        "bg-transparent hover:bg-primary hover:text-white",
+                        "bg-transparent hover:bg-primary hover:text-white data-[active]:bg-primary data-[active]:text-white",
                       )}
                     >
                       Home
@@ -204,6 +206,8 @@ const Header = () => {
                             icon={<Phone className="h-4 w-4" />}
                             title="Schedule a Call"
                             desc="Book a discovery session"
+                            target="_blank"
+                            rel="noopener noreferrer"
                           />
                           <QuickLinkItem
                             href="/contact"
@@ -223,129 +227,33 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* Industries Mega Menu */}
+                {/* Industries */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    className="bg-transparent data-[state=open]:bg-primary data-[state=open]:text-white hover:bg-primary hover:text-white cursor-pointer"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      router.push("/industries");
-                    }}
-                  >
-                    Industries
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="w-[900px] p-6 grid grid-cols-12 gap-6 bg-white">
-                      <div className="col-span-5 space-y-4">
-                        <h4 className="font-bold text-base mb-2 text-foreground">
-                          Industries We Work With
-                        </h4>
-                        <ul className="grid gap-3">
-                          <ListItem
-                            href="/industries#edu-marketing"
-                            title="Education & Marketing"
-                            icon={
-                              <GraduationCap className="h-5 w-5 text-primary" />
-                            }
-                          >
-                            Optimizing ad spend
-                          </ListItem>
-                          <ListItem
-                            href="/industries#fintech"
-                            title="Financial Firms"
-                            icon={<Landmark className="h-5 w-5 text-accent" />}
-                          >
-                            Financial reporting
-                          </ListItem>
-                          <ListItem
-                            href="/industries#law"
-                            title="Law Firms"
-                            icon={<Scale className="h-5 w-5 text-primary" />}
-                          >
-                            Legal ops data
-                          </ListItem>
-                          <ListItem
-                            href="/industries#infrastructure"
-                            title="Infrastructure"
-                            icon={<Building2 className="h-5 w-5 text-accent" />}
-                          >
-                            Project analytics
-                          </ListItem>
-                        </ul>
-                      </div>
+                  <Link href="/industries" legacyBehavior passHref>
+                    <NavigationMenuLink
+                      active={pathname === "/industries"}
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        "bg-transparent hover:bg-primary hover:text-white data-[active]:bg-primary data-[active]:text-white",
+                      )}
+                    >
+                      We Can Work With
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
 
-                      <div className="col-span-4 border-l border-slate-100 pl-6">
-                        <h4 className="font-bold text-base mb-4 text-foreground">
-                          Target Industries
-                        </h4>
-                        <ul className="grid gap-3">
-                          <ListItem
-                            href="/industries#healthcare"
-                            title="Healthcare"
-                            icon={<Activity className="h-5 w-5 text-primary" />}
-                          >
-                            Analytics & AI Diagnostics
-                          </ListItem>
-                          <ListItem
-                            href="/industries#retail"
-                            title="Retail & E-commerce"
-                            icon={
-                              <ShoppingBag className="h-5 w-5 text-accent" />
-                            }
-                          >
-                            Insights & Personalization
-                          </ListItem>
-                          <ListItem
-                            href="/industries#manufacturing"
-                            title="Manufacturing"
-                            icon={<Factory className="h-5 w-5 text-primary" />}
-                          >
-                            Predictive Maintenance
-                          </ListItem>
-                          <ListItem
-                            href="/industries#real-estate"
-                            title="Real Estate"
-                            icon={<Home className="h-5 w-5 text-accent" />}
-                          >
-                            Cost Optimization
-                          </ListItem>
-                          <ListItem
-                            href="/industries#tech"
-                            title="Tech & SaaS"
-                            icon={<Laptop className="h-5 w-5 text-primary" />}
-                          >
-                            Product Analytics
-                          </ListItem>
-                        </ul>
-                      </div>
-
-                      <div className="col-span-3 border-l border-slate-100 pl-6">
-                        <h4 className="font-bold text-base mb-4 text-foreground">
-                          Quick Links
-                        </h4>
-                        <ul className="space-y-4">
-                          <QuickLinkItem
-                            href="https://calendly.com/manyatyagi0607/30min"
-                            icon={<Phone className="h-4 w-4" />}
-                            title="Schedule a Call"
-                            desc="Book a discovery session"
-                          />
-                          <QuickLinkItem
-                            href="/contact"
-                            icon={<MessageSquare className="h-4 w-4" />}
-                            title="Contact Us"
-                            desc="Get in touch"
-                          />
-                          <QuickLinkItem
-                            href="/about"
-                            icon={<User className="h-4 w-4" />}
-                            title="About Us"
-                            desc="Our team and story"
-                          />
-                        </ul>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
+                {/* Case Studies */}
+                <NavigationMenuItem>
+                  <Link href="/case-studies" legacyBehavior passHref>
+                    <NavigationMenuLink
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        "bg-transparent hover:bg-primary hover:text-white",
+                      )}
+                    >
+                      Case Studies
+                    </NavigationMenuLink>
+                  </Link>
                 </NavigationMenuItem>
 
                 {/* Partners Mega Menu */}
@@ -430,6 +338,8 @@ const Header = () => {
                             icon={<Phone className="h-4 w-4" />}
                             title="Schedule a Call"
                             desc="Book a discovery session"
+                            target="_blank"
+                            rel="noopener noreferrer"
                           />
                           <QuickLinkItem
                             href="/contact"
@@ -449,101 +359,19 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* Resources Mega Menu */}
+                {/* About Us */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent data-[state=open]:bg-primary data-[state=open]:text-white hover:bg-primary hover:text-white">
-                    Resources
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="w-[900px] p-6 grid grid-cols-12 gap-6 bg-white">
-                      <div className="col-span-5 space-y-4">
-                        <h4 className="font-bold text-base mb-2 text-foreground">
-                          Resources & Content
-                        </h4>
-                        <ul className="grid gap-3">
-                          <ListItem
-                            href="/resources#blog"
-                            title="Blog"
-                            icon={<BookOpen className="h-5 w-5 text-primary" />}
-                          >
-                            Latest insights and articles
-                          </ListItem>
-                          <ListItem
-                            href="/resources#videos"
-                            title="Videos"
-                            icon={<Video className="h-5 w-5 text-accent" />}
-                          >
-                            Tutorials and presentations
-                          </ListItem>
-                          <ListItem
-                            href="/resources#guides"
-                            title="Site Analytics"
-                            icon={
-                              <BarChart2 className="h-5 w-5 text-primary" />
-                            }
-                          >
-                            Powered by Looker
-                          </ListItem>
-                          <ListItem
-                            href="/resources#careers"
-                            title="Careers"
-                            icon={<Briefcase className="h-5 w-5 text-accent" />}
-                          >
-                            Join our team
-                          </ListItem>
-                        </ul>
-                      </div>
-
-                      <div className="col-span-4 border-l border-slate-100 pl-6">
-                        <h4 className="font-bold text-base mb-4 text-foreground">
-                          Featured Blog
-                        </h4>
-                        <div className="group relative rounded-lg border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md transition-all">
-                          <div className="h-24 w-full bg-slate-200"></div>
-                          <div className="p-4">
-                            <h5 className="font-semibold text-sm mb-2 line-clamp-2">
-                              Adventures in Aggregate Awareness with Looker
-                            </h5>
-                            <div className="flex items-center text-xs text-muted-foreground space-x-2">
-                              <span>Aug 26, 2025</span>
-                              <span>•</span>
-                              <span>Mark Rittman</span>
-                            </div>
-                          </div>
-                          <Link
-                            href="/resources#blog"
-                            className="absolute inset-0"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="col-span-3 border-l border-slate-100 pl-6">
-                        <h4 className="font-bold text-base mb-4 text-foreground">
-                          Quick Links
-                        </h4>
-                        <ul className="space-y-4">
-                          <QuickLinkItem
-                            href="https://calendly.com/manyatyagi0607/30min"
-                            icon={<Phone className="h-4 w-4" />}
-                            title="Schedule a Call"
-                            desc="Book a discovery session"
-                          />
-                          <QuickLinkItem
-                            href="/contact"
-                            icon={<MessageSquare className="h-4 w-4" />}
-                            title="Contact Us"
-                            desc="Get in touch"
-                          />
-                          <QuickLinkItem
-                            href="/about"
-                            icon={<User className="h-4 w-4" />}
-                            title="About Us"
-                            desc="Our team and story"
-                          />
-                        </ul>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
+                  <Link href="/about" legacyBehavior passHref>
+                    <NavigationMenuLink
+                      active={pathname === "/about"}
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        "bg-transparent hover:bg-primary hover:text-white data-[active]:bg-primary data-[active]:text-white",
+                      )}
+                    >
+                      About Us
+                    </NavigationMenuLink>
+                  </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
@@ -555,7 +383,11 @@ const Header = () => {
               asChild
               className="bg-primary hover:bg-primary/90 text-white font-medium px-6 shadow-none rounded-md"
             >
-              <Link href="https://calendly.com/manyatyagi0607/30min">
+              <Link
+                href="https://calendly.com/manyatyagi0607/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Schedule Call
               </Link>
             </Button>
@@ -651,6 +483,13 @@ const Header = () => {
               Industries
             </Link>
             <Link
+              href="/case-studies"
+              className="font-medium text-lg py-2 border-b border-slate-50"
+              onClick={() => setIsOpen(false)}
+            >
+              Case Studies
+            </Link>
+            <Link
               href="/partners"
               className="font-medium text-lg py-2 border-b border-slate-50"
               onClick={() => setIsOpen(false)}
@@ -658,18 +497,11 @@ const Header = () => {
               Partners
             </Link>
             <Link
-              href="/resources"
-              className="font-medium text-lg py-2 border-b border-slate-50"
-              onClick={() => setIsOpen(false)}
-            >
-              Resources
-            </Link>
-            <Link
               href="/about"
               className="font-medium text-lg py-2 border-b border-slate-50"
               onClick={() => setIsOpen(false)}
             >
-              About
+              About Us
             </Link>
             <Link
               href="/contact"
@@ -679,7 +511,11 @@ const Header = () => {
               Contact
             </Link>
             <Button asChild className="w-full mt-4 bg-primary text-white">
-              <Link href="https://calendly.com/manyatyagi0607/30min">
+              <Link
+                href="https://calendly.com/manyatyagi0607/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Schedule Call
               </Link>
             </Button>
@@ -727,16 +563,18 @@ const QuickLinkItem = ({
   icon,
   title,
   desc,
+  ...props
 }: {
   href: string;
   icon: React.ReactNode;
   title: string;
   desc: string;
-}) => (
+} & React.ComponentProps<typeof Link>) => (
   <li>
     <Link
       href={href}
       className="flex items-center space-x-3 group hover:bg-slate-50 p-2 rounded-md transition-colors"
+      {...props}
     >
       <div className="p-2 bg-slate-100 rounded-full group-hover:bg-white group-hover:shadow-sm transition-all text-primary">
         {icon}

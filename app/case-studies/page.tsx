@@ -15,6 +15,40 @@ import {
 export default function CaseStudiesPage() {
   const cases = [
     {
+      title: "Scaling Data Analytics for a Growing EdTech Platform",
+      client: "Get My Course",
+      tag: "EdTech",
+      problem:
+        "Fragmented marketing and sales data across 5+ platforms. Manual reporting took hours and lacked funnel visibility.",
+      solution:
+        "Centralized BigQuery warehouse with automated pipelines. Built executive Looker Studio dashboards for real-time insights.",
+      outcome: [
+        "83.6% Course Completion Rate",
+        "Real-time decision making enabled",
+        "100% automated reporting",
+      ],
+      stack: ["BigQuery", "Looker Studio", "SQL", "Google Ads API"],
+      stat: "83.6% Completion Rate",
+      link: "/case-studies/get-my-course",
+    },
+    {
+      title: "Centralizing Operations & Payroll for a Distributed Workforce",
+      client: "Amalfi Acquisition",
+      tag: "Real Estate Operations",
+      problem:
+        "Disconnected operational data across Google Forms and spreadsheets led to manual payroll calculations and lack of performance visibility.",
+      solution:
+        "Built a centralized Excel-based workflow engine automating payroll calculations and creating performance rating dashboards.",
+      outcome: [
+        "100% Payroll Accuracy",
+        "90% Less Admin Time",
+        "Real-time Workforce Visibility",
+      ],
+      stack: ["Advanced Excel", "Google Forms", "Apps Script"],
+      stat: "100% Payroll Accuracy",
+      link: "/case-studies/amalfi-acquisition",
+    },
+    {
       title: "Scaling Data for a Series B EdTech Platform",
       client: "Leading Education Platform",
       tag: "Education",
@@ -179,8 +213,14 @@ export default function CaseStudiesPage() {
                     asChild
                     className="w-full bg-primary text-white rounded-xl h-12"
                   >
-                    <Link href="https://calendly.com/manyatyagi0607/30min">
-                      Get Similar Results{" "}
+                    <Link
+                      href={
+                        c.link || "https://calendly.com/manyatyagi0607/30min"
+                      }
+                      target={c.link ? undefined : "_blank"}
+                      rel={c.link ? undefined : "noopener noreferrer"}
+                    >
+                      {c.link ? "View Case Study" : "Get Similar Results"}{" "}
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Link>
                   </Button>
@@ -202,7 +242,11 @@ export default function CaseStudiesPage() {
               size="lg"
               className="bg-primary text-white rounded-xl h-14 px-8"
             >
-              <Link href="https://calendly.com/manyatyagi0607/30min">
+              <Link
+                href="https://calendly.com/manyatyagi0607/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Book Your Audit
               </Link>
             </Button>

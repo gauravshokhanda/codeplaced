@@ -143,7 +143,11 @@ export default function Home() {
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-white rounded-xl h-14 px-8 text-base font-semibold shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]"
                 >
-                  <Link href="https://calendly.com/manyatyagi0607/30min">
+                  <Link
+                    href="https://calendly.com/manyatyagi0607/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Book Audit Call
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
@@ -389,7 +393,11 @@ export default function Home() {
                 variant="outline"
                 className="w-full border-slate-200 hover:border-primary hover:text-primary"
               >
-                <Link href="https://calendly.com/manyatyagi0607/30min">
+                <Link
+                  href="https://calendly.com/manyatyagi0607/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Request Sample Dashboard
                 </Link>
               </Button>
@@ -517,123 +525,275 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-slate-100 pt-12">
-            <div className="flex flex-col items-center gap-6">
-              <div className="text-center">
-                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
-                  Technologies
-                </p>
-                <p className="text-sm text-slate-500 mt-1">
-                  Modern stack focused on data, analytics, and AI.
-                </p>
-              </div>
-              <Tabs defaultValue="data-platform" className="w-full max-w-4xl">
-                <div className="flex justify-center">
-                  <TabsList className="bg-slate-100">
-                    <TabsTrigger value="data-platform">
-                      Data Platform
-                    </TabsTrigger>
-                    <TabsTrigger value="analytics">Analytics & BI</TabsTrigger>
-                    <TabsTrigger value="orchestration">
-                      Pipelines & ELT
-                    </TabsTrigger>
-                    <TabsTrigger value="ai">AI & ML</TabsTrigger>
-                  </TabsList>
+          <div className="relative py-24 bg-slate-950 w-[100vw] ml-[calc(50%-50vw)] overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+
+            <div className="relative z-10 container mx-auto px-4">
+              <div className="flex flex-col items-center gap-12">
+                <div className="text-center space-y-4 max-w-2xl mx-auto">
+                  <Badge
+                    variant="outline"
+                    className="border-primary/50 bg-primary/10 text-primary-foreground mb-2"
+                  >
+                    Powering Your Data
+                  </Badge>
+                  <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                    Built on a Modern Stack
+                  </h3>
+                  <p className="text-slate-400 text-lg">
+                    We use best-in-class tools to build scalable, maintainable,
+                    and secure data platforms.
+                  </p>
                 </div>
-                <TabsContent value="data-platform" className="mt-6">
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                    {[
-                      { name: "Snowflake", icon: "/icons/snowflake.png" },
-                      { name: "BigQuery", icon: "/icons/bigquery.png" },
-                      { name: "Postgres", icon: "/icons/postgress.png" },
-                      { name: "DuckDB", icon: "/icons/duckdb.png" },
-                    ].map((tech) => (
-                      <div
-                        key={tech.name}
-                        className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
-                      >
-                        <Image
-                          src={tech.icon}
-                          alt={tech.name}
-                          width={20}
-                          height={20}
-                          className="w-5 h-5 object-contain"
-                        />
-                        <span>{tech.name}</span>
-                      </div>
-                    ))}
+
+                <Tabs defaultValue="data-platform" className="w-full max-w-5xl">
+                  <div className="flex justify-center mb-12">
+                    <TabsList className="bg-slate-900/50 p-1 h-auto rounded-full border border-slate-800 backdrop-blur-sm">
+                      {[
+                        "data-platform",
+                        "analytics",
+                        "orchestration",
+                        "ai",
+                      ].map((tab) => (
+                        <TabsTrigger
+                          key={tab}
+                          value={tab}
+                          className="rounded-full px-6 py-2.5 text-sm font-medium text-slate-400 data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-lg transition-all"
+                        >
+                          {tab === "data-platform" && "Data Platform"}
+                          {tab === "analytics" && "Analytics & BI"}
+                          {tab === "orchestration" && "Pipelines & ELT"}
+                          {tab === "ai" && "AI & ML"}
+                        </TabsTrigger>
+                      ))}
+                    </TabsList>
                   </div>
-                </TabsContent>
-                <TabsContent value="analytics" className="mt-6">
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                    {[
-                      { name: "Looker", icon: "/icons/looker.png" },
-                      { name: "Power BI", icon: "/icons/power-bi.png" },
-                      { name: "Metabase", icon: "/icons/metabase.svg" },
-                      { name: "Tableau", icon: "/icons/tableau.png" },
-                    ].map((tech) => (
-                      <div
-                        key={tech.name}
-                        className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
-                      >
-                        <Image
-                          src={tech.icon}
-                          alt={tech.name}
-                          width={20}
-                          height={20}
-                          className="w-5 h-5 object-contain"
-                        />
-                        <span>{tech.name}</span>
+
+                  <AnimatePresence mode="wait">
+                    <TabsContent
+                      value="data-platform"
+                      className="mt-0 focus-visible:outline-none focus-visible:ring-0"
+                    >
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                        {[
+                          {
+                            name: "Snowflake",
+                            icon: "/icons/snowflake.png",
+                            desc: "Cloud Data Warehouse",
+                          },
+                          {
+                            name: "BigQuery",
+                            icon: "/icons/bigquery.png",
+                            desc: "Serverless Data Warehouse",
+                          },
+                          {
+                            name: "Postgres",
+                            icon: "/icons/postgress.png",
+                            desc: "Relational Database",
+                          },
+                          {
+                            name: "DuckDB",
+                            icon: "/icons/duckdb.png",
+                            desc: "In-process OLAP",
+                          },
+                        ].map((tech) => (
+                          <div
+                            key={tech.name}
+                            className="group relative flex flex-col items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900/50 p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1 hover:border-primary/50 hover:bg-slate-900"
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100 rounded-2xl" />
+                            <div className="relative h-16 w-16 flex items-center justify-center rounded-2xl bg-white border border-slate-200 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                              <Image
+                                src={tech.icon}
+                                alt={tech.name}
+                                width={32}
+                                height={32}
+                                className="h-8 w-8 object-contain"
+                              />
+                            </div>
+                            <div className="text-center relative">
+                              <div className="font-semibold text-slate-100 group-hover:text-primary transition-colors">
+                                {tech.name}
+                              </div>
+                              <div className="text-xs text-slate-400 mt-1">
+                                {tech.desc}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </TabsContent>
-                <TabsContent value="orchestration" className="mt-6">
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                    {[
-                      { name: "dbt", icon: "/icons/dbt.svg" },
-                      { name: "Airbyte", icon: "/icons/airbyte.svg" },
-                      { name: "Fivetran", icon: "/icons/fivetran.svg" },
-                      { name: "Airflow", icon: "/icons/airflow.svg" },
-                      { name: "Prefect", icon: "/icons/prefect.svg" },
-                    ].map((tech) => (
-                      <div
-                        key={tech.name}
-                        className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
-                      >
-                        <Image
-                          src={tech.icon}
-                          alt={tech.name}
-                          width={20}
-                          height={20}
-                          className="w-5 h-5 object-contain"
-                        />
-                        <span>{tech.name}</span>
+                    </TabsContent>
+
+                    <TabsContent
+                      value="analytics"
+                      className="mt-0 focus-visible:outline-none focus-visible:ring-0"
+                    >
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                        {[
+                          {
+                            name: "Looker",
+                            icon: "/icons/looker.png",
+                            desc: "Enterprise BI",
+                          },
+                          {
+                            name: "Power BI",
+                            icon: "/icons/power-bi.png",
+                            desc: "Business Analytics",
+                          },
+                          {
+                            name: "Metabase",
+                            icon: "/icons/metabase.svg",
+                            desc: "Open Source BI",
+                          },
+                          {
+                            name: "Tableau",
+                            icon: "/icons/tableau.png",
+                            desc: "Visual Analytics",
+                          },
+                        ].map((tech) => (
+                          <div
+                            key={tech.name}
+                            className="group relative flex flex-col items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900/50 p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1 hover:border-primary/50 hover:bg-slate-900"
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100 rounded-2xl" />
+                            <div className="relative h-16 w-16 flex items-center justify-center rounded-2xl bg-white border border-slate-200 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                              <Image
+                                src={tech.icon}
+                                alt={tech.name}
+                                width={32}
+                                height={32}
+                                className="h-8 w-8 object-contain"
+                              />
+                            </div>
+                            <div className="text-center relative">
+                              <div className="font-semibold text-slate-100 group-hover:text-primary transition-colors">
+                                {tech.name}
+                              </div>
+                              <div className="text-xs text-slate-400 mt-1">
+                                {tech.desc}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </TabsContent>
-                <TabsContent value="ai" className="mt-6">
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                    {[
-                      "OpenAI",
-                      "Anthropic",
-                      "Vertex AI",
-                      "Azure OpenAI",
-                      "LangChain",
-                      "LlamaIndex",
-                    ].map((tech) => (
-                      <div
-                        key={tech}
-                        className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
-                      >
-                        <Bot className="w-5 h-5 text-purple-500" />
-                        <span>{tech}</span>
+                    </TabsContent>
+
+                    <TabsContent
+                      value="orchestration"
+                      className="mt-0 focus-visible:outline-none focus-visible:ring-0"
+                    >
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                        {[
+                          {
+                            name: "dbt",
+                            icon: "/icons/dbt.svg",
+                            desc: "Data Transformation",
+                          },
+                          {
+                            name: "Airbyte",
+                            icon: "/icons/airbyte.svg",
+                            desc: "Data Integration",
+                          },
+                          {
+                            name: "Fivetran",
+                            icon: "/icons/fivetran.svg",
+                            desc: "Automated ELT",
+                          },
+                          {
+                            name: "Airflow",
+                            icon: "/icons/airflow.svg",
+                            desc: "Workflow Orchestration",
+                          },
+                          {
+                            name: "Prefect",
+                            icon: "/icons/prefect.svg",
+                            desc: "Modern Workflow",
+                          },
+                        ].map((tech) => (
+                          <div
+                            key={tech.name}
+                            className="group relative flex flex-col items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900/50 p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1 hover:border-primary/50 hover:bg-slate-900"
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100 rounded-2xl" />
+                            <div className="relative h-16 w-16 flex items-center justify-center rounded-2xl bg-white border border-slate-200 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                              <Image
+                                src={tech.icon}
+                                alt={tech.name}
+                                width={32}
+                                height={32}
+                                className="h-8 w-8 object-contain"
+                              />
+                            </div>
+                            <div className="text-center relative">
+                              <div className="font-semibold text-slate-100 group-hover:text-primary transition-colors">
+                                {tech.name}
+                              </div>
+                              <div className="text-xs text-slate-400 mt-1">
+                                {tech.desc}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </TabsContent>
-              </Tabs>
+                    </TabsContent>
+
+                    <TabsContent
+                      value="ai"
+                      className="mt-0 focus-visible:outline-none focus-visible:ring-0"
+                    >
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                        {[
+                          {
+                            name: "OpenAI",
+                            icon: "/icons/openai-brands-solid-full.svg",
+                            desc: "LLM Models",
+                          },
+                          {
+                            name: "Anthropic",
+                            icon: "/icons/anthropic-color.svg",
+                            desc: "Claude Models",
+                          },
+                          {
+                            name: "LangChain",
+                            icon: "/icons/langchain-color.svg",
+                            desc: "LLM Framework",
+                          },
+                          {
+                            name: "LlamaIndex",
+                            icon: "/icons/llamaindex-color.svg",
+                            desc: "Data Framework",
+                          },
+                        ].map((tech) => (
+                          <div
+                            key={tech.name}
+                            className="group relative flex flex-col items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900/50 p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1 hover:border-primary/50 hover:bg-slate-900"
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100 rounded-2xl" />
+                            <div className="relative h-16 w-16 flex items-center justify-center rounded-2xl bg-white border border-slate-200 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                              <Image
+                                src={tech.icon}
+                                alt={tech.name}
+                                width={32}
+                                height={32}
+                                className="h-8 w-8 object-contain"
+                              />
+                            </div>
+                            <div className="text-center relative">
+                              <div className="font-semibold text-slate-100 group-hover:text-primary transition-colors">
+                                {tech.name}
+                              </div>
+                              <div className="text-xs text-slate-400 mt-1">
+                                {tech.desc}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </TabsContent>
+                  </AnimatePresence>
+                </Tabs>
+              </div>
             </div>
           </div>
         </div>
@@ -656,92 +816,103 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Case Study 1 */}
-            <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
-              <div className="flex items-center gap-2 mb-6">
-                <Badge
-                  variant="secondary"
-                  className="bg-blue-100 text-blue-700"
-                >
-                  Education
-                </Badge>
-                <span className="text-xs text-slate-400 font-mono">
-                  CASE-094
-                </span>
-              </div>
-              <h3 className="text-xl font-bold mb-3">
-                Enrollment Analytics Engine
-              </h3>
-              <p className="text-slate-600 text-sm mb-6">
-                <span className="font-semibold text-slate-900">Problem:</span>{" "}
-                Client couldn&apos;t track lead-to-enrollment conversion across
-                4 different systems.
-              </p>
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
-                  <p className="text-sm text-slate-600">
-                    Unified Salesforce, Canvas, and Marketing data into
-                    BigQuery.
-                  </p>
+            {/* Case Study 1: Get My Course */}
+            <Link
+              href="/case-studies/get-my-course"
+              className="block group h-full"
+            >
+              <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm group-hover:shadow-md transition-all h-full flex flex-col">
+                <div className="flex items-center gap-2 mb-6">
+                  <Badge
+                    variant="secondary"
+                    className="bg-blue-100 text-blue-700"
+                  >
+                    EdTech
+                  </Badge>
+                  <span className="text-xs text-slate-400 font-mono">GMC</span>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
-                  <p className="text-sm text-slate-600">
-                    Built automated daily reports for Admissions VP.
-                  </p>
+                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                  Scaling Data Analytics
+                </h3>
+                <p className="text-slate-600 text-sm mb-6">
+                  <span className="font-semibold text-slate-900">Problem:</span>{" "}
+                  Fragmented marketing and sales data across 5+ platforms.
+                  Manual reporting took hours.
+                </p>
+                <div className="space-y-4 mb-6 flex-grow">
+                  <div className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+                    <p className="text-sm text-slate-600">
+                      Centralized BigQuery warehouse with automated pipelines.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+                    <p className="text-sm text-slate-600">
+                      Built executive Looker Studio dashboards.
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-lg mt-auto">
+                  <div className="text-emerald-700 font-bold text-2xl">
+                    83.6%
+                  </div>
+                  <div className="text-emerald-600 text-xs uppercase tracking-wide font-semibold">
+                    Completion Rate
+                  </div>
                 </div>
               </div>
-              <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-lg">
-                <div className="text-emerald-700 font-bold text-2xl">+15%</div>
-                <div className="text-emerald-600 text-xs uppercase tracking-wide font-semibold">
-                  Retention Rate Improvement
-                </div>
-              </div>
-            </div>
+            </Link>
 
-            {/* Case Study 2 */}
-            <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
-              <div className="flex items-center gap-2 mb-6">
-                <Badge
-                  variant="secondary"
-                  className="bg-purple-100 text-purple-700"
-                >
-                  E-commerce
-                </Badge>
-                <span className="text-xs text-slate-400 font-mono">
-                  CASE-112
-                </span>
-              </div>
-              <h3 className="text-xl font-bold mb-3">
-                Profitability & COGS System
-              </h3>
-              <p className="text-slate-600 text-sm mb-6">
-                <span className="font-semibold text-slate-900">Problem:</span>{" "}
-                Shopify brand was scaling ads but losing money due to unknown
-                return costs.
-              </p>
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
-                  <p className="text-sm text-slate-600">
-                    Modeled exact unit economics per SKU using dbt.
-                  </p>
+            {/* Case Study 2: Amalfi Acquisition */}
+            <Link
+              href="/case-studies/amalfi-acquisition"
+              className="block group h-full"
+            >
+              <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm group-hover:shadow-md transition-all h-full flex flex-col">
+                <div className="flex items-center gap-2 mb-6">
+                  <Badge
+                    variant="secondary"
+                    className="bg-purple-100 text-purple-700"
+                  >
+                    Real Estate Ops
+                  </Badge>
+                  <span className="text-xs text-slate-400 font-mono">
+                    AMALFI
+                  </span>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
-                  <p className="text-sm text-slate-600">
-                    Created &ldquo;Kill/Scale&rdquo; ad dashboard.
-                  </p>
+                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                  Automated Payroll & Ops
+                </h3>
+                <p className="text-slate-600 text-sm mb-6">
+                  <span className="font-semibold text-slate-900">Problem:</span>{" "}
+                  Disconnected Google Forms & spreadsheets caused manual payroll
+                  errors and lack of visibility.
+                </p>
+                <div className="space-y-4 mb-6 flex-grow">
+                  <div className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+                    <p className="text-sm text-slate-600">
+                      Centralized workflow engine with automated payroll logic.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+                    <p className="text-sm text-slate-600">
+                      Real-time performance rating dashboards.
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-lg mt-auto">
+                  <div className="text-emerald-700 font-bold text-2xl">
+                    100%
+                  </div>
+                  <div className="text-emerald-600 text-xs uppercase tracking-wide font-semibold">
+                    Payroll Accuracy
+                  </div>
                 </div>
               </div>
-              <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-lg">
-                <div className="text-emerald-700 font-bold text-2xl">-20%</div>
-                <div className="text-emerald-600 text-xs uppercase tracking-wide font-semibold">
-                  Ad Spend Waste Reduced
-                </div>
-              </div>
-            </div>
+            </Link>
 
             {/* Case Study 3 */}
             <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
@@ -1071,7 +1242,8 @@ export default function Home() {
         FAQ
         =============================================
       */}
-      <section className="py-24 bg-white">
+      {/* hidden section of FAQ */}
+      {/* <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
             Frequently Asked Questions
@@ -1115,7 +1287,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 
         =============================================

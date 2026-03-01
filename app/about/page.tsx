@@ -191,8 +191,8 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold mb-6">Built by Engineers</h2>
               <p className="text-muted-foreground mb-6">
                 Our team comes from backgrounds in high-growth startups and
-                enterprise tech. We've seen what works at scale and what crushes
-                innovation.
+                enterprise tech. We&apos;ve seen what works at scale and what
+                crushes innovation.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center gap-3">
@@ -256,7 +256,11 @@ export default function AboutPage() {
             long-term success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="https://calendly.com/manyatyagi0607/30min">
+            <Link
+              href="https://calendly.com/manyatyagi0607/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white w-full sm:w-auto text-lg h-12 px-8"

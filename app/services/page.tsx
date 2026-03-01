@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   CheckCircle2,
@@ -253,7 +254,7 @@ function ServiceTile({ s }: { s: Service }) {
         </div>
 
         <Button asChild className="rounded-xl">
-          <Link href={s.cta.href}>
+          <Link href={s.cta.href} target="_blank" rel="noopener noreferrer">
             {s.cta.label} <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
@@ -488,17 +489,20 @@ export default function ServicesPage() {
   }, [active, services]);
 
   const worksWith = [
-    "Snowflake",
-    "BigQuery",
-    "dbt",
-    "Airbyte",
-    "Fivetran",
-    "Looker",
-    "Power BI",
-    "Tableau",
-    "OpenAI",
-    "LangChain",
-    "Pinecone",
+    { name: "Snowflake", src: "/icons/snowflake.png" },
+    { name: "BigQuery", src: "/icons/bigquery.png" },
+    { name: "dbt", src: "/icons/dbt.svg" },
+    { name: "Airflow", src: "/icons/airflow.svg" },
+    { name: "Dagster", src: "/icons/dagster.png" },
+    { name: "Prefect", src: "/icons/prefect.svg" },
+    { name: "Airbyte", src: "/icons/airbyte.svg" },
+    { name: "Fivetran", src: "/icons/fivetran.svg" },
+    { name: "PostgreSQL", src: "/icons/postgress.png" },
+    { name: "DuckDB", src: "/icons/duckdb.png" },
+    { name: "Looker", src: "/icons/looker.png" },
+    { name: "Power BI", src: "/icons/power-bi.png" },
+    { name: "Tableau", src: "/icons/tableau.png" },
+    { name: "Metabase", src: "/icons/metabase.svg" },
   ];
 
   return (
@@ -558,15 +562,22 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap items-center gap-8 px-2">
             {worksWith.map((t) => (
-              <Badge
-                key={t}
-                variant="secondary"
-                className="rounded-full bg-slate-100 text-slate-700"
+              <div
+                key={t.name}
+                className="relative h-8 w-auto grayscale transition-all duration-300 hover:grayscale-0 opacity-60 hover:opacity-100"
+                title={t.name}
               >
-                {t}
-              </Badge>
+                <Image
+                  src={t.src}
+                  alt={t.name}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="h-8 w-auto object-contain"
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -608,7 +619,11 @@ export default function ServicesPage() {
 
               <div className="flex gap-3">
                 <Button asChild size="lg" className="rounded-2xl">
-                  <Link href="https://calendly.com/manyatyagi0607/30min">
+                  <Link
+                    href="https://calendly.com/manyatyagi0607/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Book Audit <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>

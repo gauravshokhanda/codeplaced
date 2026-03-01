@@ -1,0 +1,84 @@
+Get My Course
+Problem Statement
+When we first engaged with the client, they were experiencing rapid growth in enrollments, marketing campaigns, and partner collaborations. While growth was positive, their data ecosystem was becoming increasingly complex and difficult to manage.
+During our discovery discussions, we identified several core challenges that were limiting their ability to scale efficiently.
+Fragmented Marketing & Sales Data
+Data from Facebook Ads, Google Ads, organic channels, CRM systems, and payment gateways existed in separate platforms. This made it difficult to measure true ROI, customer acquisition cost, and funnel performance from a single unified view.
+Manual Reporting & Delayed Insights
+The team relied heavily on manual exports and spreadsheet consolidation. Weekly performance reports required hours of effort and still lacked real-time visibility. This slowed decision-making, especially during active campaigns.
+Limited Funnel Visibility
+There was no clear end-to-end tracking of the student journey — from ad click to lead generation, counseling calls, enrollment, and final payment. This resulted in blind spots in conversion optimization.
+Scaling Challenges
+As marketing budgets increased, leadership needed granular insights into campaign efficiency, counselor performance, course-wise revenue trends, and cohort performance. Existing tools were not scalable for advanced analytics.
+
+Solution
+Our objective was to build a centralized, scalable, and automated analytics infrastructure that could provide real-time, reliable, and actionable insights across the entire business funnel.
+Building a Single Source of Truth with BigQuery
+We designed a cloud-based data architecture using Google BigQuery as the centralized data warehouse. All marketing, CRM, sales, and transaction data was integrated into one structured environment.
+This eliminated data silos and ensured consistency across all reports and dashboards.
+Automating Data Pipelines
+Automated ETL processes were implemented to extract and load data from multiple sources into BigQuery on scheduled intervals. This removed manual dependency and ensured fresh, up-to-date reporting at all times.
+Designing Executive-Ready Looker Studio Dashboards
+We developed comprehensive, interactive Looker Studio dashboards covering:
+Marketing Performance (ROAS, CAC, CTR, CPL)
+Sales Funnel & Conversion Tracking
+Counselor Performance Metrics
+Course-wise Revenue & Enrollment Trends
+Cohort & Payment Analytics
+Lead Source Attribution
+Daily, Weekly, and Monthly Growth Monitoring
+Each dashboard was designed with role-based clarity — leadership, marketing teams, and operations teams could quickly access the insights most relevant to them.
+Creating End-to-End Funnel Transparency
+We mapped the entire user journey from first ad interaction to final enrollment. This enabled:
+Accurate attribution tracking
+Identification of drop-off stages
+Data-backed campaign optimization
+Clear visibility into lead-to-sale conversion rates
+Enabling Self-Service Analytics
+The dashboards were designed to be intuitive and filter-friendly. Teams could drill down by date, course, campaign, counselor, or source without needing technical support.
+
+Technical Implementation
+Cloud Data Warehouse
+Google BigQuery was implemented as the central analytics layer, offering high scalability, fast query performance, and cost-efficient data storage.
+Data Integration
+Data was consolidated from:
+Facebook Ads & Google Ads
+CRM & Lead Management Systems
+Payment Gateways
+Internal Enrollment Databases
+Marketing Automation Tools
+Structured datasets were created using optimized schemas for faster reporting.
+Data Modeling & Transformation
+Data cleaning, normalization, and aggregation were performed within BigQuery using SQL-based transformations.
+Custom calculated metrics were created for:
+Customer Acquisition Cost (CAC)
+Return on Ad Spend (ROAS)
+Lead-to-Enrollment Conversion Rate
+Counselor-wise Revenue Contribution
+Course-wise Lifetime Value
+Visualization Layer
+Looker Studio was used to build interactive dashboards with dynamic filters, calculated fields, blending, and automated refresh cycles.
+Governance & Access Control
+Role-based access was configured to ensure sensitive financial and performance data remained secure while enabling transparency for decision-makers.
+
+Business Impact
+Real-Time Decision Making
+Reporting cycles shifted from manual weekly reports to near real-time dashboard access. Leadership could monitor performance daily without waiting for consolidated spreadsheets.
+Improved Marketing ROI
+With accurate attribution and campaign-level performance insights, marketing budgets were optimized toward high-performing channels. This significantly improved ROAS and reduced inefficient spending.
+Stronger Sales Funnel Optimization
+By identifying bottlenecks in the lead-to-enrollment journey, conversion rates improved through targeted interventions and data-driven decision-making.
+Increased Operational Efficiency
+Manual reporting efforts were eliminated, freeing up internal team bandwidth for strategic work rather than repetitive data consolidation.
+Clear Revenue Visibility
+Course-wise, campaign-wise, and counselor-wise revenue tracking gave leadership full transparency into business performance and growth drivers.
+
+The Transformation
+With a centralized BigQuery architecture and intelligently designed Looker Studio dashboards, the client transitioned from reactive reporting to proactive growth management.
+They now operate with:
+One unified version of truth
+Fully automated reporting
+Scalable analytics infrastructure
+Clear visibility across marketing, sales, and revenue
+Data-backed strategic decisions
+This transformation enabled smarter budgeting, improved conversion performance, and sustainable growth powered by reliable analytics.
