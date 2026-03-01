@@ -3,7 +3,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, Mail, MessageSquare, Clock } from "lucide-react";
+import {
+  CheckCircle2,
+  Mail,
+  MessageSquare,
+  Clock,
+  ArrowRight,
+} from "lucide-react";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -92,7 +98,15 @@ export default function ContactPage() {
                         Consultation
                       </h3>
                       <p className="text-muted-foreground text-sm mt-1">
-                        The first 30-minute discovery call is always free.
+                        The first 30-minute discovery call is always free.{" "}
+                        <a
+                          href="https://calendly.com/manyatyagi0607/30min"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:underline font-medium inline-flex items-center gap-1"
+                        >
+                          Book now <ArrowRight className="w-3 h-3" />
+                        </a>
                       </p>
                     </div>
                   </div>

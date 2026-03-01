@@ -282,7 +282,10 @@ export default function ServicesPage() {
         chips: ["Fast setup", "Trusted metrics"],
         metricLabel: "Time-to-insight",
         metricValue: "↓ 40–60%",
-        cta: { label: "Get Better Reports", href: "/contact" },
+        cta: {
+          label: "Get Better Reports",
+          href: "https://calendly.com/manyatyagi0607/30min",
+        },
         featured: true,
         accent: {
           ring: "border-slate-200",
@@ -306,7 +309,10 @@ export default function ServicesPage() {
         chips: ["Single source of truth", "Adoption ↑"],
         metricLabel: "Dashboard adoption",
         metricValue: "↑ 2–3x",
-        cta: { label: "See Dashboard Examples", href: "/contact" },
+        cta: {
+          label: "See Dashboard Examples",
+          href: "https://calendly.com/manyatyagi0607/30min",
+        },
         accent: {
           ring: "border-slate-200",
           iconBg: "bg-white",
@@ -329,7 +335,10 @@ export default function ServicesPage() {
         chips: ["Reliable", "Scalable"],
         metricLabel: "Pipeline reliability target",
         metricValue: "99.9%",
-        cta: { label: "Fix My Pipelines", href: "/contact" },
+        cta: {
+          label: "Fix My Pipelines",
+          href: "https://calendly.com/manyatyagi0607/30min",
+        },
         accent: {
           ring: "border-slate-200",
           iconBg: "bg-white",
@@ -352,7 +361,10 @@ export default function ServicesPage() {
         chips: ["High quality", "Automated"],
         metricLabel: "Manual errors",
         metricValue: "↓ 30–50%",
-        cta: { label: "Clean My Data", href: "/contact" },
+        cta: {
+          label: "Clean My Data",
+          href: "https://calendly.com/manyatyagi0607/30min",
+        },
         accent: {
           ring: "border-slate-200",
           iconBg: "bg-white",
@@ -375,7 +387,10 @@ export default function ServicesPage() {
         chips: ["Guardrails", "Shipped pilots"],
         metricLabel: "Support load",
         metricValue: "↓ 20–60%",
-        cta: { label: "Explore AI Pilot", href: "/contact" },
+        cta: {
+          label: "Explore AI Pilot",
+          href: "https://calendly.com/manyatyagi0607/30min",
+        },
         accent: {
           ring: "border-slate-200",
           iconBg: "bg-white",
@@ -398,7 +413,10 @@ export default function ServicesPage() {
         chips: ["Explainable", "Measurable"],
         metricLabel: "Forecast accuracy",
         metricValue: "↑",
-        cta: { label: "Start Forecasting", href: "/contact" },
+        cta: {
+          label: "Start Forecasting",
+          href: "https://calendly.com/manyatyagi0607/30min",
+        },
         accent: {
           ring: "border-slate-200",
           iconBg: "bg-white",
@@ -421,7 +439,10 @@ export default function ServicesPage() {
         chips: ["Efficient", "Cost-saving"],
         metricLabel: "Cycle time",
         metricValue: "↓",
-        cta: { label: "Optimize Processes", href: "/contact" },
+        cta: {
+          label: "Optimize Processes",
+          href: "https://calendly.com/manyatyagi0607/30min",
+        },
         accent: {
           ring: "border-slate-200",
           iconBg: "bg-white",
@@ -444,7 +465,10 @@ export default function ServicesPage() {
         chips: ["Practical", "Senior-led"],
         metricLabel: "Delivery timeline",
         metricValue: "2–4 weeks",
-        cta: { label: "Get Strategic Advice", href: "/contact" },
+        cta: {
+          label: "Get Strategic Advice",
+          href: "https://calendly.com/manyatyagi0607/30min",
+        },
         accent: {
           ring: "border-slate-200",
           iconBg: "bg-white",
@@ -480,83 +504,9 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-[linear-gradient(to_bottom,rgba(248,250,252,1),rgba(248,250,252,1))]">
       {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute -top-32 right-[-10%] h-[420px] w-[420px] rounded-full bg-primary/15 blur-3xl" />
-          <div className="absolute -bottom-32 left-[-10%] h-[420px] w-[420px] rounded-full bg-sky-500/10 blur-3xl" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(20,184,166,0.10),transparent_45%),radial-gradient(circle_at_70%_25%,rgba(2,132,199,0.10),transparent_45%)]" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 pb-14 pt-16 sm:px-6 lg:px-8 md:pb-20 md:pt-24">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
-            <div>
-              <Badge
-                variant="outline"
-                className="mb-4 rounded-full border-primary/20 bg-white/50 text-primary"
-              >
-                Services built for outcomes
-              </Badge>
-
-              <h1 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-                AI-ready data systems
-                <span className="block text-primary">that teams trust.</span>
-              </h1>
-
-              <p className="mt-5 max-w-xl text-lg text-slate-600">
-                Clear deliverables. Senior engineers only. We build pipelines,
-                dashboards, and governed AI copilots in weeks — not months.
-              </p>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="rounded-2xl">
-                  <Link href="/contact">
-                    Book 7-Day Audit <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="rounded-2xl bg-white/50"
-                >
-                  <Link href="/case-studies">See Case Studies</Link>
-                </Button>
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {[
-                  "Senior-led",
-                  "Fixed scope",
-                  "Security-first",
-                  "Production handoff",
-                ].map((t) => (
-                  <Badge
-                    key={t}
-                    variant="secondary"
-                    className="rounded-full bg-white/60 text-slate-700"
-                  >
-                    {t}
-                  </Badge>
-                ))}
-              </div>
-
-              <div className="mt-8 flex items-center gap-3 text-sm text-slate-600">
-                <ShieldCheck className="h-5 w-5 text-primary" />
-                <span>
-                  Least-privilege • Read-only first • Audit logs • NDA optional
-                </span>
-              </div>
-            </div>
-
-            <div className="lg:pl-6">
-              <ProductPreview />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* SERVICES */}
-      <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 pb-14 mt-5 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-2xl font-bold text-slate-950 md:text-3xl">
@@ -658,7 +608,7 @@ export default function ServicesPage() {
 
               <div className="flex gap-3">
                 <Button asChild size="lg" className="rounded-2xl">
-                  <Link href="/contact">
+                  <Link href="https://calendly.com/manyatyagi0607/30min">
                     Book Audit <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>

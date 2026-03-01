@@ -112,7 +112,7 @@ export default function PartnersPage() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white rounded-xl"
             >
-              <Link href="/contact">Become a Partner</Link>
+              <Link href="https://calendly.com/manyatyagi0607/30min">Become a Partner</Link>
             </Button>
           </div>
         </div>

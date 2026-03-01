@@ -200,7 +200,7 @@ const Header = () => {
                         </h4>
                         <ul className="space-y-4">
                           <QuickLinkItem
-                            href="/contact"
+                            href="https://calendly.com/manyatyagi0607/30min"
                             icon={<Phone className="h-4 w-4" />}
                             title="Schedule a Call"
                             desc="Book a discovery session"
@@ -325,7 +325,7 @@ const Header = () => {
                         </h4>
                         <ul className="space-y-4">
                           <QuickLinkItem
-                            href="/contact"
+                            href="https://calendly.com/manyatyagi0607/30min"
                             icon={<Phone className="h-4 w-4" />}
                             title="Schedule a Call"
                             desc="Book a discovery session"
@@ -426,7 +426,7 @@ const Header = () => {
                         </h4>
                         <ul className="space-y-4">
                           <QuickLinkItem
-                            href="/contact"
+                            href="https://calendly.com/manyatyagi0607/30min"
                             icon={<Phone className="h-4 w-4" />}
                             title="Schedule a Call"
                             desc="Book a discovery session"
@@ -523,7 +523,7 @@ const Header = () => {
                         </h4>
                         <ul className="space-y-4">
                           <QuickLinkItem
-                            href="/contact"
+                            href="https://calendly.com/manyatyagi0607/30min"
                             icon={<Phone className="h-4 w-4" />}
                             title="Schedule a Call"
                             desc="Book a discovery session"
@@ -555,7 +555,9 @@ const Header = () => {
               asChild
               className="bg-primary hover:bg-primary/90 text-white font-medium px-6 shadow-none rounded-md"
             >
-              <Link href="/contact">Schedule Call</Link>
+              <Link href="https://calendly.com/manyatyagi0607/30min">
+                Schedule Call
+              </Link>
             </Button>
 
             {/* Mobile Menu Toggle */}
@@ -677,7 +679,9 @@ const Header = () => {
               Contact
             </Link>
             <Button asChild className="w-full mt-4 bg-primary text-white">
-              <Link href="/contact">Schedule Call</Link>
+              <Link href="https://calendly.com/manyatyagi0607/30min">
+                Schedule Call
+              </Link>
             </Button>
           </nav>
         </div>

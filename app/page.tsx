@@ -39,6 +39,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 
 export default function Home() {
@@ -107,13 +108,13 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp} className="text-left">
               <div className="flex flex-wrap gap-2 mb-8">
-                <Badge
+                {/* <Badge
                   variant="outline"
                   className="bg-white border-slate-200 text-slate-700 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm"
                 >
                   <Users className="w-3.5 h-3.5 mr-1.5 text-primary" />
                   Senior Engineers Only
-                </Badge>
+                </Badge> */}
                 <Badge
                   variant="outline"
                   className="bg-white border-slate-200 text-slate-700 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm"
@@ -132,8 +133,7 @@ export default function Home() {
 
               <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-xl leading-relaxed">
                 We turn messy data into reliable pipelines, executive
-                dashboards, and practical AI copilots. Fixed scope. Direct
-                access. No junior handoffs.
+                dashboards, and practical AI copilots.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -142,8 +142,8 @@ export default function Home() {
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-white rounded-xl h-14 px-8 text-base font-semibold shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]"
                 >
-                  <Link href="/contact">
-                    Book 7-Day Audit
+                  <Link href="https://calendly.com/manyatyagi0607/30min">
+                    Book Audit Call
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
@@ -162,8 +162,6 @@ export default function Home() {
                   <ShieldCheck className="w-4 h-4 text-emerald-500" />
                   <span>Security-First Architecture</span>
                 </div>
-                <div className="w-1 h-1 bg-slate-300 rounded-full" />
-                <div>SOC2 Compliant Stack</div>
               </div>
             </motion.div>
 
@@ -269,81 +267,6 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
             {/* Featured Card 1: 7-Day Readiness Audit */}
-            <div className="lg:col-span-2 relative p-8 rounded-[20px] border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all group overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-indigo-500 to-purple-500" />
-              <div className="flex flex-col lg:flex-row gap-8 items-start relative z-10">
-                <div className="flex-1 space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-primary/10 rounded-xl text-primary">
-                      <CheckCircle2 className="w-8 h-8" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-slate-900">
-                        7-Day Data + AI Readiness Audit
-                      </h3>
-                      <p className="text-slate-500 font-medium">
-                        Clear roadmap to ROI in just one week.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
-                      <span className="text-slate-700">
-                        Fixed scope, 1 week delivery, KPI contract
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
-                      <span className="text-slate-700">
-                        Pipeline risk assessment & AI readiness checklist
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
-                      <span className="text-slate-700">
-                        30-day actionable roadmap
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
-                      Fixed Scope
-                    </span>
-                    <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-xs font-semibold text-slate-600">
-                      High Impact
-                    </span>
-                  </div>
-
-                  <Button
-                    asChild
-                    className="bg-primary hover:bg-primary/90 text-white rounded-lg px-8 py-6 text-base font-semibold shadow-lg shadow-primary/20"
-                  >
-                    <Link href="/contact">Book Audit</Link>
-                  </Button>
-                </div>
-
-                {/* Micro-visual: Timeline/Checklist */}
-                <div className="w-full lg:w-1/3 bg-slate-50 rounded-xl border border-slate-100 p-6 self-stretch flex flex-col justify-center">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3 opacity-50">
-                      <div className="w-4 h-4 rounded-full border-2 border-slate-300" />
-                      <div className="h-2 w-24 bg-slate-200 rounded-full" />
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-4 h-4 rounded-full border-2 border-primary bg-primary" />
-                      <div className="h-2 w-32 bg-primary/20 rounded-full" />
-                    </div>
-                    <div className="flex items-center gap-3 opacity-50">
-                      <div className="w-4 h-4 rounded-full border-2 border-slate-300" />
-                      <div className="h-2 w-20 bg-slate-200 rounded-full" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             {/* Card 2: Data Platform & Pipelines */}
             <div className="relative p-8 rounded-[20px] border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all group overflow-hidden flex flex-col">
@@ -465,7 +388,9 @@ export default function Home() {
                 variant="outline"
                 className="w-full border-slate-200 hover:border-primary hover:text-primary"
               >
-                <Link href="/contact">Request Sample Dashboard</Link>
+                <Link href="https://calendly.com/manyatyagi0607/30min">
+                  Request Sample Dashboard
+                </Link>
               </Button>
             </div>
 
@@ -591,24 +516,105 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Tech Stack Strip */}
-          <div className="border-t border-slate-100 pt-10">
-            <p className="text-center text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6">
-              Works with
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-              {[
-                "Snowflake",
-                "BigQuery",
-                "dbt",
-                "Airbyte/Fivetran",
-                "Looker/PowerBI",
-                "OpenAI/LangChain",
-              ].map((tech) => (
-                <span key={tech} className="text-lg font-bold text-slate-400">
-                  {tech}
-                </span>
-              ))}
+          <div className="border-t border-slate-100 pt-12">
+            <div className="flex flex-col items-center gap-6">
+              <div className="text-center">
+                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                  Technologies
+                </p>
+                <p className="text-sm text-slate-500 mt-1">
+                  Modern stack focused on data, analytics, and AI.
+                </p>
+              </div>
+              <Tabs defaultValue="data-platform" className="w-full max-w-4xl">
+                <div className="flex justify-center">
+                  <TabsList className="bg-slate-100">
+                    <TabsTrigger value="data-platform">
+                      Data Platform
+                    </TabsTrigger>
+                    <TabsTrigger value="analytics">Analytics & BI</TabsTrigger>
+                    <TabsTrigger value="orchestration">
+                      Pipelines & ELT
+                    </TabsTrigger>
+                    <TabsTrigger value="ai">AI & ML</TabsTrigger>
+                  </TabsList>
+                </div>
+                <TabsContent value="data-platform" className="mt-6">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    {["Snowflake", "BigQuery", "Postgres", "DuckDB"].map(
+                      (tech) => (
+                        <div
+                          key={tech}
+                          className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
+                        >
+                          <Database className="w-5 h-5 text-blue-500" />
+                          <span>{tech}</span>
+                        </div>
+                      ),
+                    )}
+                  </div>
+                </TabsContent>
+                <TabsContent value="analytics" className="mt-6">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    {[
+                      "Looker",
+                      "Power BI",
+                      "Metabase",
+                      "Mode",
+                      "Hex",
+                      "Tableau",
+                    ].map((tech) => (
+                      <div
+                        key={tech}
+                        className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
+                      >
+                        <BarChart3 className="w-5 h-5 text-emerald-500" />
+                        <span>{tech}</span>
+                      </div>
+                    ))}
+                  </div>
+                </TabsContent>
+                <TabsContent value="orchestration" className="mt-6">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    {[
+                      "dbt",
+                      "Airbyte",
+                      "Fivetran",
+                      "Dagster",
+                      "Prefect",
+                      "Airflow",
+                    ].map((tech) => (
+                      <div
+                        key={tech}
+                        className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
+                      >
+                        <Terminal className="w-5 h-5 text-orange-500" />
+                        <span>{tech}</span>
+                      </div>
+                    ))}
+                  </div>
+                </TabsContent>
+                <TabsContent value="ai" className="mt-6">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    {[
+                      "OpenAI",
+                      "Anthropic",
+                      "Vertex AI",
+                      "Azure OpenAI",
+                      "LangChain",
+                      "LlamaIndex",
+                    ].map((tech) => (
+                      <div
+                        key={tech}
+                        className="flex flex-col items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700"
+                      >
+                        <Bot className="w-5 h-5 text-purple-500" />
+                        <span>{tech}</span>
+                      </div>
+                    ))}
+                  </div>
+                </TabsContent>
+              </Tabs>
             </div>
           </div>
         </div>
@@ -864,32 +870,69 @@ export default function Home() {
       <section className="py-24 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary mb-3">
+              Process
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               How We Work
             </h2>
-            <p className="text-lg text-slate-600">Simple. Transparent. Fast.</p>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              A clear, end-to-end delivery process so you always know
+              what&apos;s happening next.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: "1. Audit",
-                desc: "We map your data & risks in 7 days.",
+                title: "01. Discovery & Audit",
+                desc: "We deep-dive into your data, systems, and business goals to identify gaps and opportunities within 7 days.",
+                icon: <Search className="w-5 h-5 text-sky-500" />,
+                accent: "from-sky-500/80 to-cyan-400/80",
               },
-              { title: "2. Scope", desc: "Fixed price quote & roadmap." },
-              { title: "3. Build", desc: "2-3 week sprint to ship assets." },
-              { title: "4. Handover", desc: "Training & documentation." },
+              {
+                title: "02. Strategy & Roadmap",
+                desc: "We define KPIs, architecture, and a clear execution roadmap with transparent pricing.",
+                icon: <FileText className="w-5 h-5 text-emerald-500" />,
+                accent: "from-emerald-500/80 to-teal-400/80",
+              },
+              {
+                title: "03. Build & Optimize",
+                desc: "We design, develop, and deploy dashboards, pipelines, and automations in agile sprints.",
+                icon: <Zap className="w-5 h-5 text-amber-500" />,
+                accent: "from-amber-500/80 to-orange-400/80",
+              },
+              {
+                title: "04. Handover & Scale",
+                desc: "Complete documentation, training, and post-launch support to ensure smooth adoption.",
+                icon: <Users className="w-5 h-5 text-purple-500" />,
+                accent: "from-purple-500/80 to-pink-400/80",
+              },
             ].map((step, i) => (
               <div
                 key={i}
-                className="relative p-6 bg-white rounded-xl shadow-sm border border-slate-200"
+                className="relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white/90 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
               >
-                <div className="text-4xl font-bold text-slate-100 mb-4">
-                  0{i + 1}
+                <div
+                  className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${step.accent}`}
+                />
+                <div className="relative p-6 flex flex-col gap-4">
+                  <div className="flex items-center justify-between gap-3 mb-2">
+                    <div className="flex items-center gap-3">
+                      {/* <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white text-sm font-semibold">
+                        0{i + 1}
+                      </div> */}
+                      <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wide">
+                        {step.title}
+                      </h3>
+                    </div>
+                    <div className="hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 border border-slate-200">
+                      {step.icon}
+                    </div>
+                  </div>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {step.desc}
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-slate-600">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -1060,47 +1103,6 @@ export default function Home() {
         FINAL CTA
         =============================================
       */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-slate-900 -z-20" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-900/20 -z-10" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 rounded-l-full blur-3xl" />
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-            Stop guessing. Start building.
-          </h2>
-          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-            Get a crystal-clear roadmap for your data & AI infrastructure in
-            just 7 days.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white h-14 px-10 text-lg rounded-xl shadow-xl shadow-primary/20"
-            >
-              <Link href="/contact">Book 7-Day Audit</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="h-14 px-10 text-lg rounded-xl border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
-            >
-              <Link href="#recent-work">See Recent Work</Link>
-            </Button>
-          </div>
-          <div className="mt-8 flex justify-center gap-6 text-sm text-slate-400">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Fixed Scope
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" /> 100%
-              Money-Back Guarantee
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

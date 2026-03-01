@@ -108,12 +108,12 @@ export default function IndustriesPage() {
           </p>
           <div className="flex justify-center gap-4">
             <Button
-              asChild
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white rounded-xl"
-            >
-              <Link href="/contact">Discuss Your Industry</Link>
-            </Button>
+                asChild
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white rounded-xl"
+              >
+                <Link href="https://calendly.com/manyatyagi0607/30min">Discuss Your Industry</Link>
+              </Button>
           </div>
         </div>
       </section>
@@ -213,7 +213,7 @@ export default function IndustriesPage() {
             size="lg"
             className="bg-white text-slate-900 hover:bg-slate-100"
           >
-            <Link href="/contact">Get in Touch</Link>
+            <Link href="https://calendly.com/manyatyagi0607/30min">Get in Touch</Link>
           </Button>
         </div>
       </section>
