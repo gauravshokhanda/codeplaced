@@ -271,60 +271,32 @@ const Header = () => {
               <div className="font-medium text-lg text-slate-900">Services</div>
               <div className="pl-4 space-y-2 flex flex-col">
                 <Link
-                  href="/services#analytics-reporting"
+                  href="/services#data-platform"
                   className="text-slate-600 py-1"
                   onClick={() => setIsOpen(false)}
                 >
-                  Data Analytics & Reporting
+                  Data Platform & Pipelines
                 </Link>
                 <Link
-                  href="/services#bi-dashboards"
+                  href="/services#dashboards"
                   className="text-slate-600 py-1"
                   onClick={() => setIsOpen(false)}
                 >
-                  BI & Dashboards
+                  Executive Dashboards & KPI System
                 </Link>
                 <Link
-                  href="/services#data-engineering"
+                  href="/services#ai-copilots"
                   className="text-slate-600 py-1"
                   onClick={() => setIsOpen(false)}
                 >
-                  Data Engineering
+                  AI Copilots (RAG + Agents)
                 </Link>
                 <Link
-                  href="/services#data-cleaning"
+                  href="/services#embedded"
                   className="text-slate-600 py-1"
                   onClick={() => setIsOpen(false)}
                 >
-                  Data Cleaning
-                </Link>
-                <Link
-                  href="/services#ai-ml"
-                  className="text-slate-600 py-1"
-                  onClick={() => setIsOpen(false)}
-                >
-                  AI & Machine Learning
-                </Link>
-                <Link
-                  href="/services#predictive-analytics"
-                  className="text-slate-600 py-1"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Predictive Analytics
-                </Link>
-                <Link
-                  href="/services#process-optimization"
-                  className="text-slate-600 py-1"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Process Optimization
-                </Link>
-                <Link
-                  href="/services#data-strategy"
-                  className="text-slate-600 py-1"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Data Strategy
+                  Embedded Analytics
                 </Link>
               </div>
             </div>
