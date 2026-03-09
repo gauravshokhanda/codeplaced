@@ -124,8 +124,8 @@ export default function AboutPage() {
             Who We Are
           </h2>
           <div className="max-w-md mx-auto">
-            <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300">
-              <div className="relative w-full aspect-[4/5] bg-slate-100">
+            <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 flex flex-col h-[75vh] max-h-[800px] min-h-[600px]">
+              <div className="relative w-full h-[40%] bg-slate-100 shrink-0">
                 <Image
                   src="/images/founder/image.png"
                   alt="Manya Tyagi"
@@ -134,7 +134,7 @@ export default function AboutPage() {
                   priority
                 />
               </div>
-              <div className="p-8">
+              <div className="p-8 h-[60%] flex flex-col justify-center">
                 <h3 className="text-3xl font-bold text-slate-900 mb-2">
                   Manya Tyagi
                 </h3>
