@@ -115,6 +115,8 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+
+        {/* The Team Grid */}
       </section>
 
       {/* SECTION 1: THE TEAM */}
@@ -139,20 +141,75 @@ export default function AboutPage() {
                   Manya Tyagi
                 </h3>
                 <p className="text-primary font-semibold text-lg mb-6">
-                  Founder — Analytics & Media
+                  Founder — Analytics & Ai
                 </p>
                 <p className="text-slate-600 leading-relaxed text-base">
-                  Ex-Annalect Omnicom. 5+ years in media analytics, SQL, Power
-                  BI, and Tableau. Leads every client engagement at CodePlaced —
-                  auditing ad accounts, finding where money is being wasted, and
-                  making sure every dashboard reflects reality.
+                  Data and analytics professional specializing in SQL, Power BI,
+                  Tableau, and AI-assisted analytics. Leads analytics projects
+                  at CodePlaced, helping organizations improve data visibility,
+                  automate insights, and build reliable dashboards. Also mentors
+                  aspiring analysts through practical, real-world training.
                 </p>
               </div>
+              {/* <p className="mt-8 text-slate-500 italic text-sm p-4">
+                Manya personally handles every audit, every call, and every
+                dashboard we deliver.
+              </p> */}
             </div>
-            <p className="mt-8 text-slate-500 italic text-sm">
+            {/* <p className="mt-8 text-slate-500 italic text-sm">
               Manya personally handles every audit, every call, and every
               dashboard we deliver.
-            </p>
+            </p> */}
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
+          <h3 className="text-2xl font-bold text-slate-900 text-center mb-12">
+            Meet The Team
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                name: "Yugal",
+                role: "Data Analyst",
+                initials: "Y",
+                color: "bg-blue-100 text-blue-600",
+              },
+              {
+                name: "Meemansha",
+                role: "Project Associate",
+                initials: "M",
+                color: "bg-purple-100 text-purple-600",
+              },
+              {
+                name: "Prem",
+                role: "Growth & Editing Specialist",
+                initials: "P",
+                color: "bg-orange-100 text-orange-600",
+              },
+              {
+                name: "Anubhav",
+                role: "Data Engineer",
+                initials: "A",
+                color: "bg-emerald-100 text-emerald-600",
+              },
+            ].map((member) => (
+              <div
+                key={member.name}
+                className="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div
+                  className={`w-24 h-24 rounded-full flex items-center justify-center text-3xl font-bold mb-4 ${member.color}`}
+                >
+                  {member.initials}
+                </div>
+                <h4 className="text-xl font-bold text-slate-900 mb-1">
+                  {member.name}
+                </h4>
+                <p className="text-slate-500 font-medium text-sm">
+                  {member.role}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

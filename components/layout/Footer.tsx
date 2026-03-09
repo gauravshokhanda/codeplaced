@@ -29,9 +29,6 @@ const Footer = () => {
               >
                 hello@codeplaced.com
               </a>
-              <p className="text-sm text-muted-foreground">
-                Built by engineers.
-              </p>
             </div>
           </div>
 
