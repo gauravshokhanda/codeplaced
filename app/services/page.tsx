@@ -264,11 +264,11 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        {/* <div className="mt-16 text-center">
           <p className="text-xl font-medium text-slate-900">
             Engagements start at $2,000/month or project-based pricing.
           </p>
-        </div>
+        </div> */}
       </section>
     </div>
   );

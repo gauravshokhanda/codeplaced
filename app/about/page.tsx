@@ -124,31 +124,32 @@ export default function AboutPage() {
             Who We Are
           </h2>
           <div className="max-w-md mx-auto">
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden p-8">
-              <div className="relative w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-slate-50 shadow-sm">
+            <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300">
+              <div className="relative w-full aspect-[4/5] bg-slate-100">
                 <Image
                   src="/images/founder/image.png"
                   alt="Manya Tyagi"
                   fill
                   className="object-cover"
+                  priority
                 />
               </div>
-              <div className="mb-4">
-                <h3 className="text-2xl font-bold text-slate-900">
+              <div className="p-8">
+                <h3 className="text-3xl font-bold text-slate-900 mb-2">
                   Manya Tyagi
                 </h3>
-                <p className="text-primary font-medium">
+                <p className="text-primary font-semibold text-lg mb-6">
                   Founder — Analytics & Media
                 </p>
+                <p className="text-slate-600 leading-relaxed text-base">
+                  Ex-Annalect Omnicom. 5+ years in media analytics, SQL, Power
+                  BI, and Tableau. Leads every client engagement at CodePlaced —
+                  auditing ad accounts, finding where money is being wasted, and
+                  making sure every dashboard reflects reality.
+                </p>
               </div>
-              <p className="text-slate-600 mb-6 leading-relaxed">
-                Ex-Annalect Omnicom. 5+ years in media analytics, SQL, Power BI,
-                and Tableau. Leads every client engagement at CodePlaced —
-                auditing ad accounts, finding where money is being wasted, and
-                making sure every dashboard reflects reality.
-              </p>
             </div>
-            <p className="mt-6 text-slate-500 italic text-sm">
+            <p className="mt-8 text-slate-500 italic text-sm">
               Manya personally handles every audit, every call, and every
               dashboard we deliver.
             </p>

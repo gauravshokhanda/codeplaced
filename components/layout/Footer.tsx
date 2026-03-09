@@ -126,19 +126,6 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} CodePlaced. All rights reserved.
           </p>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            {["AWS", "Azure", "GCP", "Snowflake", "dbt", "Power BI"].map(
-              (tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-md font-medium"
-                >
-                  {tech}
-                </span>
-              ),
-            )}
-          </div>
         </div>
       </div>
     </footer>

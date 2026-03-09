@@ -459,13 +459,14 @@ export default function Home() {
                 variant="outline"
                 className="w-full border-slate-200 hover:border-primary hover:text-primary"
               >
-                <Link
+                {/* <Link
                   href="https://calendly.com/manyatyagi0607/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Request Sample Dashboard
-                </Link>
+                </Link> */}
+                <Link href="/services#dashboards">See Dashboard</Link>
               </Button>
             </div>
 
