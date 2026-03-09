@@ -141,7 +141,7 @@ export default function AboutPage() {
                   Manya Tyagi
                 </h3>
                 <p className="text-primary font-semibold text-lg mb-6">
-                  Founder — Analytics & Ai
+                  Founder — Analytics & AI
                 </p>
                 <p className="text-slate-600 leading-relaxed text-base">
                   Data and analytics professional specializing in SQL, Power BI,
