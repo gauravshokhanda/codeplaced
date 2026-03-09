@@ -1197,7 +1197,7 @@ export default function Home() {
         CLIENT VIDEOS (Placeholders)
         =============================================
       */}
-      <section className="py-24 bg-slate-50">
+      {/* <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-slate-900 mb-12">
             See What Our Clients Say
@@ -1229,7 +1229,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 
         =============================================

@@ -12,15 +12,10 @@ import {
   Database,
   Brain,
   BarChart,
-  Code,
   GraduationCap,
   Landmark,
   ShoppingCart,
   Smartphone,
-  Cloud,
-  Box,
-  GitBranch,
-  Activity,
   BookOpen,
   Video,
   BarChart2,
@@ -256,109 +251,6 @@ const Header = () => {
                   </Link>
                 </NavigationMenuItem>
 
-                {/* Partners Mega Menu */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent data-[state=open]:bg-primary data-[state=open]:text-white hover:bg-primary hover:text-white">
-                    Partners
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="w-[900px] p-6 grid grid-cols-12 gap-6 bg-white">
-                      <div className="col-span-5 space-y-4">
-                        <h4 className="font-bold text-base mb-2 text-foreground">
-                          Technology Partners
-                        </h4>
-                        <ul className="grid gap-3">
-                          <ListItem
-                            href="/partners#google"
-                            title="Google Cloud & Looker"
-                            icon={<Cloud className="h-5 w-5 text-primary" />}
-                          >
-                            Specialized data platform expertise
-                          </ListItem>
-                          <ListItem
-                            href="/partners#embeddable"
-                            title="Embeddable"
-                            icon={<Code className="h-5 w-5 text-accent" />}
-                          >
-                            Developer toolkit for analytics
-                          </ListItem>
-                          <ListItem
-                            href="/partners#dagster"
-                            title="Dagster"
-                            icon={<Activity className="h-5 w-5 text-primary" />}
-                          >
-                            Modern data orchestration
-                          </ListItem>
-                          <ListItem
-                            href="/partners#rudderstack"
-                            title="RudderStack"
-                            icon={<GitBranch className="h-5 w-5 text-accent" />}
-                          >
-                            Customer data platform
-                          </ListItem>
-                        </ul>
-                      </div>
-
-                      <div className="col-span-4 border-l border-slate-100 pl-6">
-                        <h4 className="font-bold text-base mb-4 text-foreground">
-                          Featured Partner
-                        </h4>
-                        <div className="group relative rounded-lg border border-slate-100 bg-slate-50 overflow-hidden hover:shadow-md transition-all">
-                          <div className="aspect-video w-full bg-white relative flex items-center justify-center p-4">
-                            <div className="text-center">
-                              <Cloud className="h-10 w-10 mx-auto text-blue-600 mb-2" />
-                              <span className="font-bold text-slate-900">
-                                Google Cloud
-                              </span>
-                            </div>
-                          </div>
-                          <div className="p-4">
-                            <h5 className="font-semibold mb-1">
-                              Google Cloud & Looker
-                            </h5>
-                            <p className="text-xs text-muted-foreground">
-                              Build scalable, trusted analytics platforms on
-                              Google Cloud.
-                            </p>
-                          </div>
-                          <Link
-                            href="/partners#google"
-                            className="absolute inset-0"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="col-span-3 border-l border-slate-100 pl-6">
-                        <h4 className="font-bold text-base mb-4 text-foreground">
-                          Quick Links
-                        </h4>
-                        <ul className="space-y-4">
-                          <QuickLinkItem
-                            href="https://calendly.com/manyatyagi0607/30min"
-                            icon={<Phone className="h-4 w-4" />}
-                            title="Schedule a Call"
-                            desc="Book a discovery session"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          />
-                          <QuickLinkItem
-                            href="/contact"
-                            icon={<MessageSquare className="h-4 w-4" />}
-                            title="Contact Us"
-                            desc="Get in touch"
-                          />
-                          <QuickLinkItem
-                            href="/about"
-                            icon={<User className="h-4 w-4" />}
-                            title="About Us"
-                            desc="Our team and story"
-                          />
-                        </ul>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
                 {/* About Us */}
                 <NavigationMenuItem>
                   <Link href="/about" legacyBehavior passHref>
@@ -489,13 +381,7 @@ const Header = () => {
             >
               Case Studies
             </Link>
-            <Link
-              href="/partners"
-              className="font-medium text-lg py-2 border-b border-slate-50"
-              onClick={() => setIsOpen(false)}
-            >
-              Partners
-            </Link>
+
             <Link
               href="/about"
               className="font-medium text-lg py-2 border-b border-slate-50"
