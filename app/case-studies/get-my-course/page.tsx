@@ -94,9 +94,9 @@ export default function GetMyCourseCaseStudy() {
                 >
                   EdTech
                 </Badge>
-                <span className="text-sm font-medium text-muted-foreground">
+                {/* <span className="text-sm font-medium text-muted-foreground">
                   Get My Course
-                </span>
+                </span> */}
               </div>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
                 Scaling Data Analytics for a Growing EdTech Platform

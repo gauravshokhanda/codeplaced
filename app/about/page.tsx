@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { BarChart3, FileText, Zap, ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
@@ -124,6 +125,14 @@ export default function AboutPage() {
           </h2>
           <div className="max-w-md mx-auto">
             <div className="bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden p-8">
+              <div className="relative w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-slate-50 shadow-sm">
+                <Image
+                  src="/images/founder/image.png"
+                  alt="Manya Tyagi"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="mb-4">
                 <h3 className="text-2xl font-bold text-slate-900">
                   Manya Tyagi

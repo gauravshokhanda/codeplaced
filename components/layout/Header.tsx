@@ -112,80 +112,41 @@ const Header = () => {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="w-[900px] p-6 grid grid-cols-12 gap-6 bg-white">
-                      {/* Column 1: Data Services */}
-                      <div className="col-span-5 space-y-4">
-                        <h4 className="font-bold text-base mb-2 text-foreground">
-                          Data & Analytics
+                      {/* Services Column */}
+                      <div className="col-span-9">
+                        <h4 className="font-bold text-base mb-4 text-foreground">
+                          Services
                         </h4>
-                        <ul className="grid gap-3">
+                        <ul className="grid grid-cols-2 gap-6 list-none p-0 m-0">
                           <ListItem
-                            href="/services#analytics-reporting"
-                            title="Data Analytics & Reporting"
-                            icon={
-                              <BarChart3 className="h-5 w-5 text-primary" />
-                            }
+                            href="/services#data-platform"
+                            title="Data Platform & Pipelines"
+                            icon={<Database className="h-5 w-5 text-primary" />}
                           >
-                            Automated reporting & custom metrics
+                            Build a solid foundation for scale
                           </ListItem>
                           <ListItem
-                            href="/services#bi-dashboards"
-                            title="BI & Dashboards"
+                            href="/services#dashboards"
+                            title="Executive Dashboards & KPI System"
                             icon={
                               <LayoutDashboard className="h-5 w-5 text-accent" />
                             }
                           >
-                            Interactive dashboards & insights
+                            Turn data into decisions instantly
                           </ListItem>
                           <ListItem
-                            href="/services#data-engineering"
-                            title="Data Engineering"
-                            icon={<Database className="h-5 w-5 text-primary" />}
-                          >
-                            Robust pipelines & warehousing
-                          </ListItem>
-                          <ListItem
-                            href="/services#data-cleaning"
-                            title="Data Cleaning"
-                            icon={<Eraser className="h-5 w-5 text-accent" />}
-                          >
-                            Transformation & quality assurance
-                          </ListItem>
-                        </ul>
-                      </div>
-
-                      {/* Column 2: AI & Strategy */}
-                      <div className="col-span-4 border-l border-slate-100 pl-6">
-                        <h4 className="font-bold text-base mb-2 text-foreground">
-                          AI & Strategy
-                        </h4>
-                        <ul className="grid gap-3">
-                          <ListItem
-                            href="/services#ai-ml"
-                            title="AI & Machine Learning"
+                            href="/services#ai-copilots"
+                            title="AI Copilots (RAG + Agents)"
                             icon={<Brain className="h-5 w-5 text-primary" />}
                           >
-                            Custom models & solutions
+                            Secure AI that knows your business
                           </ListItem>
                           <ListItem
-                            href="/services#predictive-analytics"
-                            title="Predictive Analytics"
-                            icon={<LineChart className="h-5 w-5 text-accent" />}
+                            href="/services#embedded"
+                            title="Embedded Analytics"
+                            icon={<BarChart3 className="h-5 w-5 text-accent" />}
                           >
-                            Forecasting & trend analysis
-                          </ListItem>
-                          <ListItem
-                            href="/services#process-optimization"
-                            title="Process Optimization"
-                            icon={<Workflow className="h-5 w-5 text-primary" />}
-                          >
-                            AI-powered efficiency
-                          </ListItem>
-                          <ListItem
-                            href="/services#data-strategy"
-                            title="Data Strategy"
-                            icon={<Terminal className="h-5 w-5 text-accent" />}
-                          >
-                            Consulting & roadmapping
+                            Monetize your data with white-label dashboards
                           </ListItem>
                         </ul>
                       </div>
