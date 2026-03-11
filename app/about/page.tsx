@@ -173,6 +173,7 @@ export default function AboutPage() {
                 role: "Data Analyst",
                 initials: "Y",
                 color: "bg-blue-100 text-blue-600",
+                image: "/images/team/yugal.jpeg",
               },
               {
                 name: "Meemansha",
@@ -185,6 +186,7 @@ export default function AboutPage() {
                 role: "Growth & Editing Specialist",
                 initials: "P",
                 color: "bg-orange-100 text-orange-600",
+                image: "/images/team/prem.png",
               },
               {
                 name: "Anubhav",
@@ -197,11 +199,22 @@ export default function AboutPage() {
                 key={member.name}
                 className="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow"
               >
-                <div
-                  className={`w-24 h-24 rounded-full flex items-center justify-center text-3xl font-bold mb-4 ${member.color}`}
-                >
-                  {member.initials}
-                </div>
+                {member.image ? (
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 ring-2 ring-slate-200">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className={`w-24 h-24 rounded-full flex items-center justify-center text-3xl font-bold mb-4 ${member.color}`}
+                  >
+                    {member.initials}
+                  </div>
+                )}
                 <h4 className="text-xl font-bold text-slate-900 mb-1">
                   {member.name}
                 </h4>
