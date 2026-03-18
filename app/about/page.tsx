@@ -166,7 +166,7 @@ export default function AboutPage() {
           <h3 className="text-2xl font-bold text-slate-900 text-center mb-12">
             Meet The Team
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
             {[
               {
                 name: "Yugal",
@@ -180,6 +180,7 @@ export default function AboutPage() {
                 role: "Project Associate",
                 initials: "M",
                 color: "bg-purple-100 text-purple-600",
+                image: "/images/team/memsha.jpg",
               },
               {
                 name: "Prem",
@@ -194,10 +195,17 @@ export default function AboutPage() {
                 initials: "A",
                 color: "bg-emerald-100 text-emerald-600",
               },
+              {
+                name: "Abhishekh",
+                role: "Brand Partnerships",
+                initials: "A",
+                color: "bg-emerald-100 text-emerald-600",
+                image: "/images/team/abhishekh.jpg",
+              },
             ].map((member) => (
               <div
                 key={member.name}
-                className="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow w-full"
               >
                 {member.image ? (
                   <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 ring-2 ring-slate-200">
