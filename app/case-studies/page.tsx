@@ -48,54 +48,54 @@ export default function CaseStudiesPage() {
       stat: "100% Payroll Accuracy",
       link: "/case-studies/amalfi-acquisition",
     },
-    {
-      title: "Scaling Data for a Series B EdTech Platform",
-      client: "Leading Education Platform",
-      tag: "Education",
-      problem:
-        "Student engagement data was siloed across 5 different tools (LMS, CRM, Payment, App). Reporting took 20+ hours/week of manual Excel work.",
-      solution:
-        "We built a centralized data warehouse in BigQuery with automated Airbyte pipelines. Designed a dbt transformation layer to model 'Student 360' and 'Class Performance' tables.",
-      outcome: [
-        "Saved 20 hours/week of manual reporting",
-        "Enabled real-time 'At-Risk Student' alerts",
-        "Single source of truth for 3 departments",
-      ],
-      stack: ["Google BigQuery", "dbt Cloud", "Looker Studio", "Airbyte"],
-      stat: "20hrs/week saved",
-    },
-    {
-      title: "AI-Driven Inventory for a Shopify Brand",
-      client: "High-Growth Apparel Brand",
-      tag: "E-commerce",
-      problem:
-        "Stockouts were killing revenue during peak seasons. The team relied on gut feeling and basic spreadsheets to plan inventory.",
-      solution:
-        "Implemented a Snowflake data lake with a custom Python forecasting model. Deployed a Streamlit app for the Ops team to view demand predictions.",
-      outcome: [
-        "Reduced stockouts by 15% in Q4",
-        "90% forecast accuracy for core SKUs",
-        "Automated reorder alerts to suppliers",
-      ],
-      stack: ["Snowflake", "Python", "Streamlit", "Fivetran"],
-      stat: "15% less stockout",
-    },
-    {
-      title: "Unified Customer Health for SaaS Ops",
-      client: "B2B SaaS Operations Team",
-      tag: "SaaS Ops",
-      problem:
-        "Customer Success and Sales had different definitions of 'churn risk'. No visibility into product usage vs. support tickets.",
-      solution:
-        "Unified Postgres application data with Zendesk and Salesforce data. Created a 'Customer Health Score' algorithm running daily via Reverse ETL.",
-      outcome: [
-        "3x faster renewal conversations",
-        "Aligned Sales & CS on one 'Health Score'",
-        "Proactive intervention for 50+ accounts",
-      ],
-      stack: ["Postgres", "Hightouch", "Slack API", "Salesforce"],
-      stat: "3x faster renewals",
-    },
+    // {
+    //   title: "Scaling Data for a Series B EdTech Platform",
+    //   client: "Leading Education Platform",
+    //   tag: "Education",
+    //   problem:
+    //     "Student engagement data was siloed across 5 different tools (LMS, CRM, Payment, App). Reporting took 20+ hours/week of manual Excel work.",
+    //   solution:
+    //     "We built a centralized data warehouse in BigQuery with automated Airbyte pipelines. Designed a dbt transformation layer to model 'Student 360' and 'Class Performance' tables.",
+    //   outcome: [
+    //     "Saved 20 hours/week of manual reporting",
+    //     "Enabled real-time 'At-Risk Student' alerts",
+    //     "Single source of truth for 3 departments",
+    //   ],
+    //   stack: ["Google BigQuery", "dbt Cloud", "Looker Studio", "Airbyte"],
+    //   stat: "20hrs/week saved",
+    // },
+    // {
+    //   title: "AI-Driven Inventory for a Shopify Brand",
+    //   client: "High-Growth Apparel Brand",
+    //   tag: "E-commerce",
+    //   problem:
+    //     "Stockouts were killing revenue during peak seasons. The team relied on gut feeling and basic spreadsheets to plan inventory.",
+    //   solution:
+    //     "Implemented a Snowflake data lake with a custom Python forecasting model. Deployed a Streamlit app for the Ops team to view demand predictions.",
+    //   outcome: [
+    //     "Reduced stockouts by 15% in Q4",
+    //     "90% forecast accuracy for core SKUs",
+    //     "Automated reorder alerts to suppliers",
+    //   ],
+    //   stack: ["Snowflake", "Python", "Streamlit", "Fivetran"],
+    //   stat: "15% less stockout",
+    // },
+    // {
+    //   title: "Unified Customer Health for SaaS Ops",
+    //   client: "B2B SaaS Operations Team",
+    //   tag: "SaaS Ops",
+    //   problem:
+    //     "Customer Success and Sales had different definitions of 'churn risk'. No visibility into product usage vs. support tickets.",
+    //   solution:
+    //     "Unified Postgres application data with Zendesk and Salesforce data. Created a 'Customer Health Score' algorithm running daily via Reverse ETL.",
+    //   outcome: [
+    //     "3x faster renewal conversations",
+    //     "Aligned Sales & CS on one 'Health Score'",
+    //     "Proactive intervention for 50+ accounts",
+    //   ],
+    //   stack: ["Postgres", "Hightouch", "Slack API", "Salesforce"],
+    //   stat: "3x faster renewals",
+    // },
   ];
 
   return (

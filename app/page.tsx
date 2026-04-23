@@ -170,7 +170,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Hero Visual - Abstract Tech */}
+            {/* Hero Visual - Unified Dashboard */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -178,68 +178,134 @@ export default function Home() {
               className="relative hidden lg:block"
             >
               <div className="relative z-10 bg-white rounded-2xl border border-slate-200 shadow-2xl overflow-hidden">
-                <div className="bg-slate-50/50 border-b border-slate-100 p-4 flex items-center justify-between">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-slate-300" />
-                    <div className="w-3 h-3 rounded-full bg-slate-300" />
-                    <div className="w-3 h-3 rounded-full bg-slate-300" />
+                {/* Dashboard Header */}
+                <div className="bg-slate-50 border-b border-slate-100 p-4 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400" />
+                    <div className="w-3 h-3 rounded-full bg-amber-400" />
+                    <div className="w-3 h-3 rounded-full bg-emerald-400" />
                   </div>
-                  <div className="text-xs font-mono text-slate-400">
-                    pipeline_status_monitor.tsx
+                  <div className="flex items-center gap-2 text-xs font-medium text-slate-500 bg-white px-3 py-1 rounded-full border border-slate-100">
+                    <Lock className="w-3 h-3" />
+                    <span className="font-mono">unified_growth_view.app</span>
                   </div>
                 </div>
-                <div className="p-8 font-mono text-sm leading-relaxed">
-                  <div className="flex gap-4 mb-4">
-                    <span className="text-slate-300">01</span>
-                    <span className="text-purple-600">import</span>{" "}
-                    <span className="text-slate-700">{"{ AutoPipeline }"}</span>{" "}
-                    <span className="text-purple-600">from</span>{" "}
-                    <span className="text-green-600">
-                      &apos;@codeplaced/core&apos;
-                    </span>
-                    ;
-                  </div>
-                  <div className="flex gap-4 mb-4">
-                    <span className="text-slate-300">02</span>
-                    <span className="text-slate-700"></span>
-                  </div>
-                  <div className="flex gap-4 mb-4">
-                    <span className="text-slate-300">03</span>
-                    <span className="text-blue-600">const</span>{" "}
-                    <span className="text-yellow-600">clientData</span>{" "}
-                    <span className="text-slate-700">=</span>{" "}
-                    <span className="text-blue-600">await</span>{" "}
-                    <span className="text-slate-700">AutoPipeline.sync(</span>
-                    <span className="text-green-600">&apos;Shopify&apos;</span>
-                    <span className="text-slate-700">);</span>
-                  </div>
-                  <div className="flex gap-4 mb-4">
-                    <span className="text-slate-300">04</span>
-                    <span className="text-blue-600">if</span>{" "}
-                    <span className="text-slate-700">
-                      (clientData.status ==={" "}
-                    </span>
-                    <span className="text-green-600">&apos;ready&apos;</span>
-                    <span className="text-slate-700">) {"{"}</span>
-                  </div>
-                  <div className="flex gap-4 mb-4">
-                    <span className="text-slate-300">05</span>
-                    <span className="text-slate-700 pl-4">
-                      AI_Agent.generateReport(clientData);
-                    </span>
-                  </div>
-                  <div className="flex gap-4 mb-4">
-                    <span className="text-slate-300">06</span>
-                    <span className="text-slate-700">{"}"}</span>
+
+                {/* Dashboard Content */}
+                <div className="p-6 bg-slate-50/50">
+                  {/* Stats Row */}
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                      <div className="text-xs font-medium text-slate-500 mb-1">
+                        Total Ad Spend
+                      </div>
+                      <div className="text-2xl font-bold text-slate-900">
+                        ₹1.24L
+                      </div>
+                      <div className="text-[10px] font-medium text-emerald-600 flex items-center mt-2">
+                        <ArrowRight className="w-3 h-3 rotate-[-45deg] mr-1" />
+                        12% vs last mo
+                      </div>
+                    </div>
+                    <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                      <div className="text-xs font-medium text-slate-500 mb-1">
+                        Attributed Enrollments
+                      </div>
+                      <div className="text-2xl font-bold text-slate-900">
+                        28
+                      </div>
+                      <div className="text-[10px] font-medium text-emerald-600 flex items-center mt-2">
+                        <ArrowRight className="w-3 h-3 rotate-[-45deg] mr-1" />
+                        8% vs last mo
+                      </div>
+                    </div>
+                    <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                      <div className="text-xs font-medium text-slate-500 mb-1">
+                        CAC / Enrollment
+                      </div>
+                      <div className="text-2xl font-bold text-slate-900">
+                        ₹4,428
+                      </div>
+                      <div className="text-[10px] font-medium text-emerald-600 flex items-center mt-2">
+                        <CheckCircle2 className="w-3 h-3 mr-1" />
+                        Target Met
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="mt-8 p-4 bg-slate-900 rounded-lg border-l-4 border-emerald-500 shadow-lg">
-                    <div className="flex items-center gap-2 text-emerald-400 mb-1">
-                      <CheckCircle2 className="w-4 h-4" />
-                      <span className="font-bold">System Optimized</span>
+                  {/* Campaign Table */}
+                  <div className="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
+                    <div className="px-4 py-3 border-b border-slate-50 flex justify-between items-center bg-slate-50/50">
+                      <div className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                        Active Campaigns
+                      </div>
+                      <div className="flex items-center gap-1 text-[10px] text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        Live Sync
+                      </div>
                     </div>
-                    <div className="text-slate-400 text-xs">
-                      Latency reduced by 40%. Data integrity verified.
+                    <div className="divide-y divide-slate-50">
+                      {[
+                        {
+                          name: "Summer_Bootcamp_Meta",
+                          source: "Meta",
+                          spend: "₹45k",
+                          leads: 124,
+                          enrolls: 12,
+                          roi: "High",
+                        },
+                        {
+                          name: "Search_Brand_Google",
+                          source: "Google",
+                          spend: "₹28k",
+                          leads: 85,
+                          enrolls: 8,
+                          roi: "High",
+                        },
+                        {
+                          name: "Organic_Webinar_Email",
+                          source: "Email",
+                          spend: "₹0",
+                          leads: 210,
+                          enrolls: 8,
+                          roi: "Max",
+                        },
+                      ].map((camp, i) => (
+                        <div
+                          key={i}
+                          className="px-4 py-3.5 flex items-center justify-between hover:bg-slate-50 transition-colors group"
+                        >
+                          <div className="flex items-center gap-3">
+                            <div
+                              className={`w-8 h-8 rounded-lg flex items-center justify-center border ${camp.source === "Meta" ? "bg-blue-50 border-blue-100 text-blue-600" : camp.source === "Google" ? "bg-red-50 border-red-100 text-red-600" : "bg-amber-50 border-amber-100 text-amber-600"}`}
+                            >
+                              {camp.source === "Meta" ? (
+                                <Users className="w-4 h-4" />
+                              ) : camp.source === "Google" ? (
+                                <Search className="w-4 h-4" />
+                              ) : (
+                                <MessageSquare className="w-4 h-4" />
+                              )}
+                            </div>
+                            <div>
+                              <div className="text-xs font-semibold text-slate-700 group-hover:text-primary transition-colors">
+                                {camp.name}
+                              </div>
+                              <div className="text-[10px] text-slate-400 font-medium">
+                                {camp.source} • {camp.spend} spend
+                              </div>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-xs font-bold text-slate-900">
+                              {camp.enrolls} Enrolled
+                            </div>
+                            <div className="text-[10px] text-emerald-600 font-medium">
+                              {camp.leads} Leads
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -393,13 +459,14 @@ export default function Home() {
                 variant="outline"
                 className="w-full border-slate-200 hover:border-primary hover:text-primary"
               >
-                <Link
+                {/* <Link
                   href="https://calendly.com/manyatyagi0607/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Request Sample Dashboard
-                </Link>
+                </Link> */}
+                <Link href="/services#dashboards">See Dashboard</Link>
               </Button>
             </div>
 
@@ -1197,7 +1264,7 @@ export default function Home() {
         CLIENT VIDEOS (Placeholders)
         =============================================
       */}
-      <section className="py-24 bg-slate-50">
+      {/* <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-slate-900 mb-12">
             See What Our Clients Say
@@ -1229,7 +1296,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 
         =============================================

@@ -1,41 +1,44 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import {
-  BarChart3,
-  CheckCircle2,
-  Code2,
-  FileText,
-  Heart,
-  Users,
-  Zap,
-} from "lucide-react";
+import Image from "next/image";
+import { BarChart3, FileText, Zap, ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
   return (
     <div className="w-full bg-slate-50 min-h-screen">
       {/* Hero Section */}
-      <section className="pt-20 pb-16 md:pt-32 md:pb-24 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary mb-6">
-            <span>About CodePlaced</span>
+      <section className="relative pt-32 pb-32 md:pt-48 md:pb-40 overflow-hidden bg-slate-950">
+        {/* Grid Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+
+        {/* Spotlights */}
+        <div className="absolute top-0 z-0 h-[1000px] w-full bg-slate-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
+          <div className="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-slate-300 mb-8">
+            <span className="flex h-2 w-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+            About CodePlaced
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6 text-balance">
-            The Data Engineering Team <br className="hidden md:block" />
-            <span className="text-primary">
-              You&apos;ll Wish You Hired Sooner
+
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 leading-tight text-balance">
+            The team you wish you <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+              hired internally.
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
-            CodePlaced was built out of frustration with traditional &quot;black
-            box&quot; agencies — expensive, opaque, and impossible to maintain
-            without them.
-          </p>
-          <p className="mt-4 text-base md:text-lg text-slate-600 max-w-2xl mx-auto text-balance">
-            We believe in transparent code, modern data stacks, and systems your
-            team can fully own. No lock-ins. No unnecessary complexity. Just
-            clean, scalable engineering.
+
+          <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto leading-relaxed text-balance">
+            But couldn&apos;t find, afford, or manage.{" "}
+            <span className="text-slate-500">
+              CodePlaced isn&apos;t an agency. We are a Fractional Growth Team.
+              We plug into your EdTech operations, audit your funnel, and fix
+              the leaks.
+            </span>
           </p>
         </div>
+
+        {/* Decorative Gradient Line at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
       </section>
 
       {/* Story / Mission */}
@@ -44,23 +47,13 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                Our Philosophy
+                The Philosophy
               </h2>
               <p className="text-lg text-slate-700 mb-4">
-                The data world has evolved. It&apos;s no longer about heavy
-                on-premise infrastructure or multi-year enterprise
-                implementations.
-              </p>
-              <p className="text-lg text-slate-700 mb-4">
-                Today, it&apos;s about agility, modular architecture,
-                automation, and AI-readiness. CodePlaced exists to bridge the
-                gap between chaos and a clean, scalable, enterprise-grade data
-                foundation.
-              </p>
-              <p className="text-lg text-slate-700">
-                We bring Silicon Valley–level engineering standards to startups
-                and SMBs — helping them move fast without accumulating technical
-                debt.
+                Most EdTechs burn cash on ads because they trust dashboard
+                metrics. We don&apos;t. We trust bank data, CRM logs, and
+                enrollment numbers. If it didn&apos;t result in a student in a
+                classroom, it&apos;s vanity.
               </p>
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -122,162 +115,177 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+
+        {/* The Team Grid */}
       </section>
 
-      {/* Values Grid */}
-      <section className="py-20 bg-white border-y border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-foreground">
-              Our Core Values – C.O.D.E
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              The principles that guide every engagement, line of code, and
-              decision.
+      {/* SECTION 1: THE TEAM */}
+      <section className="py-20 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-slate-900 mb-12">
+            Who We Are
+          </h2>
+          <div className="max-w-md mx-auto">
+            <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 flex flex-col h-[75vh] max-h-[800px] min-h-[600px]">
+              <div className="relative w-full h-[40%] bg-slate-100 shrink-0">
+                <Image
+                  src="/images/founder/image.png"
+                  alt="Manya Tyagi"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="p-8 h-[60%] flex flex-col justify-center">
+                <h3 className="text-3xl font-bold text-slate-900 mb-2">
+                  Manya Tyagi
+                </h3>
+                <p className="text-primary font-semibold text-lg mb-6">
+                  Founder — Analytics & AI
+                </p>
+                <p className="text-slate-600 leading-relaxed text-base">
+                  Data and analytics professional specializing in SQL, Power BI,
+                  Tableau, and AI-assisted analytics. Leads analytics projects
+                  at CodePlaced, helping organizations improve data visibility,
+                  automate insights, and build reliable dashboards. Also mentors
+                  aspiring analysts through practical, real-world training.
+                </p>
+              </div>
+              {/* <p className="mt-8 text-slate-500 italic text-sm p-4">
+                Manya personally handles every audit, every call, and every
+                dashboard we deliver.
+              </p> */}
+            </div>
+            {/* <p className="mt-8 text-slate-500 italic text-sm">
+              Manya personally handles every audit, every call, and every
+              dashboard we deliver.
+            </p> */}
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
+          <h3 className="text-2xl font-bold text-slate-900 text-center mb-12">
+            Meet The Team
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+            {[
+              {
+                name: "Naman Kumar",
+                role: "Data Analyst",
+                initials: "Y",
+                color: "bg-blue-100 text-blue-600",
+                image: "/images/team/naman.jpeg",
+              },
+              {
+                name: "Meemansha",
+                role: "Project Associate",
+                initials: "M",
+                color: "bg-purple-100 text-purple-600",
+                image: "/images/team/memsha.jpg",
+              },
+              {
+                name: "Prem",
+                role: "Growth & Editing Specialist",
+                initials: "P",
+                color: "bg-orange-100 text-orange-600",
+                image: "/images/team/prem.png",
+              },
+              {
+                name: "Anubhav",
+                role: "Data Engineer",
+                initials: "A",
+                color: "bg-emerald-100 text-emerald-600",
+              },
+              {
+                name: "Abhishekh",
+                role: "Brand Partnerships",
+                initials: "A",
+                color: "bg-emerald-100 text-emerald-600",
+                image: "/images/team/abhishekh.jpg",
+              },
+            ].map((member) => (
+              <div
+                key={member.name}
+                className="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow w-full"
+              >
+                {member.image ? (
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 ring-2 ring-slate-200">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className={`w-24 h-24 rounded-full flex items-center justify-center text-3xl font-bold mb-4 ${member.color}`}
+                  >
+                    {member.initials}
+                  </div>
+                )}
+                <h4 className="text-xl font-bold text-slate-900 mb-1">
+                  {member.name}
+                </h4>
+                <p className="text-slate-500 font-medium text-sm">
+                  {member.role}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2: WHY WE STARTED */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">
+            Why We Started CodePlaced
+          </h2>
+          <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+            <p>We kept seeing the same problem.</p>
+            <p>
+              EdTech founders in India were spending lakhs on Facebook and
+              Google every month. Their counselors were talking to hundreds of
+              leads. Enrollments were happening. But nobody could tell you which
+              ad drove which enrollment.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                <Code2 className="h-6 w-6 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-1">
-                C – Code with integrity
-              </h3>
-              <p className="text-muted-foreground text-sm mt-2">
-                We build systems we&apos;d be proud to maintain ourselves:
-                clear, tested, and designed to last.
-              </p>
-            </div>
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-                <Zap className="h-6 w-6 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-1">O – Own the process</h3>
-              <p className="text-muted-foreground text-sm mt-2">
-                We treat your stack like our own, taking responsibility from
-                discovery to deployment and beyond.
-              </p>
-            </div>
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm">
-              <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-                <CheckCircle2 className="h-6 w-6 text-emerald-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-1">D – Deliver results</h3>
-              <p className="text-muted-foreground text-sm mt-2">
-                Every engagement ties back to real outcomes: faster decisions,
-                better visibility, and confident leadership.
-              </p>
-            </div>
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm">
-              <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center mb-6">
-                <Heart className="h-6 w-6 text-rose-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-1">E – Empower growth</h3>
-              <p className="text-muted-foreground text-sm mt-2">
-                We level up your team through documentation, training, and
-                systems that are simple to run and extend.
-              </p>
-            </div>
+            <p>
+              The data existed — in the ad account, in the CRM, in the payment
+              gateway. It just lived in three different places and nobody had
+              connected them.
+            </p>
+            <p>
+              We built the system that connects them. First for one company. Now
+              we are building it for others.
+            </p>
+            <p className="font-bold text-slate-900">That is CodePlaced.</p>
           </div>
         </div>
       </section>
 
-      {/* Team / Stats Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Built by Engineers</h2>
-              <p className="text-muted-foreground mb-6">
-                Our team comes from backgrounds in high-growth startups and
-                enterprise tech. We&apos;ve seen what works at scale and what
-                crushes innovation.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  <span className="text-foreground">Senior-only talent</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  <span className="text-foreground">
-                    US-based timezone alignment
-                  </span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  <span className="text-foreground">
-                    Deep expertise in Modern Data Stack
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
-                <div className="text-4xl font-bold text-primary mb-2">50+</div>
-                <div className="text-sm text-muted-foreground">
-                  Projects Delivered
-                </div>
-              </div>
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
-                <div className="text-4xl font-bold text-primary mb-2">
-                  $10M+
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  Revenue Unlocked
-                </div>
-              </div>
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
-                <div className="text-4xl font-bold text-primary mb-2">100%</div>
-                <div className="text-sm text-muted-foreground">
-                  Client Retention
-                </div>
-              </div>
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
-                <div className="text-4xl font-bold text-primary mb-2">24h</div>
-                <div className="text-sm text-muted-foreground">
-                  Avg. Response Time
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
+      {/* SECTION 3: CTA */}
       <section className="py-24 bg-slate-900 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to fix your data foundation?
+            Want to Know What We&apos;d Find in Your Accounts?
           </h2>
           <p className="text-xl text-slate-300 mb-8">
-            Stop guessing and start building with a team that cares about your
-            long-term success.
+            We will audit your active ads for free and show you exactly what is
+            broken. No commitment.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            asChild
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-white text-lg h-12 px-8"
+          >
             <Link
               href="https://calendly.com/manyatyagi0607/30min"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-white w-full sm:w-auto text-lg h-12 px-8"
-              >
-                Talk to an Engineer
-              </Button>
+              Get Your Free Audit <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
-            <Link href="/case-studies">
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-transparent border-white/20 text-white hover:bg-white/10 w-full sm:w-auto text-lg h-12 px-8"
-              >
-                View Case Studies
-              </Button>
-            </Link>
-          </div>
+          </Button>
         </div>
       </section>
     </div>
