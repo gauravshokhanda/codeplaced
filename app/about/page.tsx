@@ -173,7 +173,7 @@ export default function AboutPage() {
                 role: "Data Analyst",
                 initials: "Y",
                 color: "bg-blue-100 text-blue-600",
-                image: "/images/team/naman.jpeg",
+                image: "/images/team/naman.jpg",
               },
               {
                 name: "Meemansha",
