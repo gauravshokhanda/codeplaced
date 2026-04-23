@@ -169,11 +169,11 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
             {[
               {
-                name: "Yugal",
+                name: "Naman Kumar",
                 role: "Data Analyst",
                 initials: "Y",
                 color: "bg-blue-100 text-blue-600",
-                image: "/images/team/yugal.jpeg",
+                image: "/images/team/naman.jpeg",
               },
               {
                 name: "Meemansha",
