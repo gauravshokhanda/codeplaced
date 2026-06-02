@@ -200,7 +200,7 @@ export default function AboutPage() {
                 role: "Data Analyst",
                 initials: "A",
                 color: "bg-emerald-100 text-emerald-600",
-                image: "/images/team/satyam.jpg",
+                image: "/images/team/satyam.jpeg",
               },
             ].map((member) => (
               <div
