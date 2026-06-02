@@ -169,11 +169,18 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
             {[
               {
-                name: "Naman Kumar",
+                name: "Naman",
                 role: "Data Analyst",
                 initials: "Y",
                 color: "bg-blue-100 text-blue-600",
                 image: "/images/team/naman.jpg",
+              },
+           {
+                name: "Satyam ",
+                role: "Data Analyst",
+                initials: "A",
+                color: "bg-emerald-100 text-emerald-600",
+                image: "/images/team/satyam.jpeg",
               },
               {
                 name: "Meemansha",
@@ -195,13 +202,7 @@ export default function AboutPage() {
                 initials: "A",
                 color: "bg-emerald-100 text-emerald-600",
               },
-              {
-                name: "Satyam ",
-                role: "Data Analyst",
-                initials: "A",
-                color: "bg-emerald-100 text-emerald-600",
-                image: "/images/team/satyam.jpeg",
-              },
+             
             ].map((member) => (
               <div
                 key={member.name}
