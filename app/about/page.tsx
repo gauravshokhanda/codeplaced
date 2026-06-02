@@ -196,11 +196,11 @@ export default function AboutPage() {
                 color: "bg-emerald-100 text-emerald-600",
               },
               {
-                name: "Abhishekh",
-                role: "Brand Partnerships",
+                name: "Satyam ",
+                role: "Data Analyst",
                 initials: "A",
                 color: "bg-emerald-100 text-emerald-600",
-                image: "/images/team/abhishekh.jpg",
+                image: "/images/team/satyam.jpg",
               },
             ].map((member) => (
               <div
