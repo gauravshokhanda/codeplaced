@@ -187,7 +187,7 @@ export default function AboutPage() {
                 role: "Content & Growth",
                 initials: "J",
                 color: "bg-purple-100 text-purple-600",
-                image: "/images/team/Jivika.png",
+                image: "/images/team/jivika.png",
               },
               {
                 name: "Sadiya Ansari",
