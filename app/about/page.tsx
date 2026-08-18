@@ -171,30 +171,30 @@ export default function AboutPage() {
               {
                 name: "Naman",
                 role: "Data Analyst",
-                initials: "Y",
+                initials: "N",
                 color: "bg-blue-100 text-blue-600",
                 image: "/images/team/naman.jpg",
               },
-           {
-                name: "Satyam ",
+              {
+                name: "kashish ",
                 role: "Data Analyst",
-                initials: "A",
+                initials: "K",
                 color: "bg-emerald-100 text-emerald-600",
-                image: "/images/team/satyam.jpeg",
+                image: "/images/team/kashish.png",
               },
               {
-                name: "Meemansha",
-                role: "Project Associate",
-                initials: "M",
+                name: "Jivika",
+                role: "Content & Growth",
+                initials: "J",
                 color: "bg-purple-100 text-purple-600",
-                image: "/images/team/memsha.jpg",
+                image: "/images/team/Jivika.png",
               },
               {
-                name: "Prem",
+                name: "Sadiya Ansari",
                 role: "Growth & Editing Specialist",
-                initials: "P",
+                initials: "S",
                 color: "bg-orange-100 text-orange-600",
-                image: "/images/team/prem.png",
+                image: "/images/team/sadiya.png",
               },
               {
                 name: "Anubhav",
@@ -202,7 +202,6 @@ export default function AboutPage() {
                 initials: "A",
                 color: "bg-emerald-100 text-emerald-600",
               },
-             
             ].map((member) => (
               <div
                 key={member.name}
