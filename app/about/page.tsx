@@ -156,7 +156,7 @@ export default function AboutPage() {
             <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 flex flex-col min-h-[600px]">
               <div className="relative w-full h-80 bg-slate-100 shrink-0">
                 <Image
-                  src="/images/founder/cofounder.png"
+                  src="/images/founder/cofounder.jpg"
                   alt="CodePlaced cofounder"
                   fill
                   className="object-cover object-center"
@@ -164,7 +164,7 @@ export default function AboutPage() {
               </div>
               <div className="p-8 flex flex-1 flex-col justify-center">
                 <h3 className="text-3xl font-bold text-slate-900 mb-2">
-                  Co-Founder
+                  Gaurav Shokhanda
                 </h3>
                 <p className="text-primary font-semibold text-lg mb-6">
                   Co-Founder — Strategy & Technology
@@ -185,6 +185,13 @@ export default function AboutPage() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
+              {
+                name: "Ankit",
+                role: "Data Analyst Manager",
+                initials: "A",
+                color: "bg-indigo-100 text-indigo-600",
+                image: "/images/team/ankit.png",
+              },
               {
                 name: "Prajjwal Kumar Rathi",
                 role: "Data Analyst",
