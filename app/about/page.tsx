@@ -125,9 +125,9 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-slate-900 mb-12">
             Who We Are
           </h2>
-          <div className="max-w-md mx-auto">
-            <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 flex flex-col h-[75vh] max-h-[800px] min-h-[600px]">
-              <div className="relative w-full h-[40%] bg-slate-100 shrink-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+            <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 flex flex-col min-h-[600px]">
+              <div className="relative w-full h-80 bg-slate-100 shrink-0">
                 <Image
                   src="/images/founder/image.png"
                   alt="Manya Tyagi"
@@ -136,7 +136,7 @@ export default function AboutPage() {
                   priority
                 />
               </div>
-              <div className="p-8 h-[60%] flex flex-col justify-center">
+              <div className="p-8 flex flex-1 flex-col justify-center">
                 <h3 className="text-3xl font-bold text-slate-900 mb-2">
                   Manya Tyagi
                 </h3>
@@ -151,23 +151,47 @@ export default function AboutPage() {
                   aspiring analysts through practical, real-world training.
                 </p>
               </div>
-              {/* <p className="mt-8 text-slate-500 italic text-sm p-4">
-                Manya personally handles every audit, every call, and every
-                dashboard we deliver.
-              </p> */}
             </div>
-            {/* <p className="mt-8 text-slate-500 italic text-sm">
-              Manya personally handles every audit, every call, and every
-              dashboard we deliver.
-            </p> */}
+
+            <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 flex flex-col min-h-[600px]">
+              <div className="relative w-full h-80 bg-slate-100 shrink-0">
+                <Image
+                  src="/images/founder/cofounder.png"
+                  alt="CodePlaced cofounder"
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+              <div className="p-8 flex flex-1 flex-col justify-center">
+                <h3 className="text-3xl font-bold text-slate-900 mb-2">
+                  Co-Founder
+                </h3>
+                <p className="text-primary font-semibold text-lg mb-6">
+                  Co-Founder — Strategy & Technology
+                </p>
+                <p className="text-slate-600 leading-relaxed text-base">
+                  Leads technology and solution development at CodePlaced,
+                  building data platforms, AI-powered automation, dashboards,
+                  integrations, and scalable software that help businesses
+                  streamline operations and make better decisions.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
           <h3 className="text-2xl font-bold text-slate-900 text-center mb-12">
             Meet The Team
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
+              {
+                name: "Prajjwal Kumar Rathi",
+                role: "Data Analyst",
+                initials: "P",
+                color: "bg-sky-100 text-sky-600",
+                image: "/images/team/prajjwal.png",
+              },
               {
                 name: "Naman",
                 role: "Data Analyst",
